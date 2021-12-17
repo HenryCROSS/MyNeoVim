@@ -47,6 +47,7 @@ M.load_options = function()
         scrolloff = 8, -- is one of my fav
         sidescrolloff = 8,
         guicursor = "i:block",
+        virtualedit = 'block,onemore', -- allow cursor move to one more space after the end of the line
 
         syntax = "on",
     }

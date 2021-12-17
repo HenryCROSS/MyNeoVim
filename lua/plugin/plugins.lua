@@ -10,7 +10,7 @@ vim.cmd([[
   augroup end
 ]])
 
-return require('packer').startup(function()
+return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
@@ -83,6 +83,6 @@ return require('packer').startup(function()
   use {'dracula/vim', as = 'dracula'}
 
   -- dashboard
-  use {'glepnir/dashboard-nvim', as = 'dashboard'}
+  use {'glepnir/dashboard-nvim', disable = false, as = 'dashboard'}
 end)
 
