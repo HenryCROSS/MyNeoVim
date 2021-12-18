@@ -1,5 +1,4 @@
 local M = {}
--- local utils = require("lvim.utils")
 M.load_options = function()
     local default_options = {
         backup = false, -- creates a backup file
