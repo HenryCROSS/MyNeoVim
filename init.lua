@@ -1,8 +1,10 @@
+-- load keymapping
+require("core.keymapping").load()
 -- load plugins
-require("plugin")
+require("core.plugin"):load()
 
 -- load the general settings
-require("config.settings"):load_options()
+require("core.config.settings").load_options()
 
 
 

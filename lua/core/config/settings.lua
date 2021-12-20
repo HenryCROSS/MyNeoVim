@@ -49,6 +49,8 @@ M.load_options = function()
         virtualedit = 'block,onemore', -- allow cursor move to one more space after the end of the line
 
         syntax = "on",
+
+        tm = 1500, -- set timeout of the leader key
     }
     ---  SETTINGS  ---
 

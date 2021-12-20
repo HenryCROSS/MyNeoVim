@@ -1,8 +1,8 @@
-require("plugin/plugins")
+local M = {}
 
---[[
---plugin settings
---]]
+function M:load()
+    require('core.plugin.plugin_loader').load(require("core.plugin.plugins"))
+    require("core.plugin.plugin_settings").load()
+end
 
---dracula
-vim.cmd[[colorscheme dracula]]
+return M

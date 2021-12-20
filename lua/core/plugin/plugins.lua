@@ -10,79 +10,141 @@ vim.cmd([[
   augroup end
 ]])
 
-return require('packer').startup(function(use)
-  -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
+local plugins = {
+  {
+    'wbthomason/packer.nvim'
+  },
+  {
+    'dracula/vim',
+    as = 'dracula'
+  },
+  {
+    'glepnir/dashboard-nvim',
+    disable = false,
+    as = 'dashboard'
+  },
+  {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate'
+  },
+  {
+    'nvim-lua/plenary.nvim'
+  },
+  {
+    'sharkdp/fd'
+  },
+  {
+    -- 括号补全
+    'windwp/nvim-autopairs'
+  },
+  {
+    'junegunn/fzf', dir = '~/.fzf', run = './install --all'
+  },
+  {
+    'junegunn/fzf.vim'
+  },
+  {
+    'kyazdani42/nvim-web-devicons', -- optional, for file icon
+  },
+  {
+    'kyazdani42/nvim-tree.lua',
+    requires = {
+      'kyazdani42/nvim-web-devicons', -- optional, for file icon
+    },
+    --NOTE: you need to set other vim.g let g: nvim_tree variables BEFORE
+    -- calling the setup if you want everything to work as expected :)
+    -- config = function() require'nvim-tree'.setup {} end
+  },
+  {
+    "folke/which-key.nvim",
+  },
+  {
+    'akinsho/bufferline.nvim',
+    requires = 'kyazdani42/nvim-web-devicons'
+  },
+  {
+    'lewis6991/gitsigns.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim'
+    },
+  },
+  {"akinsho/toggleterm.nvim"},
+  {"kdheepak/lazygit.nvim"},
+}
 
-  -- Simple plugins can be specified as strings
-  use '9mm/vim-closer'
 
-  -- Lazy loading:
-  -- Load on specific commands
-  use {'tpope/vim-dispatch', opt = true, cmd = {'Dispatch', 'Make', 'Focus', 'Start'}}
+return plugins
 
-  -- Load on an autocommand event
-  use {'andymass/vim-matchup', event = 'VimEnter'}
+-- return require('packer').startup(function(use)
+--   -- Packer can manage itself
+--   use 'wbthomason/packer.nvim'
 
-  -- Load on a combination of conditions: specific filetypes or commands
-  -- Also run code after load (see the "config" key)
-  use {
-    'w0rp/ale',
-    ft = {'sh', 'zsh', 'bash', 'c', 'cpp', 'cmake', 'html', 'markdown', 'racket', 'vim', 'tex'},
-    cmd = 'ALEEnable',
-    config = 'vim.cmd[[ALEEnable]]'
-  }
+--   -- Simple plugins can be specified as strings
+--   use '9mm/vim-closer'
 
-  -- Plugins can have dependencies on other plugins
-  use {
-    'haorenW1025/completion-nvim',
-    opt = true,
-    requires = {{'hrsh7th/vim-vsnip', opt = true}, {'hrsh7th/vim-vsnip-integ', opt = true}}
-  }
+--   -- Lazy loading:
+--   -- Load on specific commands
+--   use {'tpope/vim-dispatch', opt = true, cmd = {'Dispatch', 'Make', 'Focus', 'Start'}}
 
-  -- Plugins can also depend on rocks from luarocks.org:
-  use {
-    'my/supercoolplugin',
-    rocks = {'lpeg', {'lua-cjson', version = '2.1.0'}}
-  }
+--   -- Load on an autocommand event
+--   use {'andymass/vim-matchup', event = 'VimEnter'}
 
-  -- You can specify rocks in isolation
-  use_rocks 'penlight'
-  use_rocks {'lua-resty-http', 'lpeg'}
+--   -- Load on a combination of conditions: specific filetypes or commands
+--   -- Also run code after load (see the "config" key)
+--   use {
+--     'w0rp/ale',
+--     ft = {'sh', 'zsh', 'bash', 'c', 'cpp', 'cmake', 'html', 'markdown', 'racket', 'vim', 'tex'},
+--     cmd = 'ALEEnable',
+--     config = 'vim.cmd[[ALEEnable]]'
+--   }
 
-  -- Local plugins can be included
-  use '~/projects/personal/hover.nvim'
+--   -- Plugins can have dependencies on other plugins
+--   use {
+--     'haorenW1025/completion-nvim',
+--     opt = true,
+--     requires = {{'hrsh7th/vim-vsnip', opt = true}, {'hrsh7th/vim-vsnip-integ', opt = true}}
+--   }
 
-  -- Plugins can have post-install/update hooks
-  use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
+--   -- Plugins can also depend on rocks from luarocks.org:
+--   use {
+--     'my/supercoolplugin',
+--     rocks = {'lpeg', {'lua-cjson', version = '2.1.0'}}
+--   }
 
-  -- Post-install/update hook with neovim command
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+--   -- You can specify rocks in isolation
+--   use_rocks 'penlight'
+--   use_rocks {'lua-resty-http', 'lpeg'}
 
-  -- Post-install/update hook with call of vimscript function with argument
-  use { 'glacambre/firenvim', run = function() vim.fn['firenvim#install'](0) end }
+--   -- Local plugins can be included
+--   use '~/projects/personal/hover.nvim'
 
-  -- Use specific branch, dependency and run lua file after load
-  --[[
-  use {
-    'glepnir/galaxyline.nvim', branch = 'main', config = function() require'statusline' end,
-    requires = {'kyazdani42/nvim-web-devicons'}
-  }
-  --]]
+--   -- Plugins can have post-install/update hooks
+--   use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
 
-  -- Use dependency and run lua function after load
-  use {
-    'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' },
-    config = function() require('gitsigns').setup() end
-  }
+--   -- Post-install/update hook with neovim command
+--   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
-  -- You can specify multiple plugins in a single call
-  use {'tjdevries/colorbuddy.vim', {'nvim-treesitter/nvim-treesitter', opt = true}}
+--   -- Post-install/update hook with call of vimscript function with argument
+--   use { 'glacambre/firenvim', run = function() vim.fn['firenvim#install'](0) end }
 
-  -- You can alias plugin names
-  use {'dracula/vim', as = 'dracula'}
+--   -- Use specific branch, dependency and run lua file after load
+--   use {
+--     'glepnir/galaxyline.nvim', branch = 'main', config = function() require'statusline' end,
+--     requires = {'kyazdani42/nvim-web-devicons'}
+--   }
 
-  -- dashboard
-  use {'glepnir/dashboard-nvim', disable = false, as = 'dashboard'}
-end)
+--   -- Use dependency and run lua function after load
+--   use {
+--     'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' },
+--     config = function() require('gitsigns').setup() end
+--   }
 
+--   -- You can specify multiple plugins in a single call
+--   use {'tjdevries/colorbuddy.vim', {'nvim-treesitter/nvim-treesitter', opt = true}}
+
+--   -- You can alias plugin names
+--   use {'dracula/vim', as = 'dracula'}
+
+--   -- dashboard
+--   use {'glepnir/dashboard-nvim', disable = false, as = 'dashboard'}
+-- end)
