@@ -3,15 +3,16 @@ local nvimtree = require("nvim-tree")
 local config = {}
 
 nvimtree_settings.load = function()
-    vim.g.nvim_tree_quit_on_open = true
-    vim.g.open_on_tab = true
+    vim.g.nvim_tree_quit_on_open = 0
+    vim.g.open_on_tab = 1
+    vim.g.nvim_tree_respect_buf_cwd = 1
+    vim.g.nvim_tree_highlight_opened_files = 1
     vim.g.nvim_tree_show_icons = {
         git = 0,
         folders = 1,
         files = 1,
         folder_arrows = 1
     }
-    -- vim.g.auto_close = true
 
     -- keymapping
     vim.api.nvim_set_keymap('n', '<Leader><Space>', ':NvimTreeToggle<CR>',
@@ -43,7 +44,7 @@ nvimtree_settings.load = function()
         git = {enable = true, ignore = true, timeout = 500},
         view = {
             width = 30,
-            -- height = 30,
+            height = 30,
             hide_root_folder = false,
             side = 'left',
             auto_resize = true,

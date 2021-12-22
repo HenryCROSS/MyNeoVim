@@ -50,7 +50,7 @@ M.load_options = function()
 
         syntax = "on",
 
-        tm = 1500, -- set timeout of the leader key
+        tm = 2000, -- set timeout of the leader key
     }
     ---  SETTINGS  ---
 

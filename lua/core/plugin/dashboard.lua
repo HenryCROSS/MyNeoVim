@@ -21,7 +21,6 @@ local config = {
         '', ''
     },
     custom_header2 = {
-        '',
         ' ⣿⣿⣷⡁⢆⠈⠕⢕⢂⢕⢂⢕⢂⢔⢂⢕⢄⠂⣂⠂⠆⢂⢕⢂⢕⢂⢕⢂⢕⢂ ',
         ' ⣿⣿⣿⡷⠊⡢⡹⣦⡑⢂⢕⢂⢕⢂⢕⢂⠕⠔⠌⠝⠛⠶⠶⢶⣦⣄⢂⢕⢂⢕ ',
         ' ⣿⣿⠏⣠⣾⣦⡐⢌⢿⣷⣦⣅⡑⠕⠡⠐⢿⠿⣛⠟⠛⠛⠛⠛⠡⢷⡈⢂⢕⢂ ',
@@ -49,10 +48,15 @@ local config = {
 }
 
 function dashboard_settings.load()
+    local opts =  {
+        -- map = true
+    }
+    vim.api.nvim_set_keymap('n', '<Leader>ss', ':SessionSave<CR>', opts)
+    vim.api.nvim_set_keymap('n', '<Leader>sl', ':SessionLoad<CR>', opts)
     vim.g.dashboard_default_executive = config.search_handler
     vim.g.dashboard_custom_header = config.custom_header
-    vim.g.dashboard_custom_section = config.custom_section
-    vim.g.dashboard_custom_footer = config.footer
+    -- vim.g.dashboard_custom_section = config.custom_section
+    vim.g.dashboard_custom_footer = config.custom_header2
 end
 
 return dashboard_settings

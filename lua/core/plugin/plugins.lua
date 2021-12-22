@@ -15,10 +15,6 @@ local plugins = {
     'wbthomason/packer.nvim'
   },
   {
-    'dracula/vim',
-    as = 'dracula'
-  },
-  {
     'glepnir/dashboard-nvim',
     disable = false,
     as = 'dashboard'
@@ -46,6 +42,10 @@ local plugins = {
   {
     'kyazdani42/nvim-web-devicons', -- optional, for file icon
   },
+  -- {
+  --   'yamatsum/nvim-nonicons',
+  --   requires = {'kyazdani42/nvim-web-devicons'}
+  -- },
   {
     'kyazdani42/nvim-tree.lua',
     requires = {
@@ -70,6 +70,45 @@ local plugins = {
   },
   {"akinsho/toggleterm.nvim"},
   {"kdheepak/lazygit.nvim"},
+  {'ggandor/lightspeed.nvim'},
+  {
+    'nvim-lualine/lualine.nvim',
+    requires = {'kyazdani42/nvim-web-devicons', opt = true}
+  },
+  {
+    'yamatsum/nvim-cursorline'
+  },
+  {
+    'numToStr/Comment.nvim',
+  },
+  {
+    'glepnir/indent-guides.nvim'
+  },
+  {
+    'neovim/nvim-lspconfig'
+  },
+  {
+    'ms-jpq/coq_nvim',
+  },
+  {
+    'ms-jpq/coq.artifacts',
+    commit = 'artifacts'
+  },
+  {
+    'ms-jpq/coq.thirdparty',
+    commit = '3q'
+  },
+  --lsp
+  {
+    'apple/sourcekit-lsp'
+  },
+  -- color SCHEME
+  {
+    'dracula/vim',
+    as = 'dracula'
+  },
+  {'haystackandroid/strawberry'},
+  {'folke/tokyonight.nvim'},
 }
 
 

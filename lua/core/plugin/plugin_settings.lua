@@ -2,8 +2,10 @@ local plugin_settings = {}
 
 function plugin_settings.load()
     -- dracula
-    vim.cmd [[colorscheme dracula]]
+    vim.cmd [[colorscheme tokyonight]]
+    --vim.cmd [[colorscheme strawberry-light]]
 
+    require("core.plugin.treesitter").load()
     require("core.plugin.dashboard").load()
     require("core.plugin.autopairs").load()
     require("core.plugin.nvimtree").load()
@@ -11,6 +13,12 @@ function plugin_settings.load()
     require("core.plugin.bufferline").load()
     require("core.plugin.gitsigns").load()
     require("core.plugin.toggleterm").load()
+    require("core.plugin.lightspeed").load()
+    require("core.plugin.lualine").load()
+    require("core.plugin.comment").load()
+    require("core.plugin.indentguides").load()
+    require("core.lsp.lspconfig").load()
+    -- require("core.plugin.autosession").load()
 end
 
 return plugin_settings
