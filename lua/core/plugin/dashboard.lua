@@ -56,7 +56,7 @@ function dashboard_settings.load()
     vim.g.dashboard_default_executive = config.search_handler
     vim.g.dashboard_custom_header = config.custom_header
     -- vim.g.dashboard_custom_section = config.custom_section
-    vim.g.dashboard_custom_footer = config.custom_header2
+    vim.g.dashboard_custom_footer = config.footer
 end
 
 return dashboard_settings
