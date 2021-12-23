@@ -21,6 +21,8 @@ function plugin_settings.load()
     require("core.plugin.symbolsoutline").load()
     require("core.plugin.autosave").load()
     require("core.plugin.cursorline").load()
+    require("core.plugin.trouble").load()
+    require("core.plugin.nvimgps").load()
 end
 
 return plugin_settings

@@ -33,6 +33,14 @@ local plugins = {
         'sharkdp/fd'
     },
     {
+        'folke/trouble.nvim',
+        'kyazdani42/nvim-web-devicons'
+    },
+    {
+        "SmiteshP/nvim-gps",
+        requires = "nvim-treesitter/nvim-treesitter"
+    },
+    {
         -- 括号补全
         'windwp/nvim-autopairs'
     },
@@ -104,9 +112,16 @@ local plugins = {
     {
         'simrat39/symbols-outline.nvim'
     },
+    {
+        'nvim-orgmode/orgmode'
+    },
     --lsp
     {
         'neovim/nvim-lspconfig'
+    },
+    {
+        -- 与lspconfig配套
+        'williamboman/nvim-lsp-installer',
     },
     -- color SCHEME
     {
