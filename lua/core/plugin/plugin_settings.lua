@@ -7,7 +7,6 @@ function plugin_settings.load()
 
     require("core.plugin.treesitter").load()
     require("core.plugin.dashboard").load()
-    require("core.plugin.autopairs").load()
     require("core.plugin.nvimtree").load()
     require("core.plugin.whichkey").load()
     require("core.plugin.bufferline").load()
@@ -18,7 +17,10 @@ function plugin_settings.load()
     require("core.plugin.comment").load()
     require("core.plugin.indentguides").load()
     require("core.lsp.lspconfig").load()
-    -- require("core.plugin.autosession").load()
+    require("core.plugin.autopairs").load()
+    require("core.plugin.symbolsoutline").load()
+    require("core.plugin.autosave").load()
+    require("core.plugin.cursorline").load()
 end
 
 return plugin_settings

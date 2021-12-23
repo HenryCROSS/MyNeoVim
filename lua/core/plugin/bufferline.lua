@@ -11,6 +11,11 @@ bufferline.load = function()
                     text = "File Explorer",
                     highlight = "Directory",
                     text_align = "left"
+                },
+                {
+                    filetype = "Outline",
+                    text = "Lsp Tags",
+                    text_align = "right"
                 }
             },
             numbers = function(opts)
