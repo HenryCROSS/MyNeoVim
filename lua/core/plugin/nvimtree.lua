@@ -35,8 +35,8 @@ nvimtree_settings.load = function()
             icons = {hint = "", info = "", warning = "", error = ""}
         },
         update_focused_file = {
-            enable = false,
-            update_cwd = false,
+            enable = true,
+            update_cwd = true,
             ignore_list = {}
         },
         system_open = {cmd = nil, args = {}},

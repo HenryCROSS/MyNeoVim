@@ -10,7 +10,7 @@ M.load_options = function()
         fileencoding = "utf-8", -- the encoding written to a file
         foldmethod = "manual", -- folding, set to "expr" for treesitter based folding
         foldexpr = "", -- set to "nvim_treesitter#foldexpr()" for treesitter based folding
-        guifont = "CaskaydiaCove Nerd Font:h28", -- the font used in graphical neovim applications
+        guifont = "CaskaydiaCove Nerd Font:h11", -- the font used in graphical neovim applications
         hidden = true, -- required to keep multiple buffers and open multiple buffers
         hlsearch = true, -- highlight all matches on previous search pattern
         ignorecase = true, -- ignore case in search patterns
@@ -50,7 +50,7 @@ M.load_options = function()
 
         syntax = "on",
 
-        tm = 2000, -- set timeout of the leader key
+        tm = 1000, -- set timeout of the leader key
     }
     ---  SETTINGS  ---
 
