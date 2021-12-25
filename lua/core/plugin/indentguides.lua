@@ -11,7 +11,7 @@ indentguides.load = function()
         indent_tab_guides = false,
         indent_soft_pattern = '\\s',
         exclude_filetypes = {
-            'help', 'dashboard', 'dashpreview', 'NvimTree', 'vista', 'sagahover', 'fzf'
+            'help', 'dashboard', 'dashpreview', 'NvimTree', 'vista', 'sagahover', 'fzf',
         },
         even_colors = {fg = '#ffffff', bg = '#332b36'},
         odd_colors = {fg = '#ffffff', bg = '#2a3834'}

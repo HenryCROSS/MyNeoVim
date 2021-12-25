@@ -34,7 +34,6 @@ local plugins = {
     },
     {
         'folke/trouble.nvim',
-        'kyazdani42/nvim-web-devicons'
     },
     {
         "SmiteshP/nvim-gps",
