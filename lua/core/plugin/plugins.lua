@@ -93,7 +93,7 @@ local plugins = {
         'numToStr/Comment.nvim',
     },
     {
-        'glepnir/indent-guides.nvim'
+        'glepnir/indent-guides.nvim',
     },
     {
         'ms-jpq/coq_nvim',
@@ -114,6 +114,9 @@ local plugins = {
     },
     {
         'nvim-orgmode/orgmode'
+    },
+    {
+        'norcalli/nvim-colorizer.lua'
     },
     --lsp
     {

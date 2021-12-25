@@ -13,8 +13,8 @@ indentguides.load = function()
         exclude_filetypes = {
             'help', 'dashboard', 'dashpreview', 'NvimTree', 'vista', 'sagahover', 'fzf'
         },
-        even_colors = {fg = '#2a3834', bg = '#332b36'},
-        odd_colors = {fg = '#332b36', bg = '#2a3834'}
+        even_colors = {fg = '#ffffff', bg = '#332b36'},
+        odd_colors = {fg = '#ffffff', bg = '#2a3834'}
     }
 end
 
