@@ -121,9 +121,6 @@ local plugins = {
         'simrat39/symbols-outline.nvim'
     },
     {
-        'nvim-orgmode/orgmode'
-    },
-    {
         'norcalli/nvim-colorizer.lua'
     },
     --lsp
