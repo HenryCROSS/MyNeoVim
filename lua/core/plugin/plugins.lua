@@ -18,6 +18,12 @@ local plugins = {
         'Pocco81/AutoSave.nvim'
     },
     {
+        'gelguy/wilder.nvim'
+    },
+    {
+        'romgrk/fzy-lua-native'
+    },
+    {
         'glepnir/dashboard-nvim',
         disable = false,
         as = 'dashboard'
@@ -42,6 +48,9 @@ local plugins = {
     {
         -- 括号补全
         'windwp/nvim-autopairs'
+    },
+    {
+        'seandewar/nvimesweeper'
     },
     {
         'junegunn/fzf', dir = '~/.fzf', run = './install --all'

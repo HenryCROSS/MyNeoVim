@@ -12,7 +12,11 @@ keymapping.load = function ()
 	vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', opts)
 	vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', opts)
 
-    -- buffer operations
+    -- screen operations
+	vim.api.nvim_set_keymap('n', '<C-s>h', ':sp<CR>', opts)
+	vim.api.nvim_set_keymap('n', '<C-s>v', ':vsp<CR>', opts)
+	vim.api.nvim_set_keymap('n', '<C-s>x', '<c-w>q', opts)
+
     -- tab operations
 end
 

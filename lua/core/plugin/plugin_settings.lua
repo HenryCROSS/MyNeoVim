@@ -24,6 +24,7 @@ function plugin_settings.load()
     require("core.plugin.trouble").load()
     require("core.plugin.nvimgps").load()
     require("core.plugin.nvimcolorizer").load()
+    require("core.plugin.wilder").load()
 end
 
 return plugin_settings

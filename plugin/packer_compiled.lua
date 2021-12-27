@@ -119,6 +119,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\fzf.vim",
     url = "https://github.com/junegunn/fzf.vim"
   },
+  ["fzy-lua-native"] = {
+    loaded = true,
+    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\fzy-lua-native",
+    url = "https://github.com/romgrk/fzy-lua-native"
+  },
   ["gitsigns.nvim"] = {
     loaded = true,
     path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\gitsigns.nvim",
@@ -194,6 +199,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
+  nvimesweeper = {
+    loaded = true,
+    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvimesweeper",
+    url = "https://github.com/seandewar/nvimesweeper"
+  },
   orgmode = {
     loaded = true,
     path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\orgmode",
@@ -243,6 +253,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\which-key.nvim",
     url = "https://github.com/folke/which-key.nvim"
+  },
+  ["wilder.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\henry\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\wilder.nvim",
+    url = "https://github.com/gelguy/wilder.nvim"
   }
 }
 
