@@ -1,5 +1,6 @@
 -- load keymapping
 require("core.keymapping").load()
+
 -- load plugins
 require("core.plugin"):load()
 
