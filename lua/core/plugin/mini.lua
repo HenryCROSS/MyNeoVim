@@ -15,13 +15,13 @@ mini.load = function()
 
         -- Mappings. Use `''` (empty string) to disable one.
         mappings = {
-            add = 'sa',           -- Add surrounding
-            delete = 'sd',        -- Delete surrounding
-            find = 'sf',          -- Find surrounding (to the right)
-            find_left = 'sF',     -- Find surrounding (to the left)
-            highlight = 'sh',     -- Highlight surrounding
-            replace = 'sr',       -- Replace surrounding
-            update_n_lines = 'sn' -- Update `n_lines`
+            add = '<Leader>sa',           -- Add surrounding
+            delete = '<Leader>sd',        -- Delete surrounding
+            find = '<Leader>sf',          -- Find surrounding (to the right)
+            find_left = '<Leader>sF',     -- Find surrounding (to the left)
+            highlight = '<Leader>sh',     -- Highlight surrounding
+            replace = '<Leader>sr',       -- Replace surrounding
+            update_n_lines = '<Leader>sn' -- Update `n_lines`
         }
     }
     mini_settings.setup{
