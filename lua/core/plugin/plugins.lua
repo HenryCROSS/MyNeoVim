@@ -39,6 +39,9 @@ local plugins = {
         'sharkdp/fd'
     },
     {
+        'echasnovski/mini.nvim', branch = 'stable'
+    },
+    {
         'folke/trouble.nvim',
     },
     {

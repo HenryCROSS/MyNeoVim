@@ -14,7 +14,6 @@ function plugin_settings.load()
     require("core.plugin.bufferline").load()
     require("core.plugin.gitsigns").load()
     require("core.plugin.toggleterm").load()
-    require("core.plugin.lightspeed").load()
     require("core.plugin.lualine").load()
     require("core.plugin.comment").load()
     require("core.plugin.indentguides").load()
@@ -26,6 +25,8 @@ function plugin_settings.load()
     require("core.plugin.nvimgps").load()
     require("core.plugin.nvimcolorizer").load()
     require("core.plugin.wilder").load()
+    require("core.plugin.mini").load()
+    require("core.plugin.lightspeed").load()
 end
 
 return plugin_settings
