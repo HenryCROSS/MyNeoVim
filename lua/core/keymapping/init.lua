@@ -13,9 +13,9 @@ keymapping.load = function ()
 	vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', opts)
 
     -- screen operations
-	vim.api.nvim_set_keymap('n', '<C-s>h', ':sp<CR>', opts)
-	vim.api.nvim_set_keymap('n', '<C-s>v', ':vsp<CR>', opts)
-	vim.api.nvim_set_keymap('n', '<C-s>x', '<c-w>q', opts)
+	vim.api.nvim_set_keymap('n', '<Leader>wh', ':sp<CR>', opts)
+	vim.api.nvim_set_keymap('n', '<Leader>wv', ':vsp<CR>', opts)
+	vim.api.nvim_set_keymap('n', '<Leader>wq', '<c-w>q', opts)
 
     -- tab operations
 end

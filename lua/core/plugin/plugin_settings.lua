@@ -26,7 +26,8 @@ function plugin_settings.load()
     require("core.plugin.nvimcolorizer").load()
     require("core.plugin.wilder").load()
     require("core.plugin.mini").load()
-    require("core.plugin.lightspeed").load()
+    require("core.plugin.hop").load()
+    require("core.plugin.nullls").load()
 end
 
 return plugin_settings

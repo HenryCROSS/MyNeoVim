@@ -21,6 +21,10 @@ local plugins = {
         'gelguy/wilder.nvim'
     },
     {
+        'jose-elias-alvarez/null-ls.nvim',
+        requires = { "nvim-lua/plenary.nvim" },
+    },
+    {
         'romgrk/fzy-lua-native'
     },
     {
@@ -92,7 +96,7 @@ local plugins = {
     },
     {"akinsho/toggleterm.nvim"},
     {"kdheepak/lazygit.nvim"},
-    {'ggandor/lightspeed.nvim'},
+    {'phaazon/hop.nvim'},
     {
         'nvim-lualine/lualine.nvim',
         requires = {'kyazdani42/nvim-web-devicons', opt = true}
