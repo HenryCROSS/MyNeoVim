@@ -15,6 +15,9 @@ local plugins = {
         'wbthomason/packer.nvim'
     },
     {
+        'TimUntersberger/neogit'
+    },
+    {
         'Pocco81/AutoSave.nvim'
     },
     {

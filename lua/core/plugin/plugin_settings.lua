@@ -4,6 +4,7 @@ function plugin_settings.load()
     -- dracula
     vim.cmd [[colorscheme tokyonight]]
     --vim.cmd [[colorscheme strawberry-light]]
+    --
 
     require("core.lsp.nvimlspinstaller").load()
     require("core.lsp.lspconfig").load()
@@ -17,7 +18,6 @@ function plugin_settings.load()
     require("core.plugin.lualine").load()
     require("core.plugin.comment").load()
     require("core.plugin.indentguides").load()
-    require("core.plugin.autopairs").load()
     require("core.plugin.symbolsoutline").load()
     require("core.plugin.autosave").load()
     require("core.plugin.cursorline").load()
@@ -28,6 +28,7 @@ function plugin_settings.load()
     require("core.plugin.mini").load()
     require("core.plugin.hop").load()
     require("core.plugin.nullls").load()
+    require("core.plugin.autopairs").load()
 end
 
 return plugin_settings
