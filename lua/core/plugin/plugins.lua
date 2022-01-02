@@ -15,6 +15,10 @@ local plugins = {
         'wbthomason/packer.nvim'
     },
     {
+        'TimUntersberger/neogit',
+        requires = { "nvim-lua/plenary.nvim" },
+    },
+    {
         'Pocco81/AutoSave.nvim'
     },
     {

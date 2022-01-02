@@ -2,7 +2,7 @@ local mini = {}
 local mini_settings = require("mini.surround")
 
 mini.load = function()
-    mini_settings.config = {
+    mini_settings.setup {
         -- Number of lines within which surrounding is searched
         n_lines = 20,
 
@@ -15,16 +15,14 @@ mini.load = function()
 
         -- Mappings. Use `''` (empty string) to disable one.
         mappings = {
-            add = '<Leader>ma',           -- Add surrounding
-            delete = '<Leader>md',        -- Delete surrounding
-            find = '<Leader>mf',          -- Find surrounding (to the right)
-            find_left = '<Leader>mF',     -- Find surrounding (to the left)
-            highlight = '<Leader>mh',     -- Highlight surrounding
-            replace = '<Leader>mr',       -- Replace surrounding
+            add = '<Leader>ma', -- Add surrounding
+            delete = '<Leader>md', -- Delete surrounding
+            find = '<Leader>mf', -- Find surrounding (to the right)
+            find_left = '<Leader>mF', -- Find surrounding (to the left)
+            highlight = '<Leader>mh', -- Highlight surrounding
+            replace = '<Leader>mr', -- Replace surrounding
             update_n_lines = '<Leader>mn' -- Update `n_lines`
         }
-    }
-    mini_settings.setup{
     }
 end
 
