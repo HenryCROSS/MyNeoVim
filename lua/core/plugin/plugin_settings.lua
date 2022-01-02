@@ -28,7 +28,6 @@ function plugin_settings.load()
     require("core.plugin.hop").load()
     require("core.plugin.nullls").load()
     require("core.plugin.autopairs").load()
-    require("core.plugin.neogit").load()
     require("core.plugin.mini").load()
 end
 
