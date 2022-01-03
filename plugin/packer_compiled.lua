@@ -154,11 +154,6 @@ _G.packer_plugins = {
     path = "/home/henry/.local/share/nvim/site/pack/packer/start/mini.nvim",
     url = "https://github.com/echasnovski/mini.nvim"
   },
-  neogit = {
-    loaded = true,
-    path = "/home/henry/.local/share/nvim/site/pack/packer/start/neogit",
-    url = "https://github.com/TimUntersberger/neogit"
-  },
   ["null-ls.nvim"] = {
     loaded = true,
     path = "/home/henry/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
@@ -178,6 +173,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/henry/.local/share/nvim/site/pack/packer/start/nvim-cursorline",
     url = "https://github.com/yamatsum/nvim-cursorline"
+  },
+  ["nvim-dap"] = {
+    loaded = true,
+    path = "/home/henry/.local/share/nvim/site/pack/packer/start/nvim-dap",
+    url = "https://github.com/mfussenegger/nvim-dap"
   },
   ["nvim-gps"] = {
     loaded = true,

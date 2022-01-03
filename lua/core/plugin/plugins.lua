@@ -127,6 +127,9 @@ local plugins = {
         commit = '3q'
     },
     {
+        'mfussenegger/nvim-dap'
+    },
+    {
         'p00f/nvim-ts-rainbow'
     },
     {
