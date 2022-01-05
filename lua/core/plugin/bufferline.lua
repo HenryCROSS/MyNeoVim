@@ -43,7 +43,7 @@ bufferline.load = function()
     vim.api.nvim_set_keymap('n', '<C-c>n', ':BufferLineMoveNext<CR>', opts)
     vim.api.nvim_set_keymap('n', '<C-c>p', ':BufferLineMovePrev<CR>', opts)
     -- remove buffer
-    vim.api.nvim_set_keymap('n', '<C-d>', ':BufferLinePickClose<CR>', opts)
+    vim.api.nvim_set_keymap('n', '<C-x>', ':BufferLinePickClose<CR>', opts)
 
 end
 

@@ -8,6 +8,7 @@ function plugin_settings.load()
 
     require("core.lsp.nvimlspinstaller").load()
     require("core.lsp.lspconfig").load()
+    require("core.lsp.lsp_signature").load()
     require("core.plugin.treesitter").load()
     require("core.plugin.dashboard").load()
     require("core.plugin.nvimtree").load()
@@ -29,6 +30,7 @@ function plugin_settings.load()
     require("core.plugin.nullls").load()
     require("core.plugin.autopairs").load()
     require("core.plugin.mini").load()
+    require("core.plugin.telescope").load()
 end
 
 return plugin_settings

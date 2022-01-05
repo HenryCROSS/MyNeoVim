@@ -1,6 +1,6 @@
 local dashboard_settings = {}
 local config = {
-    search_handler = 'fzf',
+    search_handler = 'telescope',
     custom_header = {
         '', '',
         '        ⢀⣴⡾⠃⠄⠄⠄⠄⠄⠈⠺⠟⠛⠛⠛⠛⠻⢿⣿⣿⣿⣿⣶⣤⡀  ',

@@ -6,6 +6,9 @@ keymapping.load = function ()
         noremap = true
     }
 
+    -- esc keymapping
+    vim.api.nvim_set_keymap('i', '<C-x>', "<Esc>", opts)
+
     -- screen operations
 	vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', opts)
 	vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', opts)

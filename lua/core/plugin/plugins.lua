@@ -73,6 +73,16 @@ local plugins = {
     {
         'kyazdani42/nvim-web-devicons', -- optional, for file icon
     },
+    {
+        'nvim-treesitter/nvim-treesitter-refactor'
+    },
+    {
+        'nvim-telescope/telescope.nvim',
+        requires = { {'nvim-lua/plenary.nvim'} }
+    },
+    {
+        'ray-x/lsp_signature.nvim'
+    },
     -- {
     --   'yamatsum/nvim-nonicons',
     --   requires = {'kyazdani42/nvim-web-devicons'}
