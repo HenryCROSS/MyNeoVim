@@ -148,7 +148,7 @@ local plugins = {
     {
         'iamcco/markdown-preview.nvim',
         ft = {'markdown'},
-        run = 'cd app && yarn install',
+        run = ':call mkdp#util#install()',
     },
     --lsp
     {
