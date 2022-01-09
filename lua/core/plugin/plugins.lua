@@ -74,9 +74,6 @@ local plugins = {
         'kyazdani42/nvim-web-devicons', -- optional, for file icon
     },
     {
-        'nvim-treesitter/nvim-treesitter-refactor'
-    },
-    {
         'nvim-telescope/telescope.nvim',
         requires = { {'nvim-lua/plenary.nvim'} }
     },
@@ -147,6 +144,11 @@ local plugins = {
     },
     {
         'norcalli/nvim-colorizer.lua'
+    },
+    {
+        'iamcco/markdown-preview.nvim',
+        ft = {'markdown'},
+        run = 'cd app && yarn install',
     },
     --lsp
     {

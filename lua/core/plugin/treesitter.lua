@@ -8,7 +8,7 @@ treesitter.load = function()
         -- Install languages synchronously (only applied to `ensure_installed`)
         sync_install = false,
         -- List of parsers to ignore installing
-        -- ignore_install = {},
+        ignore_install = {"markdown"},
         highlight = {
             -- `false` will disable the whole extension
             enable = true,
@@ -32,9 +32,6 @@ treesitter.load = function()
             }
         },
         autotag = {enable = false},
-        refactor = {
-            smart_rename = {enable = true, keymaps = {smart_rename = "grr"}}
-        }
     }
 end
 

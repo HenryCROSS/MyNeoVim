@@ -1,7 +1,8 @@
 # NVIM配置手册
 
 ## 文件结构
-```cpp
+
+```
 .
 ├── back_up
 ├── lua
@@ -14,6 +15,8 @@
 │   └── test
 └── plugin
 ```
+
+
 - back_up 用于存放备份文件
 - lua		用于存放lua脚本
   - bootstrap 用于存放引导函数

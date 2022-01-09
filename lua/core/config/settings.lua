@@ -49,6 +49,7 @@ M.load_options = function()
         virtualedit = 'block,onemore', -- allow cursor move to one more space after the end of the line
 
         syntax = "on",
+        shell = "/bin/zsh",
 
         tm = 1000, -- set timeout of the leader key
     }

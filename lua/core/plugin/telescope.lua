@@ -6,9 +6,13 @@ telescope.load = function()
         mappings = {
             i = {
                 --
+                -- ["<C-j>"] = 'move_selection_next',
+                -- ["<C-k>"] = 'move_selection_previous'
             }
         }
     }
+
+    vim.api.nvim_set_keymap('n', '<Leader>b', ':Telescope buffers<CR>', {})
 end
 
 return telescope
