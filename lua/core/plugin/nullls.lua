@@ -8,7 +8,9 @@ local sources = {
             "-assume-filename=<FILENAME>",
             "-style={BasedOnStyle: Microsoft, IndentWidth: 4}"
         }
-    }
+    },
+    null_settings.builtins.formatting.prettierd,
+
 
 }
 
