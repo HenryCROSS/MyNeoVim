@@ -5,20 +5,8 @@ require("libs")
 require("core.keymapping").load()
 
 -- load plugins
-require("core.plugin"):load()
+ require("core.plugin"):load()
 
 -- load the general settings
 require("core.config.settings").load_options()
-
-
-
-
-
-
-
-
-
-
-
-
 

@@ -29,7 +29,7 @@ nvimtree_settings.load = function()
         hijack_cursor = false,
         update_cwd = true,
 		highlight_opened_files = true,
-        update_to_buf_dir = {enable = true, auto_open = true},
+        update_to_buf_dir = {enable = false, auto_open = true},
         diagnostics = {
             enable = false,
             icons = {hint = "", info = "", warning = "", error = ""}

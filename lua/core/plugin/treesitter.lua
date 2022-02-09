@@ -4,11 +4,11 @@ local treesitter_settings = require('nvim-treesitter.configs')
 treesitter.load = function()
     treesitter_settings.setup {
         -- One of "all", "maintained" (parsers with maintainers), or a list of languages
-        ensure_installed = "all",
+        ensure_installed = "maintained",
         -- Install languages synchronously (only applied to `ensure_installed`)
         sync_install = false,
         -- List of parsers to ignore installing
-        ignore_install = {"markdown"},
+        ignore_install = {"markdown", "phpdoc"},
         highlight = {
             -- `false` will disable the whole extension
             enable = true,
