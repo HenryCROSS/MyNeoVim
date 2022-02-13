@@ -16,9 +16,9 @@ local sources = {
 
 null.load = function()
     null_settings.setup({sources = sources})
-    vim.api.nvim_set_keymap('v', '<Leader>f',
+    vim.api.nvim_set_keymap('v', '<Leader>cf',
                             ':lua vim.lsp.buf.formatting()<CR>', {})
-    vim.api.nvim_set_keymap('n', '<Leader>f',
+    vim.api.nvim_set_keymap('n', '<Leader>cf',
                             ':lua vim.lsp.buf.formatting()<CR>', {})
 end
 

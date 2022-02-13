@@ -24,7 +24,7 @@ toggleterm.load = function()
                 return vim.o.columns * 0.4
             end
         end,
-        open_mapping = '<Leader>t',
+        open_mapping = '<Leader>ot',
         insert_mappings = false,
         direction = 'vertical',
         shell = '/bin/zsh',

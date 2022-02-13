@@ -20,7 +20,7 @@ treesitter.load = function()
             -- Instead of true it can also be a list of languages
             additional_vim_regex_highlighting = true
         },
-        indent = {enable = true},
+        indent = {enable = false },
         rainbow = {enable = true, extended_mode = true, max_file_lines = nil},
         incremental_selection = {
             enable = true,

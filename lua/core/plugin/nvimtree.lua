@@ -15,7 +15,7 @@ nvimtree_settings.load = function()
     }
 
     -- keymapping
-    vim.api.nvim_set_keymap('n', '<Leader><Space>', ':NvimTreeToggle<CR>',
+    vim.api.nvim_set_keymap('n', '<Leader>op', ':NvimTreeToggle<CR>',
                             {noremap = true, silent = true})
 
     -- setup

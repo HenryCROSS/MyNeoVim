@@ -78,6 +78,9 @@ local plugins = {
         requires = { {'nvim-lua/plenary.nvim'} }
     },
     {
+        'nvim-telescope/telescope-media-files.nvim'
+    },
+    {
         'ray-x/lsp_signature.nvim'
     },
     -- {
@@ -114,7 +117,7 @@ local plugins = {
         requires = {'kyazdani42/nvim-web-devicons', opt = true}
     },
     {
-        'yamatsum/nvim-cursorline'
+        -- 'yamatsum/nvim-cursorline'
     },
     {
         'numToStr/Comment.nvim',

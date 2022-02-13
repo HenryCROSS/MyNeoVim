@@ -1,8 +1,9 @@
 local mini = {}
-local mini_settings = require("mini.surround")
+local surround_settings = require("mini.surround")
+local cursorword_settings = require("mini.cursorword")
 
 mini.load = function()
-    mini_settings.setup {
+    surround_settings.setup {
         -- Number of lines within which surrounding is searched
         n_lines = 20,
 
@@ -23,6 +24,9 @@ mini.load = function()
             replace = '<Leader>mr', -- Replace surrounding
             update_n_lines = '<Leader>mn' -- Update `n_lines`
         }
+    }
+    cursorword_settings.setup {
+        delay = 0;
     }
 end
 

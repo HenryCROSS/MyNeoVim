@@ -69,6 +69,12 @@ lspconfig.load = function()
             coq.lsp_ensure_capabilities({})
         }
     end
+
+    require("coq_3p")
+    {
+        { src = "nvimlua", short_name = "nLUA", conf_only = true },
+        { src = "bc", short_name = "MATH", precision = 6 },
+    }
     -- lspconfig_settings.sourcekit.setup {
     --     coq.lsp_ensure_capabilities {
     --         cmd = {"sourcekit-lsp"},

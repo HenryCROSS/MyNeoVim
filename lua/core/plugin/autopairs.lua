@@ -6,16 +6,16 @@ local remap = vim.api.nvim_set_keymap
 
 npairs.setup({map_bs = false, map_cr = false})
 
--- vim.g.coq_settings = {keymap = {recommended = false}}
+vim.g.coq_settings = {keymap = {recommended = false}}
 
--- remap('i', '<esc>', [[pumvisible() ? "<c-e><esc>" : "<esc>"]],
---       {expr = true, noremap = true})
--- remap('i', '<c-c>', [[pumvisible() ? "<c-e><c-c>" : "<c-c>"]],
---       {expr = true, noremap = true})
--- remap('i', '<tab>', [[pumvisible() ? "<c-n>" : "<tab>"]],
---       {expr = true, noremap = true})
--- remap('i', '<s-tab>', [[pumvisible() ? "<c-p>" : "<bs>"]],
---       {expr = true, noremap = true})
+remap('i', '<esc>', [[pumvisible() ? "<c-e><esc>" : "<esc>"]],
+      {expr = true, noremap = true})
+remap('i', '<c-c>', [[pumvisible() ? "<c-e><c-c>" : "<c-c>"]],
+      {expr = true, noremap = true})
+remap('i', '<tab>', [[pumvisible() ? "<c-n>" : "<tab>"]],
+      {expr = true, noremap = true})
+remap('i', '<s-tab>', [[pumvisible() ? "<c-p>" : "<bs>"]],
+      {expr = true, noremap = true})
 
 -- skip it, if you use another global object
 _G.MUtils = {}

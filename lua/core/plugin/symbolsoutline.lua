@@ -2,7 +2,7 @@ local symbols_outline = {}
 
 symbols_outline.load = function ()
     -- keymapping
-    vim.api.nvim_set_keymap('n', '<Leader>c', ':SymbolsOutline<CR>',
+    vim.api.nvim_set_keymap('n', '<Leader>os', ':SymbolsOutline<CR>',
                             {noremap = true, silent = true})
 
     vim.g.symbols_outline = {
@@ -15,7 +15,7 @@ symbols_outline.load = function ()
         auto_close = false,
         show_numbers = false,
         show_relative_numbers = false,
-        show_symbol_details = true,
+        show_symbol_details = false,
         preview_bg_highlight = 'Pmenu',
         keymaps = { -- These keymaps can be a string or a table for multiple keys
         close = {"<Esc>", "q"},
