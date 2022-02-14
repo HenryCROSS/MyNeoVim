@@ -83,9 +83,6 @@ local plugins = {
     {
         'nvim-telescope/telescope-media-files.nvim'
     },
-    {
-        'ray-x/lsp_signature.nvim'
-    },
     -- {
     --   'yamatsum/nvim-nonicons',
     --   requires = {'kyazdani42/nvim-web-devicons'}
@@ -129,15 +126,15 @@ local plugins = {
         'glepnir/indent-guides.nvim',
     },
     {
-        'ms-jpq/coq_nvim',
+        -- 'ms-jpq/coq_nvim',
     },
     {
-        'ms-jpq/coq.artifacts',
-        commit = 'artifacts'
+        -- 'ms-jpq/coq.artifacts',
+        -- commit = 'artifacts'
     },
     {
-        'ms-jpq/coq.thirdparty',
-        commit = '3q'
+        -- 'ms-jpq/coq.thirdparty',
+        -- commit = '3q'
     },
     {
         'mfussenegger/nvim-dap'
@@ -158,11 +155,17 @@ local plugins = {
     },
     --lsp
     {
-        'neovim/nvim-lspconfig'
+        'neoclide/coc.nvim', branch = 'release'
+    },
+    {
+        -- 'neovim/nvim-lspconfig'
     },
     {
         -- 与lspconfig配套
-        'williamboman/nvim-lsp-installer',
+        -- 'williamboman/nvim-lsp-installer',
+    },
+    {
+        -- 'ray-x/lsp_signature.nvim'
     },
     -- color SCHEME
     {

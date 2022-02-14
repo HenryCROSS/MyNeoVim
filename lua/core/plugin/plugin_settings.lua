@@ -6,9 +6,9 @@ function plugin_settings.load()
     --vim.cmd [[colorscheme strawberry-light]]
     --
 
-    require("core.lsp.nvimlspinstaller").load()
-    require("core.lsp.lspconfig").load()
-    require("core.lsp.lsp_signature").load()
+    -- require("core.lsp.nvimlspinstaller").load()
+    -- require("core.lsp.lspconfig").load()
+    -- require("core.lsp.lsp_signature").load()
     require("core.plugin.treesitter").load()
     require("core.plugin.dashboard").load()
     require("core.plugin.nvimtree").load()
