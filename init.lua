@@ -1,5 +1,5 @@
 -- load libs
-require("libs")
+-- require("libs")
 
 -- load keymapping
 require("core.keymapping").load()

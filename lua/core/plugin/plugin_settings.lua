@@ -9,7 +9,7 @@ function plugin_settings.load()
     -- require("core.lsp.nvimlspinstaller").load()
     -- require("core.lsp.lspconfig").load()
     -- require("core.lsp.lsp_signature").load()
-    require("core.plugin.treesitter").load()
+    -- require("core.plugin.treesitter").load()
     require("core.plugin.dashboard").load()
     require("core.plugin.nvimtree").load()
     require("core.plugin.whichkey").load()
@@ -33,6 +33,7 @@ function plugin_settings.load()
     require("core.plugin.telescope").load()
     require("core.plugin.markdownpreview").load()
     require("core.plugin.stabilize").load()
+    require("core.lsp.cocnvim").load()
 end
 
 return plugin_settings
