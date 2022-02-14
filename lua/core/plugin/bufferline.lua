@@ -1,6 +1,6 @@
 local bufferline = {}
 local bufferline_settings = require("bufferline")
-local config = {}
+-- local config = {}
 
 bufferline.load = function()
     bufferline_settings.setup {
@@ -18,10 +18,10 @@ bufferline.load = function()
                     text_align = "right"
                 }
             },
-            numbers = function(opts)
-                return string.format('%s·%s', opts.raise(opts.id),
-                opts.lower(opts.ordinal))
-            end,
+            -- numbers = function(opts)
+            --     return string.format('%s·%s', opts.raise(opts.id),
+            --     opts.lower(opts.ordinal))
+            -- end,
             diagnostics = 'nvim_lsp',
             indicator_icon = '▎',
             buffer_close_icon = '',

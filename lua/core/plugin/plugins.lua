@@ -20,6 +20,9 @@ local plugins = {
         -- requires = { "nvim-lua/plenary.nvim" },
     },
     {
+        "luukvbaal/stabilize.nvim",
+    },
+    {
         'Pocco81/AutoSave.nvim'
     },
     {

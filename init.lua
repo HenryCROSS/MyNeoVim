@@ -4,6 +4,9 @@ require("libs")
 -- load keymapping
 require("core.keymapping").load()
 
+-- -- load lsp
+ -- require("core.lsp"):load()
+
 -- load plugins
  require("core.plugin"):load()
 

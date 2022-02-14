@@ -32,6 +32,7 @@ function plugin_settings.load()
     require("core.plugin.mini").load()
     require("core.plugin.telescope").load()
     require("core.plugin.markdownpreview").load()
+    require("core.plugin.stabilize").load()
 end
 
 return plugin_settings

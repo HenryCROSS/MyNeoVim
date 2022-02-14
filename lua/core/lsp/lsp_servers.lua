@@ -4,9 +4,9 @@ local server_list = {
 }
 
 -- for multiple configs
-server_list.load = function(server)
-    for _, v in ipairs(server) do
-        if v == "clangd" then
+server_list.load = function(servers)
+    for _, server in ipairs(servers) do
+        if server == "clangd" then
             return {
                 cmd = { --
                     "clangd"
