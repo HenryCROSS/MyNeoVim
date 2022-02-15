@@ -5,7 +5,10 @@ coc.load = function()
     vim.g.coc_global_extensions = {
         'coc-json', 'coc-git', 'coc-clangd', 'coc-sh', 'coc-cmake', 'coc-css',
         'coc-html', 'coc-tsserver', 'coc-sumneko-lua', 'coc-markdownlint',
-        'coc-marketplace'
+        'coc-marketplace', 'coc-pyright', 'coc-spell-checker', 'coc-lists',
+        'coc-vimlsp', 'coc-snippets', 'coc-translator', 'coc-syntax', 'coc-omnisharp',
+        'coc-java', 'coc-prettier', 'coc-gitignore', 'coc-diagnostic', 'coc-htmlhint',
+        'coc-html-css-support', 'coc-calc', 'coc-clang-format-style-options', 'coc-tabnine'
     }
 
     vim.cmd([[
@@ -15,10 +18,10 @@ coc.load = function()
     " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
-" inoremap <silent><expr> <TAB>
-"       \ pumvisible() ? "\<C-n>" :
-"       \ <SID>check_back_space() ? "\<TAB>" :
-"       \ coc#refresh()
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" : "\<TAB>"
+      " \ <SID>check_back_space() ? "\<TAB>" :
+      " \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
@@ -151,6 +154,8 @@ nnoremap <silent><nowait> <space>zk  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>zp  :<C-u>CocListResume<CR>
     ]])
+
+
 end
 
 return coc;

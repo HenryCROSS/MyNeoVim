@@ -1,18 +1,19 @@
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
-
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
 
-vim.cmd([[
+vim.cmd(
+    [[
 augroup packer_user_config
 autocmd!
 autocmd BufWritePost plugins.lua source <afile> | PackerCompile
 augroup end
-]])
+]]
+)
 
 local plugins = {
     {
-        'wbthomason/packer.nvim'
+        "wbthomason/packer.nvim",
     },
     {
         -- it has a lot of problems
@@ -23,76 +24,83 @@ local plugins = {
         "luukvbaal/stabilize.nvim",
     },
     {
-        'Pocco81/AutoSave.nvim'
+        "Pocco81/AutoSave.nvim",
     },
     {
-        'gelguy/wilder.nvim'
+        "gelguy/wilder.nvim",
     },
     {
-        'jose-elias-alvarez/null-ls.nvim',
-        requires = { "nvim-lua/plenary.nvim" },
+        "jose-elias-alvarez/null-ls.nvim",
+        requires = {
+            "nvim-lua/plenary.nvim",
+        },
     },
     {
-        'romgrk/fzy-lua-native'
+        "romgrk/fzy-lua-native",
     },
     {
-        'glepnir/dashboard-nvim',
+        "glepnir/dashboard-nvim",
         disable = false,
-        as = 'dashboard'
+        as = "dashboard",
     },
     {
-        'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate'
+        "nvim-treesitter/nvim-treesitter",
+        run = ":TSUpdate",
     },
     {
-        'nvim-lua/plenary.nvim'
+        "nvim-lua/plenary.nvim",
+    },
+    { "sharkdp/fd" },
+    {
+        "echasnovski/mini.nvim",
+        branch = "stable",
     },
     {
-        'sharkdp/fd'
-    },
-    {
-        'echasnovski/mini.nvim', branch = 'stable'
-    },
-    {
-        'folke/trouble.nvim',
+        -- 'folke/trouble.nvim',
     },
     {
         "SmiteshP/nvim-gps",
-        requires = "nvim-treesitter/nvim-treesitter"
+        requires = "nvim-treesitter/nvim-treesitter",
     },
     {
         -- 括号补全
-        'windwp/nvim-autopairs'
+        "windwp/nvim-autopairs",
     },
     {
-        'seandewar/nvimesweeper'
+        "seandewar/nvimesweeper",
     },
     {
-        'junegunn/fzf', dir = '~/.fzf', run = './install --all'
+        "junegunn/fzf",
+        dir = "~/.fzf",
+        run = "./install --all",
     },
     {
-        'junegunn/fzf.vim'
+        "junegunn/fzf.vim",
     },
     {
-        'kyazdani42/nvim-web-devicons', -- optional, for file icon
+        "kyazdani42/nvim-web-devicons", -- optional, for file icon
     },
     {
-        'nvim-telescope/telescope.nvim',
-        requires = { {'nvim-lua/plenary.nvim'} }
+        "nvim-telescope/telescope.nvim",
+        requires = {
+            {
+                "nvim-lua/plenary.nvim",
+            },
+        },
     },
     {
-        'nvim-telescope/telescope-media-files.nvim'
+        "nvim-telescope/telescope-media-files.nvim",
     },
     -- {
     --   'yamatsum/nvim-nonicons',
     --   requires = {'kyazdani42/nvim-web-devicons'}
     -- },
     {
-        'kyazdani42/nvim-tree.lua',
+        "kyazdani42/nvim-tree.lua",
         requires = {
-            'kyazdani42/nvim-web-devicons', -- optional, for file icon
+            "kyazdani42/nvim-web-devicons", -- optional, for file icon
         },
-        --NOTE: you need to set other vim.g let g: nvim_tree variables BEFORE
+        -- NOTE: you need to set other vim.g let g: nvim_tree variables BEFORE
         -- calling the setup if you want everything to work as expected :)
         -- config = function() require'nvim-tree'.setup {} end
     },
@@ -100,30 +108,39 @@ local plugins = {
         "folke/which-key.nvim",
     },
     {
-        'akinsho/bufferline.nvim',
-        requires = 'kyazdani42/nvim-web-devicons'
+        "akinsho/bufferline.nvim",
+        requires = "kyazdani42/nvim-web-devicons",
     },
     {
-        'lewis6991/gitsigns.nvim',
+        "lewis6991/gitsigns.nvim",
         requires = {
-            'nvim-lua/plenary.nvim'
+            "nvim-lua/plenary.nvim",
         },
     },
-    {"akinsho/toggleterm.nvim"},
-    {"kdheepak/lazygit.nvim"},
-    {'phaazon/hop.nvim'},
     {
-        'nvim-lualine/lualine.nvim',
-        requires = {'kyazdani42/nvim-web-devicons', opt = true}
+        "akinsho/toggleterm.nvim",
+    },
+    {
+        "kdheepak/lazygit.nvim",
+    },
+    {
+        "phaazon/hop.nvim",
+    },
+    {
+        "nvim-lualine/lualine.nvim",
+        requires = {
+            "kyazdani42/nvim-web-devicons",
+            opt = true,
+        },
     },
     {
         -- 'yamatsum/nvim-cursorline'
     },
     {
-        'numToStr/Comment.nvim',
+        "numToStr/Comment.nvim",
     },
     {
-        'glepnir/indent-guides.nvim',
+        "glepnir/indent-guides.nvim",
     },
     {
         -- 'ms-jpq/coq_nvim',
@@ -137,25 +154,28 @@ local plugins = {
         -- commit = '3q'
     },
     {
-        'mfussenegger/nvim-dap'
+        "mfussenegger/nvim-dap",
     },
     {
-        'p00f/nvim-ts-rainbow'
+        "p00f/nvim-ts-rainbow",
     },
     {
-        'simrat39/symbols-outline.nvim'
+        -- 'simrat39/symbols-outline.nvim'
     },
     {
-        'norcalli/nvim-colorizer.lua'
+        "norcalli/nvim-colorizer.lua",
     },
     {
-        'iamcco/markdown-preview.nvim',
-        ft = {'markdown'},
-        run = ':call mkdp#util#install()',
+        "iamcco/markdown-preview.nvim",
+        ft = {
+            "markdown",
+        },
+        run = ":call mkdp#util#install()",
     },
-    --lsp
+    -- lsp
     {
-        'neoclide/coc.nvim', branch = 'release'
+        "neoclide/coc.nvim",
+        branch = "release",
     },
     {
         -- 'neovim/nvim-lspconfig'
@@ -169,11 +189,15 @@ local plugins = {
     },
     -- color SCHEME
     {
-        'dracula/vim',
-        as = 'dracula'
+        "dracula/vim",
+        as = "dracula",
     },
-    {'haystackandroid/strawberry'},
-    {'folke/tokyonight.nvim'},
+    {
+        "haystackandroid/strawberry",
+    },
+    {
+        "folke/tokyonight.nvim",
+    },
 }
 
 return plugins

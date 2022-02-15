@@ -219,11 +219,6 @@ _G.packer_plugins = {
     path = "/home/henry/.local/share/nvim/site/pack/packer/start/strawberry",
     url = "https://github.com/haystackandroid/strawberry"
   },
-  ["symbols-outline.nvim"] = {
-    loaded = true,
-    path = "/home/henry/.local/share/nvim/site/pack/packer/start/symbols-outline.nvim",
-    url = "https://github.com/simrat39/symbols-outline.nvim"
-  },
   ["telescope-media-files.nvim"] = {
     loaded = true,
     path = "/home/henry/.local/share/nvim/site/pack/packer/start/telescope-media-files.nvim",
@@ -243,11 +238,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/henry/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
     url = "https://github.com/folke/tokyonight.nvim"
-  },
-  ["trouble.nvim"] = {
-    loaded = true,
-    path = "/home/henry/.local/share/nvim/site/pack/packer/start/trouble.nvim",
-    url = "https://github.com/folke/trouble.nvim"
   },
   vim = {
     loaded = true,

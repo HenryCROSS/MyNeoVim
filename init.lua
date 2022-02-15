@@ -12,4 +12,3 @@ require("core.keymapping").load()
 
 -- load the general settings
 require("core.config.settings").load_options()
-

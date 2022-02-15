@@ -7,7 +7,8 @@ keymapping.load = function ()
     }
 
     -- esc keymapping
-    -- vim.api.nvim_set_keymap('i', '<C-x>', "<Esc>", opts)
+    vim.api.nvim_set_keymap('n', 'j', "gj", opts)
+    vim.api.nvim_set_keymap('n', 'k', "gk", opts)
 
     -- screen operations
     -- switch screen
