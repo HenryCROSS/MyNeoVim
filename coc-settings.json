@@ -1,4 +1,7 @@
 {
+  "leetcode": {
+    "language": "cpp"
+  },
   "translator": {
     "engines": ["google", "haici"]
   },
