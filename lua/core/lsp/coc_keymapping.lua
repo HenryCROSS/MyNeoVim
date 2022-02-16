@@ -10,6 +10,11 @@ local coc_translate = function ()
 	vim.api.nvim_set_keymap('v', '<Leader>te', '<Plug>(coc-translator-ev)', opts)
 	vim.api.nvim_set_keymap('n', '<Leader>tr', '<Plug>(coc-translator-r)', opts)
 	vim.api.nvim_set_keymap('v', '<Leader>tr', '<Plug>(coc-translator-rv)', opts)
+
+    vim.api.nvim_set_keymap('n', '<Leader>xx', '<cmd>CocList diagnostics<CR>', {silent = true})
+
+    vim.api.nvim_set_keymap('n', '<M-x>', '<cmd>CocList vimcommands<CR>', {silent = true})
+
 end
 
 coc_keymapping.load = function ()

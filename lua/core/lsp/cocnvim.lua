@@ -40,6 +40,7 @@ coc.load =
                 "coc-leetcode"
             }
 
+
         -- GoTo code navigation.
         vim.api.nvim_set_keymap('n', 'gd', '<Plug>(coc-definition)', {silent = true})
         vim.api.nvim_set_keymap('n', 'gy', '<Plug>(coc-type-definition)', {silent = true})
