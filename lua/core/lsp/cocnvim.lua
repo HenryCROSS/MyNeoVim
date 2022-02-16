@@ -1,17 +1,46 @@
 local coc = {};
 
-coc.load = function()
-    --
-    vim.g.coc_global_extensions = {
-        'coc-json', 'coc-git', 'coc-clangd', 'coc-sh', 'coc-cmake', 'coc-css',
-        'coc-html', 'coc-tsserver', 'coc-sumneko-lua', 'coc-markdownlint',
-        'coc-marketplace', 'coc-pyright', 'coc-spell-checker', 'coc-lists',
-        'coc-vimlsp', 'coc-snippets', 'coc-translator', 'coc-syntax', 'coc-omnisharp',
-        'coc-java', 'coc-prettier', 'coc-gitignore', 'coc-diagnostic', 'coc-htmlhint',
-        'coc-html-css-support', 'coc-calc', 'coc-clang-format-style-options', 'coc-tabnine'
-    }
+coc.load =
+    function()
+        --
+        vim.g
+            .coc_global_extensions =
+            {
+                "coc-json",
+                "coc-git",
+                "coc-clangd",
+                "coc-sh",
+                "coc-cmake",
+                "coc-css",
+                "coc-html",
+                "coc-tsserver",
+                "coc-sumneko-lua",
+                "coc-markdownlint",
+                "coc-marketplace",
+                "coc-pyright",
+                "coc-spell-checker",
+                "coc-lists",
+                "coc-vimlsp",
+                "coc-snippets",
+                "coc-translator",
+                "coc-syntax",
+                "coc-omnisharp",
+                "coc-java",
+                "coc-prettier",
+                "coc-gitignore",
+                "coc-diagnostic",
+                "coc-htmlhint",
+                "coc-html-css-support",
+                "coc-calc",
+                "coc-clang-format-style-options",
+                "coc-tabnine",
+                "coc-tasks",
+                "coc-xml",
+                "coc-yaml",
+            }
 
-    vim.cmd([[
+        vim.cmd(
+            [[
     set runtimepath^=.local/share/nvim/site/pack/packer/start/coc.nvim
 
 
@@ -153,9 +182,9 @@ nnoremap <silent><nowait> <space>zj  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>zk  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>zp  :<C-u>CocListResume<CR>
-    ]])
+    ]]
+        )
 
-
-end
+    end
 
 return coc;

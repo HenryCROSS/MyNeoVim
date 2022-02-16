@@ -21,6 +21,12 @@ local plugins = {
         -- requires = { "nvim-lua/plenary.nvim" },
     },
     {
+        "skywind3000/asynctasks.vim",
+    },
+    {
+        "skywind3000/asyncrun.vim",
+    },
+    {
         "luukvbaal/stabilize.nvim",
     },
     {
