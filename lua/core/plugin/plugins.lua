@@ -146,7 +146,7 @@ local plugins = {
         "numToStr/Comment.nvim",
     },
     {
-        "glepnir/indent-guides.nvim",
+        -- "glepnir/indent-guides.nvim",
     },
     {
         -- 'ms-jpq/coq_nvim',
