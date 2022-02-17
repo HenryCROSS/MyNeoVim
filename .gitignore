@@ -1,0 +1,3 @@
+# don't push the generated packer file
+plugin
+plugin/
