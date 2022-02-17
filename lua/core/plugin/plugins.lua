@@ -27,6 +27,9 @@ local plugins = {
         "skywind3000/asyncrun.vim",
     },
     {
+        'Pocco81/AutoSave.nvim'
+    },
+    {
         "luukvbaal/stabilize.nvim",
     },
     {
@@ -62,7 +65,7 @@ local plugins = {
         branch = "stable",
     },
     {
-        -- 'folke/trouble.nvim',
+        'folke/trouble.nvim',
     },
     {
         "SmiteshP/nvim-gps",
@@ -149,15 +152,15 @@ local plugins = {
         -- "glepnir/indent-guides.nvim",
     },
     {
-        -- 'ms-jpq/coq_nvim',
+        'ms-jpq/coq_nvim',
     },
     {
-        -- 'ms-jpq/coq.artifacts',
-        -- commit = 'artifacts'
+        'ms-jpq/coq.artifacts',
+        branch = 'artifacts'
     },
     {
-        -- 'ms-jpq/coq.thirdparty',
-        -- commit = '3q'
+        'ms-jpq/coq.thirdparty',
+        branch = '3q'
     },
     {
         "mfussenegger/nvim-dap",
@@ -180,18 +183,18 @@ local plugins = {
     },
     -- lsp
     {
-        "neoclide/coc.nvim",
-        branch = "release",
+        -- "neoclide/coc.nvim",
+        -- branch = "release",
     },
     {
-        -- 'neovim/nvim-lspconfig'
+        'neovim/nvim-lspconfig'
     },
     {
         -- 与lspconfig配套
-        -- 'williamboman/nvim-lsp-installer',
+        'williamboman/nvim-lsp-installer',
     },
     {
-        -- 'ray-x/lsp_signature.nvim'
+        'ray-x/lsp_signature.nvim'
     },
     -- color SCHEME
     {

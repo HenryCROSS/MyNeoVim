@@ -214,11 +214,6 @@ _G.packer_plugins = {
     path = "/home/henry/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
-  ["stabilize.nvim"] = {
-    loaded = true,
-    path = "/home/henry/.local/share/nvim/site/pack/packer/start/stabilize.nvim",
-    url = "https://github.com/luukvbaal/stabilize.nvim"
-  },
   strawberry = {
     loaded = true,
     path = "/home/henry/.local/share/nvim/site/pack/packer/start/strawberry",
