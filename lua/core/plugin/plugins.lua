@@ -33,9 +33,6 @@ local plugins = {
         "luukvbaal/stabilize.nvim",
     },
     {
-        "Pocco81/AutoSave.nvim",
-    },
-    {
         "gelguy/wilder.nvim",
     },
     {
