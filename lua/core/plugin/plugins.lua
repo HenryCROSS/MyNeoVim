@@ -16,6 +16,10 @@ local plugins = {
         "wbthomason/packer.nvim",
     },
     {
+        'glacambre/firenvim',
+        run = function() vim.fn['firenvim#install'](0) end
+    },
+    {
         -- it has a lot of problems
         -- 'TimUntersberger/neogit',
         -- requires = { "nvim-lua/plenary.nvim" },
