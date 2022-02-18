@@ -41,6 +41,7 @@ keymapping.load = function ()
 
     -- tab operations
 	vim.api.nvim_set_keymap('n', '<Leader>tn', '<cmd>tabnew<cr>', opts)
+	vim.api.nvim_set_keymap('n', '<Leader>tq', '<cmd>tabclose<cr>', opts)
 	vim.api.nvim_set_keymap('n', '<M-n>', '<cmd>tabnext<cr>', opts)
 	vim.api.nvim_set_keymap('n', '<M-p>', '<cmd>tabprevious<cr>', opts)
 end

@@ -66,9 +66,6 @@ local plugins = {
         branch = "stable",
     },
     {
-        'folke/trouble.nvim',
-    },
-    {
         "SmiteshP/nvim-gps",
         requires = "nvim-treesitter/nvim-treesitter",
     },
@@ -153,9 +150,6 @@ local plugins = {
         -- "glepnir/indent-guides.nvim",
     },
     {
-        'ms-jpq/coq_nvim',
-    },
-    {
         'ms-jpq/coq.artifacts',
         branch = 'artifacts'
     },
@@ -196,6 +190,15 @@ local plugins = {
     },
     {
         'ray-x/lsp_signature.nvim'
+    },
+    {
+        "onsails/lspkind-nvim"
+    },
+    {
+        'folke/trouble.nvim',
+    },
+    {
+        'ms-jpq/coq_nvim',
     },
     -- color SCHEME
     {

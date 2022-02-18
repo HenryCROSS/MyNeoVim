@@ -30,6 +30,7 @@ null.load =
                 sources = sources,
             }
         )
+        -- vim.api.nvim_del_keymap("n","<Space>f")
         vim.api
             .nvim_set_keymap(
             "v",
@@ -42,7 +43,7 @@ null.load =
             "n",
             "<Leader>cf",
             ":lua vim.lsp.buf.formatting()<CR>",
-            {}
+            {noremap = true}
         )
     end
 
