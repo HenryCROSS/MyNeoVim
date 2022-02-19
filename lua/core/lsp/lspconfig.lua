@@ -1,6 +1,7 @@
 local lspconfig = {}
 local lspconfig_settings = require('lspconfig')
 
+
 vim.g.coq_settings = {
     auto_start = true,
     keymap = {jump_to_mark = '<c-g>'},
@@ -62,6 +63,12 @@ local servers = require("core.lsp.lsp_servers")
 -- local servers = {'pyright', 'rust_analyzer', 'tsserver', 'sourcekit'}
 
 lspconfig.load = function()
+    require("coq_3p")
+    {
+        { src = "nvimlua", short_name = "nLUA", conf_only = false },
+        { src = "bc", short_name = "MATH", precision = 6 },
+    }
+
     for _, lsp in ipairs(servers) do
         lspconfig_settings[lsp].setup {
             flags = {debounce_text_changes = 150},
@@ -70,11 +77,6 @@ lspconfig.load = function()
         }
     end
 
-    require("coq_3p")
-    {
-        { src = "nvimlua", short_name = "nLUA", conf_only = true },
-        { src = "bc", short_name = "MATH", precision = 6 },
-    }
     -- lspconfig_settings.sourcekit.setup {
     --     coq.lsp_ensure_capabilities {
     --         cmd = {"sourcekit-lsp"},
