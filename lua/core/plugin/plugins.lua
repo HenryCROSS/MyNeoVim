@@ -150,14 +150,6 @@ local plugins = {
         -- "glepnir/indent-guides.nvim",
     },
     {
-        'ms-jpq/coq.artifacts',
-        branch = 'artifacts'
-    },
-    {
-        'ms-jpq/coq.thirdparty',
-        branch = '3q'
-    },
-    {
         "mfussenegger/nvim-dap",
     },
     {
@@ -198,7 +190,65 @@ local plugins = {
         'folke/trouble.nvim',
     },
     {
-        'ms-jpq/coq_nvim',
+        -- 'ms-jpq/coq_nvim',
+        -- branch = 'coq'
+    },
+    {
+        -- 'ms-jpq/coq.artifacts',
+        -- branch = 'artifacts'
+    },
+    {
+        -- 'ms-jpq/coq.thirdparty',
+        -- branch = '3q'
+    },
+    -- cmp
+    {
+        'hrsh7th/cmp-nvim-lsp'
+    },
+    {
+        'hrsh7th/cmp-buffer'
+    },
+    {
+        'hrsh7th/cmp-path'
+    },
+    {
+        'hrsh7th/cmp-cmdline'
+    },
+    {
+        'hrsh7th/nvim-cmp'
+    },
+    {
+        'hrsh7th/cmp-vsnip'
+    },
+    {
+        'hrsh7th/vim-vsnip'
+    },
+    {
+        'hrsh7th/vim-vsnip-integ'
+    },
+    {
+        'L3MON4D3/LuaSnip'
+    },
+    {
+        'saadparwaiz1/cmp_luasnip'
+    },
+    {
+        'SirVer/ultisnips'
+    },
+    {
+        'quangnguyen30192/cmp-nvim-ultisnips'
+    },
+    {
+        'dcampos/nvim-snippy'
+    },
+    {
+        'dcampos/cmp-snippy'
+    },
+    {
+        "hrsh7th/cmp-nvim-lua"
+    },
+    {
+        "rafamadriz/friendly-snippets"
     },
     -- color SCHEME
     {

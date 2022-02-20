@@ -2,6 +2,7 @@ local mini = {}
 local surround_settings = require("mini.surround")
 local cursorword_settings = require("mini.cursorword")
 local indentscope_settings = require("mini.indentscope")
+local pairs_settings = require("mini.pairs")
 
 mini.load = function()
     surround_settings.setup {
@@ -75,6 +76,32 @@ mini.load = function()
           symbol = '|',
         }
     }
+
+    -- pairs_settings.setup{
+    --     -- In which modes mappings from this `config` should be created
+    --       modes = { insert = true, command = false, terminal = false },
+    --
+    --       -- Global mappings. Each right hand side should be a pair information, a
+    --       -- table with at least these fields (see more in |MiniPairs.map|):
+    --       -- - <action> - one of 'open', 'close', 'closeopen'.
+    --       -- - <pair> - two character string for pair to be used.
+    --       -- By default pair is not inserted after `\`, quotes are not recognized by
+    --       -- `<CR>`, `'` does not insert pair after a letter.
+    --       -- Only parts of tables can be tweaked (others will use these defaults).
+    --       mappings = {
+    --         ['('] = { action = 'open', pair = '()', neigh_pattern = '[^\\].' },
+    --         ['['] = { action = 'open', pair = '[]', neigh_pattern = '[^\\].' },
+    --         ['{'] = { action = 'open', pair = '{}', neigh_pattern = '[^\\].' },
+    --
+    --         [')'] = { action = 'close', pair = '()', neigh_pattern = '[^\\].' },
+    --         [']'] = { action = 'close', pair = '[]', neigh_pattern = '[^\\].' },
+    --         ['}'] = { action = 'close', pair = '{}', neigh_pattern = '[^\\].' },
+    --
+    --         ['"'] = { action = 'closeopen', pair = '""', neigh_pattern = '[^\\].', register = { cr = false } },
+    --         ["'"] = { action = 'closeopen', pair = "''", neigh_pattern = '[^%a\\].', register = { cr = false } },
+    --         ['`'] = { action = 'closeopen', pair = '``', neigh_pattern = '[^\\].', register = { cr = false } },
+    --       },
+    -- }
 end
 
 return mini
