@@ -18,20 +18,44 @@ M.load = function()
         }
     end
 
-    -- luasnip setup
-    local luasnip = require 'luasnip'
+    vim.cmd([[
+    " gray
+    highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080
+    " blue
+    highlight! CmpItemAbbrMatch guibg=NONE guifg=#569CD6
+    highlight! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#569CD6
+    " light blue
+    highlight! CmpItemKindVariable guibg=NONE guifg=#9CDCFE
+    highlight! CmpItemKindInterface guibg=NONE guifg=#9CDCFE
+    highlight! CmpItemKindText guibg=NONE guifg=#9CDCFE
+    " pink
+    highlight! CmpItemKindFunction guibg=NONE guifg=#C586C0
+    highlight! CmpItemKindMethod guibg=NONE guifg=#C586C0
+    " front
+    highlight! CmpItemKindKeyword guibg=NONE guifg=#D4D4D4
+    highlight! CmpItemKindProperty guibg=NONE guifg=#D4D4D4
+    highlight! CmpItemKindUnit guibg=NONE guifg=#D4D4D4
+    ]])
 
+    -- general snippet setup
     local has_words_before = function()
         local line, col = unpack(vim.api.nvim_win_get_cursor(0))
         return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
     end
 
+    -- luasnip setup
+    local luasnip = require 'luasnip'
+    require("luasnip.loaders.from_vscode").lazy_load()
+    require("luasnip.loaders.from_snipmate").lazy_load()
+
+    -- vsnip setup
     local feedkey = function(key, mode)
         vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
     end
 
     -- nvim-cmp setup
     local cmp = require 'cmp'
+    -- loading friendly-snippets
     local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 
     cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
@@ -53,8 +77,8 @@ M.load = function()
         },
         snippet = {
             expand = function(args)
-                vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-                -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+                -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+                require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
                 -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
                 -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
             end,
@@ -73,33 +97,39 @@ M.load = function()
             ["<Tab>"] = cmp.mapping(function(fallback)
                 if cmp.visible() then
                     cmp.select_next_item()
-                elseif vim.fn["vsnip#available"](1) == 1 then
-                    feedkey("<Plug>(vsnip-expand-or-jump)", "")
+                elseif luasnip.expand_or_jumpable() then
+                    luasnip.expand_or_jump()
                 elseif has_words_before() then
                     cmp.complete()
                 else
-                    fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
+                    fallback()
                 end
             end, { "i", "s" }),
 
-            ["<S-Tab>"] = cmp.mapping(function()
+            ["<S-Tab>"] = cmp.mapping(function(fallback)
                 if cmp.visible() then
                     cmp.select_prev_item()
-                elseif vim.fn["vsnip#jumpable"](-1) == 1 then
-                    feedkey("<Plug>(vsnip-jump-prev)", "")
+                elseif luasnip.jumpable(-1) then
+                    luasnip.jump(-1)
+                else
+                    fallback()
                 end
             end, { "i", "s" }),
         },
         sources = {
-            { name = 'nvim_lsp' },
-            -- { name = 'luasnip' },
-            { name = 'vsnip' },
-            -- { name = 'ultisnips' },
-            -- { name = 'snippy' },
+            { name = 'nvim_lsp', keyword_length = 1 },
+            { name = 'luasnip', keyword_length = 1 },
+            -- { name = 'vsnip', keyword_length = 1 },
+            -- { name = 'ultisnips', keyword_length = 1 },
+            -- { name = 'snippy', keyword_length = 1 },
             { name = 'buffer', keyword_length = 5 },
-            { name = 'nvim_lua' },
-            { name = 'path' },
+            { name = 'nvim_lua', keyword_length = 1 },
+            { name = 'path', keyword_length = 1 },
         },
+        experimental = {
+            native_menu = false,
+            ghost_text = true,
+        }
     }
 end
 

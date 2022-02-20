@@ -119,25 +119,10 @@ _G.packer_plugins = {
     path = "/home/henry/.local/share/nvim/site/pack/packer/start/cmp-nvim-lua",
     url = "https://github.com/hrsh7th/cmp-nvim-lua"
   },
-  ["cmp-nvim-ultisnips"] = {
-    loaded = true,
-    path = "/home/henry/.local/share/nvim/site/pack/packer/start/cmp-nvim-ultisnips",
-    url = "https://github.com/quangnguyen30192/cmp-nvim-ultisnips"
-  },
   ["cmp-path"] = {
     loaded = true,
     path = "/home/henry/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
-  },
-  ["cmp-snippy"] = {
-    loaded = true,
-    path = "/home/henry/.local/share/nvim/site/pack/packer/start/cmp-snippy",
-    url = "https://github.com/dcampos/cmp-snippy"
-  },
-  ["cmp-vsnip"] = {
-    loaded = true,
-    path = "/home/henry/.local/share/nvim/site/pack/packer/start/cmp-vsnip",
-    url = "https://github.com/hrsh7th/cmp-vsnip"
   },
   cmp_luasnip = {
     loaded = true,
@@ -259,11 +244,6 @@ _G.packer_plugins = {
     path = "/home/henry/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
-  ["nvim-snippy"] = {
-    loaded = true,
-    path = "/home/henry/.local/share/nvim/site/pack/packer/start/nvim-snippy",
-    url = "https://github.com/dcampos/nvim-snippy"
-  },
   ["nvim-tree.lua"] = {
     loaded = true,
     path = "/home/henry/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
@@ -319,6 +299,11 @@ _G.packer_plugins = {
     path = "/home/henry/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  tlib_vim = {
+    loaded = true,
+    path = "/home/henry/.local/share/nvim/site/pack/packer/start/tlib_vim",
+    url = "https://github.com/tomtom/tlib_vim"
+  },
   ["toggleterm.nvim"] = {
     loaded = true,
     path = "/home/henry/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
@@ -334,25 +319,25 @@ _G.packer_plugins = {
     path = "/home/henry/.local/share/nvim/site/pack/packer/start/trouble.nvim",
     url = "https://github.com/folke/trouble.nvim"
   },
-  ultisnips = {
-    loaded = true,
-    path = "/home/henry/.local/share/nvim/site/pack/packer/start/ultisnips",
-    url = "https://github.com/SirVer/ultisnips"
-  },
   vim = {
     loaded = true,
     path = "/home/henry/.local/share/nvim/site/pack/packer/start/vim",
     url = "https://github.com/dracula/vim"
   },
-  ["vim-vsnip"] = {
+  ["vim-addon-mw-utils"] = {
     loaded = true,
-    path = "/home/henry/.local/share/nvim/site/pack/packer/start/vim-vsnip",
-    url = "https://github.com/hrsh7th/vim-vsnip"
+    path = "/home/henry/.local/share/nvim/site/pack/packer/start/vim-addon-mw-utils",
+    url = "https://github.com/MarcWeber/vim-addon-mw-utils"
   },
-  ["vim-vsnip-integ"] = {
+  ["vim-snipmate"] = {
     loaded = true,
-    path = "/home/henry/.local/share/nvim/site/pack/packer/start/vim-vsnip-integ",
-    url = "https://github.com/hrsh7th/vim-vsnip-integ"
+    path = "/home/henry/.local/share/nvim/site/pack/packer/start/vim-snipmate",
+    url = "https://github.com/garbas/vim-snipmate"
+  },
+  ["vim-snippets"] = {
+    loaded = true,
+    path = "/home/henry/.local/share/nvim/site/pack/packer/start/vim-snippets",
+    url = "https://github.com/honza/vim-snippets"
   },
   ["which-key.nvim"] = {
     loaded = true,

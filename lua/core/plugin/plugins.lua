@@ -218,37 +218,50 @@ local plugins = {
         'hrsh7th/nvim-cmp'
     },
     {
-        'hrsh7th/cmp-vsnip'
+        -- 'hrsh7th/cmp-vsnip'
     },
     {
-        'hrsh7th/vim-vsnip'
+        -- 'hrsh7th/vim-vsnip'
     },
     {
-        'hrsh7th/vim-vsnip-integ'
-    },
-    {
-        'L3MON4D3/LuaSnip'
+        -- 'hrsh7th/vim-vsnip-integ'
     },
     {
         'saadparwaiz1/cmp_luasnip'
     },
     {
-        'SirVer/ultisnips'
+        -- 'SirVer/ultisnips'
     },
     {
-        'quangnguyen30192/cmp-nvim-ultisnips'
+        -- 'quangnguyen30192/cmp-nvim-ultisnips'
     },
     {
-        'dcampos/nvim-snippy'
+        -- 'dcampos/nvim-snippy'
     },
     {
-        'dcampos/cmp-snippy'
+        -- 'dcampos/cmp-snippy'
     },
     {
         "hrsh7th/cmp-nvim-lua"
     },
+    -- snippets
     {
         "rafamadriz/friendly-snippets"
+    },
+    {
+        "L3MON4D3/LuaSnip"
+    },
+    {
+        'MarcWeber/vim-addon-mw-utils'
+    },
+    {
+        'tomtom/tlib_vim'
+    },
+    {
+        'garbas/vim-snipmate'
+    },
+    {
+        "honza/vim-snippets"
     },
     -- color SCHEME
     {
