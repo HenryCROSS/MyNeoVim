@@ -1,6 +1,8 @@
 local server_list = {
     -- server list
-    'clangd', 'pyright', 'sumneko_lua', 'bashls', 'ltex'
+    'clangd', 'pyright', 'sumneko_lua', 'bashls', 'ltex', 'ccls', 'omnisharp',
+    'tsserver', 'jdtls', 'jsonls', 'html', 'cmake', 'cssls', 'rust_analyzer',
+    'powershell_es', 'sqls'
 }
 
 -- for multiple configs

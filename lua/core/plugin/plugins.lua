@@ -20,6 +20,9 @@ local plugins = {
         run = function() vim.fn['firenvim#install'](0) end
     },
     {
+        'voldikss/vim-translator'
+    },
+    {
         -- it has a lot of problems
         -- 'TimUntersberger/neogit',
         -- requires = { "nvim-lua/plenary.nvim" },
