@@ -139,6 +139,11 @@ _G.packer_plugins = {
     path = "/home/henry/.local/share/nvim/site/pack/packer/start/fd",
     url = "https://github.com/sharkdp/fd"
   },
+  ["fidget.nvim"] = {
+    loaded = true,
+    path = "/home/henry/.local/share/nvim/site/pack/packer/start/fidget.nvim",
+    url = "https://github.com/j-hui/fidget.nvim"
+  },
   firenvim = {
     loaded = true,
     path = "/home/henry/.local/share/nvim/site/pack/packer/start/firenvim",
@@ -168,6 +173,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/henry/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
+  },
+  ["goto-preview"] = {
+    loaded = true,
+    path = "/home/henry/.local/share/nvim/site/pack/packer/start/goto-preview",
+    url = "https://github.com/rmagatti/goto-preview"
   },
   ["hop.nvim"] = {
     loaded = true,

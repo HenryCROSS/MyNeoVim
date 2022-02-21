@@ -173,6 +173,12 @@ local plugins = {
     },
     -- lsp
     {
+        'j-hui/fidget.nvim'
+    },
+    {
+        "rmagatti/goto-preview"
+    },
+    {
         -- "neoclide/coc.nvim",
         -- branch = "release",
     },

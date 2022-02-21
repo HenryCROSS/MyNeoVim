@@ -16,6 +16,7 @@ keymapping.load = function ()
 	vim.api.nvim_set_keymap('n', '<Leader>wl', '<C-w>l', opts)
 	vim.api.nvim_set_keymap('n', '<Leader>wj', '<C-w>j', opts)
 	vim.api.nvim_set_keymap('n', '<Leader>wk', '<C-w>k', opts)
+	vim.api.nvim_set_keymap('n', '<Leader>wf', '<C-w><C-w>', opts)
 
     -- split screen
 	vim.api.nvim_set_keymap('n', '<Leader>ws', ':sp<CR>', opts)
