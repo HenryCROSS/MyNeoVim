@@ -159,7 +159,7 @@ local plugins = {
         "p00f/nvim-ts-rainbow",
     },
     {
-        -- 'simrat39/symbols-outline.nvim'
+        'simrat39/symbols-outline.nvim'
     },
     {
         "norcalli/nvim-colorizer.lua",

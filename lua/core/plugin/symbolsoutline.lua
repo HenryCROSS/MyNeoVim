@@ -11,7 +11,7 @@ symbols_outline.load = function ()
         auto_preview = true,
         position = 'right',
         relative_width = true,
-        width = 30,
+        width = 40,
         auto_close = false,
         show_numbers = false,
         show_relative_numbers = false,
@@ -58,5 +58,7 @@ symbols_outline.load = function ()
     }
 }
 end
+
+
 
 return symbols_outline

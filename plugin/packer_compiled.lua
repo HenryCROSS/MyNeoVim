@@ -299,6 +299,11 @@ _G.packer_plugins = {
     path = "/home/henry/.local/share/nvim/site/pack/packer/start/strawberry",
     url = "https://github.com/haystackandroid/strawberry"
   },
+  ["symbols-outline.nvim"] = {
+    loaded = true,
+    path = "/home/henry/.local/share/nvim/site/pack/packer/start/symbols-outline.nvim",
+    url = "https://github.com/simrat39/symbols-outline.nvim"
+  },
   ["telescope-media-files.nvim"] = {
     loaded = true,
     path = "/home/henry/.local/share/nvim/site/pack/packer/start/telescope-media-files.nvim",
