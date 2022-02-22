@@ -32,6 +32,7 @@ function plugin_settings.load()
     require("core.plugin.hop").load()
     require("core.plugin.nullls").load()
     require("core.plugin.autopairs").load()
+    -- require("core.plugin.smartpairs").load()
     require("core.plugin.mini").load()
     require("core.plugin.telescope").load()
     require("core.plugin.markdownpreview").load()
@@ -40,6 +41,7 @@ function plugin_settings.load()
     -- require("core.lsp.cocnvim").load()
     require("core.plugin.venn").load()
     require("core.plugin.neorg").load()
+    require("core.plugin.rainbow").load()
 end
 
 return plugin_settings

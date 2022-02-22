@@ -9,7 +9,7 @@ function autopairs_settings.load()
         -- map_bs=false, map_cr=false,
         -- 启用treesitter
         check_ts = true,
-        -- enable_check_bracket_line = true,
+        enable_check_bracket_line = false,
     }
 
     -- press % => %% only while inside a comment or string

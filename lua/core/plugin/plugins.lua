@@ -82,6 +82,10 @@ local plugins = {
         "windwp/nvim-autopairs",
     },
     {
+        -- 'ZhiyuanLck/smart-pairs',
+        -- event = 'InsertEnter'
+    },
+    {
         "seandewar/nvimesweeper",
     },
     {
@@ -118,6 +122,9 @@ local plugins = {
         -- NOTE: you need to set other vim.g let g: nvim_tree variables BEFORE
         -- calling the setup if you want everything to work as expected :)
         -- config = function() require'nvim-tree'.setup {} end
+    },
+    {
+        "sheerun/vim-polyglot"
     },
     {
         "folke/which-key.nvim",
@@ -162,6 +169,10 @@ local plugins = {
     },
     {
         "p00f/nvim-ts-rainbow",
+    },
+    {
+        -- 对上面的补全
+        'luochen1990/rainbow'
     },
     {
         'simrat39/symbols-outline.nvim'

@@ -1,6 +1,6 @@
 local server_list = {
     -- server list
-    'clangd', 'pyright', 'sumneko_lua', 'bashls', 'ltex', 'ccls', 'omnisharp',
+    'clangd', 'pyright', 'sumneko_lua', 'bashls', 'ltex', 'omnisharp',
     'tsserver', 'jdtls', 'jsonls', 'html', 'cmake', 'cssls', 'rust_analyzer',
     'powershell_es', 'sqls', 'racket_langserver'
 }
@@ -20,3 +20,4 @@ server_list.load = function(server)
 end
 
 return server_list
+

@@ -299,6 +299,16 @@ _G.packer_plugins = {
     path = "/home/henry/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
+  rainbow = {
+    loaded = true,
+    path = "/home/henry/.local/share/nvim/site/pack/packer/start/rainbow",
+    url = "https://github.com/luochen1990/rainbow"
+  },
+  ["smart-pairs"] = {
+    loaded = true,
+    path = "/home/henry/.local/share/nvim/site/pack/packer/start/smart-pairs",
+    url = "https://github.com/ZhiyuanLck/smart-pairs"
+  },
   ["stabilize.nvim"] = {
     loaded = true,
     path = "/home/henry/.local/share/nvim/site/pack/packer/start/stabilize.nvim",
@@ -358,6 +368,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/henry/.local/share/nvim/site/pack/packer/start/vim-addon-mw-utils",
     url = "https://github.com/MarcWeber/vim-addon-mw-utils"
+  },
+  ["vim-polyglot"] = {
+    loaded = true,
+    path = "/home/henry/.local/share/nvim/site/pack/packer/start/vim-polyglot",
+    url = "https://github.com/sheerun/vim-polyglot"
   },
   ["vim-snipmate"] = {
     loaded = true,
