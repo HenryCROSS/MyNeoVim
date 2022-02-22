@@ -2,7 +2,7 @@ local plugin_settings = {}
 
 function plugin_settings.load()
     -- dracula
-    vim.cmd [[colorscheme tokyonight]]
+    vim.cmd [[colorscheme kanagawa]]
     --vim.cmd [[colorscheme strawberry-light]]
     --
 
@@ -38,6 +38,8 @@ function plugin_settings.load()
     require("core.plugin.stabilize").load()
     require("core.plugin.vimtranslator").load()
     -- require("core.lsp.cocnvim").load()
+    require("core.plugin.venn").load()
+    require("core.plugin.neorg").load()
 end
 
 return plugin_settings

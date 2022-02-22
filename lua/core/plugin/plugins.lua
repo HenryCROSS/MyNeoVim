@@ -2,14 +2,12 @@
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
 
-vim.cmd(
-    [[
+vim.cmd([[
 augroup packer_user_config
 autocmd!
 autocmd BufWritePost plugins.lua source <afile> | PackerCompile
 augroup end
-]]
-)
+]])
 
 local plugins = {
     {
@@ -26,6 +24,13 @@ local plugins = {
         -- it has a lot of problems
         -- 'TimUntersberger/neogit',
         -- requires = { "nvim-lua/plenary.nvim" },
+    },
+    {
+        "nvim-neorg/neorg",
+    },
+    {
+        -- graph drawing
+        'jbyuki/venn.nvim'
     },
     {
         "skywind3000/asynctasks.vim",
@@ -282,6 +287,9 @@ local plugins = {
     },
     {
         "folke/tokyonight.nvim",
+    },
+    {
+        "rebelot/kanagawa.nvim"
     },
 }
 
