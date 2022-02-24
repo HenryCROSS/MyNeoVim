@@ -304,11 +304,6 @@ _G.packer_plugins = {
     path = "/home/henry/.local/share/nvim/site/pack/packer/start/rainbow",
     url = "https://github.com/luochen1990/rainbow"
   },
-  ["smart-pairs"] = {
-    loaded = true,
-    path = "/home/henry/.local/share/nvim/site/pack/packer/start/smart-pairs",
-    url = "https://github.com/ZhiyuanLck/smart-pairs"
-  },
   ["stabilize.nvim"] = {
     loaded = true,
     path = "/home/henry/.local/share/nvim/site/pack/packer/start/stabilize.nvim",
