@@ -2,7 +2,7 @@ local server_list = {
     -- server list
     'clangd', 'pyright', 'sumneko_lua', 'bashls', 'ltex', 'omnisharp',
     'tsserver', 'jdtls', 'jsonls', 'html', 'cmake', 'cssls', 'rust_analyzer',
-    'powershell_es', 'sqls', 'racket_langserver'
+    'powershell_es', 'sqls', 'racket_langserver', 'grammarly'
 }
 
 -- for multiple configs
