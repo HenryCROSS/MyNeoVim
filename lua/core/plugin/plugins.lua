@@ -159,6 +159,9 @@ local plugins = {
         -- 'yamatsum/nvim-cursorline'
     },
     {
+        "RRethy/vim-illuminate"
+    },
+    {
         "numToStr/Comment.nvim",
     },
     {

@@ -364,6 +364,11 @@ _G.packer_plugins = {
     path = "/home/henry/.local/share/nvim/site/pack/packer/start/vim-addon-mw-utils",
     url = "https://github.com/MarcWeber/vim-addon-mw-utils"
   },
+  ["vim-illuminate"] = {
+    loaded = true,
+    path = "/home/henry/.local/share/nvim/site/pack/packer/start/vim-illuminate",
+    url = "https://github.com/RRethy/vim-illuminate"
+  },
   ["vim-polyglot"] = {
     loaded = true,
     path = "/home/henry/.local/share/nvim/site/pack/packer/start/vim-polyglot",
