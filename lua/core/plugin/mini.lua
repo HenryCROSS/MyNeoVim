@@ -1,6 +1,6 @@
 local mini = {}
 local surround_settings = require("mini.surround")
--- local cursorword_settings = require("mini.cursorword")
+local cursorword_settings = require("mini.cursorword")
 local indentscope_settings = require("mini.indentscope")
 local pairs_settings = require("mini.pairs")
 
@@ -27,9 +27,9 @@ mini.load = function()
             update_n_lines = '<Leader>mn' -- Update `n_lines`
         }
     }
-    -- cursorword_settings.setup {
-    --     delay = 0;
-    -- }
+    cursorword_settings.setup {
+        delay = 0;
+    }
     indentscope_settings.setup{
         {
           draw = {
