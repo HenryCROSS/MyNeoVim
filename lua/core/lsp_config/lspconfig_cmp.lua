@@ -1,4 +1,5 @@
 local M = {}
+local servers = require('core.lsp_config.lsp_servers')
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -62,6 +63,7 @@ M.load = function()
     nvimlspinstaller_settings.on_server_ready(function(server)
         local opts = {
             on_attach = on_attach,
+            capabilities = capabilities,
         }
         server:setup(opts)
         vim.cmd([[ do User LspAttach Buffers ]])
@@ -69,10 +71,9 @@ M.load = function()
 
     -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
     -- local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver' }
-    local servers = require('core.lsp.lsp_servers')
     for _, lsp in ipairs(servers) do
         lspconfig[lsp].setup {
-            flags = {debounce_text_changes = 150},
+            -- flags = {debounce_text_changes = 150},
             on_attach = on_attach,
             capabilities = capabilities,
         }

@@ -1,6 +1,6 @@
 local nvimlspinstaller = {}
 local nvimlspinstaller_settings = require("nvim-lsp-installer")
-local servers = require("core.lsp.lsp_servers")
+local servers = require("core.lsp_config.lsp_servers")
 
 nvimlspinstaller_settings.settings({
     ui = {

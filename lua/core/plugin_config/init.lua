@@ -1,11 +1,11 @@
 -- the list of plugin configs
 return {
     "core.plugin_config.packer",
-    "core.lsp.nvimlspinstaller",
-    "core.lsp.lspconfig_cmp",
-    "core.lsp.lsp_signature",
-    "core.lsp.fidget",
-    "core.lsp.goto_preview",
+    -- "core.lsp.nvimlspinstaller",
+    -- "core.lsp.lspconfig_cmp",
+    -- "core.lsp.lsp_signature",
+    -- "core.lsp.fidget",
+    -- "core.lsp.goto_preview",
     "core.plugin_config.treesitter",
     "core.plugin_config.dashboard",
     "core.plugin_config.nvimtree",
