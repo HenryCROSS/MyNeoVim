@@ -18,9 +18,6 @@ local on_attach = function(client, bufnr)
 
     -- vim-illuminate
     require('illuminate').on_attach(client)
-    vim.api.nvim_command [[ hi def link LspReferenceText CursorLine ]]
-    vim.api.nvim_command [[ hi def link LspReferenceWrite CursorLine ]]
-    vim.api.nvim_command [[ hi def link LspReferenceRead CursorLine ]]
 
     -- See `:help vim.lsp.*` for documentation on any of the below functions
     buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
@@ -61,6 +58,15 @@ M.load = function()
     local lspconfig = require('lspconfig')
     local lspkind = require('lspkind')
 
+    local nvimlspinstaller_settings = require("nvim-lsp-installer")
+    nvimlspinstaller_settings.on_server_ready(function(server)
+        local opts = {
+            on_attach = on_attach,
+        }
+        server:setup(opts)
+        vim.cmd([[ do User LspAttach Buffers ]])
+    end)
+
     -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
     -- local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver' }
     local servers = require('core.lsp.lsp_servers')
@@ -71,6 +77,10 @@ M.load = function()
             capabilities = capabilities,
         }
     end
+
+    -- vim.api.nvim_command [[ hi def link LspReferenceText CursorLine ]]
+    -- vim.api.nvim_command [[ hi def link LspReferenceWrite CursorLine ]]
+    -- vim.api.nvim_command [[ hi def link LspReferenceRead CursorLine ]]
 
     vim.cmd([[
     " gray

@@ -12,11 +12,11 @@ nvimlspinstaller_settings.settings({
     }
 })
 
-nvimlspinstaller_settings.on_server_ready(function(server)
-    local opts = { }
-    server:setup(opts)
-    vim.cmd([[ do User LspAttach Buffers ]])
-end)
+-- nvimlspinstaller_settings.on_server_ready(function(server)
+--     local opts = { }
+--     server:setup(opts)
+--     vim.cmd([[ do User LspAttach Buffers ]])
+-- end)
 
 nvimlspinstaller.load = function ()
     for _, name in pairs(servers) do
