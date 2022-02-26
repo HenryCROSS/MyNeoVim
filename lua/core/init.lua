@@ -4,6 +4,7 @@ local plugin_config_list = require("core.plugin_config")
 local lsp_config_list = require("core.lsp_config")
 
 M.load = function ()
+    require("core.theme").load()
     -- load keymapping
     require("core.keymapping").load()
 

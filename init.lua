@@ -16,4 +16,5 @@
 -- -- load test plugins
 -- require("test").load()
 
+require("global").load()
 require("core").load()

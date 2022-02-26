@@ -1,5 +1,5 @@
 local _, packer = pcall(require, "packer")
-local logger = require("libs.Lib_Log")
+local logger = builtin_lib.log
 
 local M = {}
 
@@ -12,26 +12,18 @@ function M.packer_install(plugin_arr)
         end)
     end, debug.traceback)
 
-    if not status_ok then print("ERROR") end
+if not status_ok then print("ERROR") end
 end
 
 function M.plugins_load(loading_list)
-    -- dracula
-    vim.cmd [[colorscheme kanagawa]]
-    -- vim.cmd [[colorscheme strawberry-light]]
-    --
-
     for _, v in ipairs(loading_list) do
-        -- local ok, mod = pcall(require, v)
-        -- if not ok then
-        --     logger.LogMsg(logger.LEVELS[2], v, "The plugin is not loaded")
-        -- else
-        --     mod.load()
-        -- end
-        local ok, _ = xpcall(function() require(v).load() end,
-                                debug.traceback)
+        local ok, _ = xpcall(function()
+                require(v).load()
+            end,
+            debug.traceback
+        )
         if not ok then
-            logger.LogMsg(logger.LEVELS[2], v, "The plugin is not loaded")
+            logger.LogMsg(logger.LEVELS[4], v, "The plugin is not loaded")
         end
     end
 end
