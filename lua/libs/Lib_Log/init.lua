@@ -2,23 +2,12 @@
 	This lib is the log system of our config
 ]]
 
+local M = {}
 -- import components
-local LogLevels = require("libs.Lib_Log.logLevel")
+M.LEVELS = require("libs.Lib_Log.logLevel")
 
-local Log = {}
-
-function Log:Init()
-
+M.LogMsg = function(level, file, msg)
+	print("[", level, "] File: ", file, " Msg: ", msg)
 end
 
-function Log:LogMsg(level, msg)
-
-end
-
-function Log:EmergencyLog()
-
-end
-
-setmetatable({}, Log)
-
-return Log
+return M

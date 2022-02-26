@@ -1,4 +1,4 @@
-LogLevels = {
+return  {
 	"EMERGENCY",
 	"ALERT",
 	"CRITICAL",
