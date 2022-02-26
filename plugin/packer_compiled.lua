@@ -364,6 +364,11 @@ _G.packer_plugins = {
     path = "/home/henry/.local/share/nvim/site/pack/packer/start/vim-addon-mw-utils",
     url = "https://github.com/MarcWeber/vim-addon-mw-utils"
   },
+  ["vim-carbon-now-sh"] = {
+    loaded = true,
+    path = "/home/henry/.local/share/nvim/site/pack/packer/start/vim-carbon-now-sh",
+    url = "https://github.com/kristijanhusak/vim-carbon-now-sh"
+  },
   ["vim-illuminate"] = {
     loaded = true,
     path = "/home/henry/.local/share/nvim/site/pack/packer/start/vim-illuminate",

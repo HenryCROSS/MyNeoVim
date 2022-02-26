@@ -37,4 +37,5 @@ return {
     "core.plugin_config.venn",
     "core.plugin_config.neorg",
     "core.plugin_config.rainbow",
+    "core.plugin_config.vimcarbonnowsh"
 }

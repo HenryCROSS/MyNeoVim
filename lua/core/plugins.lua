@@ -14,6 +14,9 @@ local plugins = {
         "wbthomason/packer.nvim",
     },
     {
+        "kristijanhusak/vim-carbon-now-sh"
+    },
+    {
         'glacambre/firenvim',
         run = function() vim.fn['firenvim#install'](0) end
     },
