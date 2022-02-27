@@ -16,7 +16,7 @@ if not status_ok then print("ERROR") end
 end
 
 function M.plugins_load(loading_list)
-    for _, v in ipairs(loading_list) do
+    for _, v in pairs(loading_list) do
         local ok, _ = xpcall(function()
                 require(v).load()
             end,
@@ -29,15 +29,16 @@ function M.plugins_load(loading_list)
 end
 
 -- it will return a list of plugin from the specified directory in core directory
-function M.search_configs(folder_name)
+function M.search_configs(folder_name, exceptions)
+    exceptions = exceptions or {}
     local dir = builtin_lib.fio.get_config_path() .. "/lua/core/" .. folder_name
     local plugin_list = builtin_lib.fio.get_file_from_dir(dir)
     local plugin_table = {}
 
-    for _, value in ipairs(plugin_list) do
+    for _, value in pairs(plugin_list) do
         if not string.match(value.file_name, ".lua$") and value.type == "file" then
             -- not add to table
-        elseif string.match(value.file_name, "init.lua") then
+        elseif exceptions[value.file_name] then
             -- not add to table
         else
             if value.type == "file" then
@@ -47,7 +48,7 @@ function M.search_configs(folder_name)
             table.insert(plugin_table, file)
         end
     end
-    return plugin_list
+    return plugin_table
 end
 
 return M
