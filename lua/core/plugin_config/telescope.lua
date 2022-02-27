@@ -3,8 +3,12 @@ local telescope_settings = require('telescope')
 
 telescope.load = function()
     telescope_settings.load_extension('media_files')
-    telescope_settings.load_extension('frecency')
-    telescope_settings.load_extension('fzf')
+
+    -- it is very annoying to setup these in Windows, fuck it
+    if vim.loop.os_uname().sysname ~= "Windows_NT" then
+        telescope_settings.load_extension('frecency')
+        telescope_settings.load_extension('fzf')
+    end
 
     telescope_settings.setup {
         mappings = {
