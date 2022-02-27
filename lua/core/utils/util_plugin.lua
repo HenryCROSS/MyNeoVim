@@ -51,4 +51,13 @@ function M.search_configs(folder_name, exceptions)
     return plugin_table
 end
 
+function M.ignore_configs(t)
+    local result = {}
+    for _, value in pairs(t) do
+        result[value] = 1;
+    end
+
+    return result
+end
+
 return M

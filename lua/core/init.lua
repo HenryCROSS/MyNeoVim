@@ -2,14 +2,14 @@ local M = {}
 local utils = require("core.utils").util_plugin()
 -- local plugin_config_list = require("core.plugin_config")
 -- local lsp_config_list = require("core.lsp_config")
-local plugin_config_exceptions = {
-    ["init.lua"]=1,
+local plugin_config_exceptions = utils.ignore_configs{
+    "init.lua",
 }
 
-local lsp_config_exceptions = {
-    ["init.lua"]=1,
-    ["lspconfig_coq.lua"]=1,
-    ["lsp_servers.lua"]=1
+local lsp_config_exceptions = utils.ignore_configs{
+    "init.lua",
+    "lspconfig_coq.lua",
+    "lsp_servers.lua"
 }
 
 M.load = function ()
