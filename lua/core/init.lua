@@ -4,6 +4,11 @@ local utils = require("core.utils").util_plugin()
 -- local lsp_config_list = require("core.lsp_config")
 local plugin_config_exceptions = utils.ignore_configs{
     "init.lua",
+    (function ()
+        if vim.loop.os_uname().sysname == "Windows_NT" then
+            return "toggleterm.lua"
+        end
+    end)(),
 }
 
 local lsp_config_exceptions = utils.ignore_configs{
