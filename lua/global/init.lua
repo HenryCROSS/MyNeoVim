@@ -11,10 +11,13 @@ _G.api_fn = {
     get_gkm = vim.api.nvim_get_keymap,
     -- vim.api.nvim_del_keymap()
     del_gkm = vim.api.nvim_del_keymap,
+    -- vim.api.nvim_exec()
+    vtl_exec = vim.api.nvim_exec,
 }
 
 _G.builtin_lib = {
-    log = require('libs.Lib_Log')
+    log = require('libs.Lib_Log'),
+    fio = require('libs.Lib_Fio')
 }
 
 end

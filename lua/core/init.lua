@@ -10,8 +10,11 @@ M.load = function ()
 
     utils.plugins_load(plugin_config_list)
     utils.plugins_load(lsp_config_list)
+    -- utils.plugins_load(utils.search_configs("plugin_config"))
+    -- utils.plugins_load(utils.search_configs("lsp_config"))
     utils.packer_install(require("core.plugins"))
 
+    utils.search_configs("lsp_config")
     -- load the general settings
     require("core.nvim_config.settings").load_options()
 end

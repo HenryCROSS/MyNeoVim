@@ -28,4 +28,26 @@ function M.plugins_load(loading_list)
     end
 end
 
+-- it will return a list of plugin from the specified directory in core directory
+function M.search_configs(folder_name)
+    local dir = builtin_lib.fio.get_config_path() .. "/lua/core/" .. folder_name
+    local plugin_list = builtin_lib.fio.get_file_from_dir(dir)
+    local plugin_table = {}
+
+    for _, value in ipairs(plugin_list) do
+        if not string.match(value.file_name, ".lua$") and value.type == "file" then
+            -- not add to table
+        elseif string.match(value.file_name, "init.lua") then
+            -- not add to table
+        else
+            if value.type == "file" then
+                value.file_name = string.sub(value.file_name, 1, -5)
+            end
+            local file = "core." .. folder_name .. "." .. value.file_name
+            table.insert(plugin_table, file)
+        end
+    end
+    return plugin_list
+end
+
 return M

@@ -113,6 +113,16 @@ local plugins = {
     {
         "nvim-telescope/telescope-media-files.nvim",
     },
+    {
+        'nvim-telescope/telescope-fzf-native.nvim', run = 'make'
+    },
+    {
+        "tami5/sqlite.lua"
+    },
+    {
+        "nvim-telescope/telescope-frecency.nvim",
+        requires = {"tami5/sqlite.lua"}
+    },
     -- {
     --   'yamatsum/nvim-nonicons',
     --   requires = {'kyazdani42/nvim-web-devicons'}
@@ -274,6 +284,9 @@ local plugins = {
     },
     {
         "hrsh7th/cmp-nvim-lua"
+    },
+    {
+        "weilbith/nvim-code-action-menu"
     },
     -- snippets
     {
