@@ -8,7 +8,7 @@ function whid()
         set cpo&vim " reset them to defaults
 
         " command to run our plugin
-        command! Whid lua require'test/test_first_plug/whid'.whid()
+        command! Whid lua require'test.test_first_plug.whid'.whid()
 
         let &cpo = s:save_cpo " and restore after
         hi def link WhidHeader      Number

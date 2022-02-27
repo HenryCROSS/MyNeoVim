@@ -1,6 +1,26 @@
 local M = {}
 local servers = require('core.lsp_config.lsp_servers')
 
+vim.cmd [[autocmd! ColorScheme * highlight NormalFloat guibg=#1f2335]]
+vim.cmd [[autocmd! ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]]
+
+local border = {
+    {"+", "FloatBorder"},
+    {"-", "FloatBorder"},
+    {"+", "FloatBorder"},
+    {"|", "FloatBorder"},
+    {"+", "FloatBorder"},
+    {"-", "FloatBorder"},
+    {"+", "FloatBorder"},
+    {"|", "FloatBorder"},
+}
+
+-- LSP settings (for overriding per client)
+local handlers =  {
+  ["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover, {border = border}),
+  ["textDocument/signatureHelp"] =  vim.lsp.with(vim.lsp.handlers.signature_help, {border = border }),
+}
+
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
@@ -65,6 +85,7 @@ M.load = function()
         local opts = {
             on_attach = on_attach,
             capabilities = capabilities,
+            handlers = handlers,
         }
         server:setup(opts)
         vim.cmd([[ do User LspAttach Buffers ]])
@@ -77,7 +98,16 @@ M.load = function()
             -- flags = {debounce_text_changes = 150},
             on_attach = on_attach,
             capabilities = capabilities,
+            handlers = handlers,
         }
+    end
+
+    -- To instead override globally
+    local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+    function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+      opts = opts or {}
+      opts.border = opts.border or border
+      return orig_util_open_floating_preview(contents, syntax, opts, ...)
     end
 
     -- vim.api.nvim_command [[ hi def link LspReferenceText CursorLine ]]
@@ -201,6 +231,8 @@ M.load = function()
             ghost_text = true,
         }
     }
+
+    
 end
 
 return M

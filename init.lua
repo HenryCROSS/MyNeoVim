@@ -18,3 +18,4 @@
 
 require("global").load()
 require("core").load()
+require("test").load()
