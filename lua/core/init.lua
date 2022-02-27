@@ -17,13 +17,10 @@ M.load = function ()
     -- load keymapping
     require("core.keymapping").load()
 
-    -- utils.plugins_load(plugin_config_list)
-    -- utils.plugins_load(lsp_config_list)
-    utils.plugins_load(utils.search_configs("plugin_config", plugin_config_exceptions))
-    utils.plugins_load(utils.search_configs("lsp_config", lsp_config_exceptions))
+    utils.load_configs(utils.search_configs("plugin_config", plugin_config_exceptions))
+    utils.load_configs(utils.search_configs("lsp_config", lsp_config_exceptions))
     utils.packer_install(require("core.plugins"))
 
-    -- utils.search_configs("lsp_config")
     -- load the general settings
     require("core.nvim_config.settings").load_options()
 end

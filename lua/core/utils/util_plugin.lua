@@ -15,7 +15,7 @@ function M.packer_install(plugin_arr)
 if not status_ok then print("ERROR") end
 end
 
-function M.plugins_load(loading_list)
+function M.load_configs(loading_list)
     for _, v in pairs(loading_list) do
         local ok, _ = xpcall(function()
                 require(v).load()

@@ -10,10 +10,8 @@ M.get_config_path = function ()
 end
 
 -- returns table of table
--- {file_name, type}
+-- return: {file_name, type}
 M.get_file_from_dir = function (dir)
-    -- local cmd = "!ls " .. dir
-    -- return api_fn.vtl_exec(cmd, true)
     local handle = uv.fs_scandir(dir)
     local files = {}
 
