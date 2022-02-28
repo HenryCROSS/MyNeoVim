@@ -4,7 +4,7 @@ local packer = require('packer')
 M.load = function()
     packer.init({
         ensure_dependencies = true, -- Should packer install plugin dependencies?
-        snapshot = nil, -- Name of the snapshot you would like to load at startup
+        -- snapshot = nil, -- Name of the snapshot you would like to load at startup
         -- snapshot_path = join_paths(stdpath 'cache', 'packer.nvim'), -- Default save directory for snapshots
         -- package_root = util.join_paths(vim.fn.stdpath('data'), 'site', 'pack'),
         -- compile_path = util.join_paths(vim.fn.stdpath('config'), 'plugin',

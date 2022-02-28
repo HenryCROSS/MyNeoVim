@@ -74,6 +74,17 @@ local plugins = {
         "glepnir/dashboard-nvim",
         disable = false,
         as = "dashboard",
+        cmd = {
+          "Dashboard",
+          "DashboardChangeColorscheme",
+          "DashboardFindFile",
+          "DashboardFindHistory",
+          "DashboardFindWord",
+          "DashboardNewFile",
+          "DashboardJumpMarks",
+          "SessionLoad",
+          "SessionSave"
+        },
     },
     {
         "nvim-treesitter/nvim-treesitter",
@@ -328,6 +339,7 @@ local plugins = {
     },
     {
         "folke/tokyonight.nvim",
+        opt = true
     },
     {
         "rebelot/kanagawa.nvim"
