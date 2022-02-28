@@ -29,6 +29,9 @@ local plugins = {
         -- requires = { "nvim-lua/plenary.nvim" },
     },
     {
+        "tweekmonster/startuptime.vim"
+    },
+    {
         -- speed up start time
         "lewis6991/impatient.nvim"
     },
