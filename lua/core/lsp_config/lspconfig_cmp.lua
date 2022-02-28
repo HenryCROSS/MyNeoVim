@@ -93,7 +93,7 @@ M.load = function()
 
     -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
     -- local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver' }
-    for _, lsp in ipairs(servers) do
+    for _, lsp in ipairs(servers.manualInstall) do
         lspconfig[lsp].setup {
             -- flags = {debounce_text_changes = 150},
             on_attach = on_attach,

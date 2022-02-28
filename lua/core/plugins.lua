@@ -2,35 +2,47 @@
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
 
-vim.cmd([[
-augroup packer_user_config
-autocmd!
-autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-augroup end
-]])
+-- vim.cmd([[
+-- augroup packer_user_config
+-- autocmd!
+-- autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+-- augroup end
+-- ]])
 
 local plugins = {
     {
         "wbthomason/packer.nvim",
     },
     {
-        "kristijanhusak/vim-carbon-now-sh"
+        "kristijanhusak/vim-carbon-now-sh",
+        cmd = {
+            "CarbonNowSh"
+        }
     },
     {
         'glacambre/firenvim',
         run = function() vim.fn['firenvim#install'](0) end
     },
     {
-        'voldikss/vim-translator'
+        'voldikss/vim-translator',
+        cmd = {
+            "Translate",
+            "TranslateV",
+            "TranslateW",
+            "TranslateWV",
+            "TranslateR",
+            "TranslateRV",
+            "TranslateX",
+        }
     },
-    {
-        -- it has a lot of problems
-        -- 'TimUntersberger/neogit',
-        -- requires = { "nvim-lua/plenary.nvim" },
-    },
-    {
-        "dstein64/vim-startuptime"
-    },
+    -- {
+    --     -- it has a lot of problems
+    --     -- 'TimUntersberger/neogit',
+    --     -- requires = { "nvim-lua/plenary.nvim" },
+    -- },
+    -- {
+    --     -- "dstein64/vim-startuptime"
+    -- },
     {
         -- speed up start time
         "lewis6991/impatient.nvim"
@@ -72,19 +84,18 @@ local plugins = {
     },
     {
         "glepnir/dashboard-nvim",
-        disable = false,
         as = "dashboard",
-        cmd = {
-          "Dashboard",
-          "DashboardChangeColorscheme",
-          "DashboardFindFile",
-          "DashboardFindHistory",
-          "DashboardFindWord",
-          "DashboardNewFile",
-          "DashboardJumpMarks",
-          "SessionLoad",
-          "SessionSave"
-        },
+        -- cmd = {
+        --   "Dashboard",
+        --   "DashboardChangeColorscheme",
+        --   "DashboardFindFile",
+        --   "DashboardFindHistory",
+        --   "DashboardFindWord",
+        --   "DashboardNewFile",
+        --   "DashboardJumpMarks",
+        --   "SessionLoad",
+        --   "SessionSave"
+        -- },
     },
     {
         "nvim-treesitter/nvim-treesitter",
@@ -96,7 +107,7 @@ local plugins = {
     { "sharkdp/fd" },
     {
         "echasnovski/mini.nvim",
-        branch = "stable",
+        -- branch = "stable",
     },
     {
         "SmiteshP/nvim-gps",
@@ -105,10 +116,6 @@ local plugins = {
     {
         -- 括号补全
         "windwp/nvim-autopairs",
-    },
-    {
-        -- 'ZhiyuanLck/smart-pairs',
-        -- event = 'InsertEnter'
     },
     {
         "seandewar/nvimesweeper",
@@ -187,11 +194,8 @@ local plugins = {
         "nvim-lualine/lualine.nvim",
         requires = {
             "kyazdani42/nvim-web-devicons",
-            opt = true,
+            -- opt = true,
         },
-    },
-    {
-        -- 'yamatsum/nvim-cursorline'
     },
     {
         "RRethy/vim-illuminate"
@@ -199,9 +203,9 @@ local plugins = {
     {
         "numToStr/Comment.nvim",
     },
-    {
-        -- "glepnir/indent-guides.nvim",
-    },
+    -- {
+    --     -- "glepnir/indent-guides.nvim",
+    -- },
     {
         "mfussenegger/nvim-dap",
     },
@@ -232,10 +236,10 @@ local plugins = {
     {
         "rmagatti/goto-preview"
     },
-    {
-        -- "neoclide/coc.nvim",
-        -- branch = "release",
-    },
+    -- {
+    --     -- "neoclide/coc.nvim",
+    --     -- branch = "release",
+    -- },
     {
         'neovim/nvim-lspconfig'
     },
@@ -252,70 +256,84 @@ local plugins = {
     {
         'folke/trouble.nvim',
     },
-    {
-        -- 'ms-jpq/coq_nvim',
-        -- branch = 'coq'
-    },
-    {
-        -- 'ms-jpq/coq.artifacts',
-        -- branch = 'artifacts'
-    },
-    {
-        -- 'ms-jpq/coq.thirdparty',
-        -- branch = '3q'
-    },
+    -- {
+    --     -- 'ms-jpq/coq_nvim',
+    --     -- branch = 'coq'
+    -- },
+    -- {
+    --     -- 'ms-jpq/coq.artifacts',
+    --     -- branch = 'artifacts'
+    -- },
+    -- {
+    --     -- 'ms-jpq/coq.thirdparty',
+    --     -- branch = '3q'
+    -- },
     -- cmp
     {
-        'hrsh7th/cmp-nvim-lsp'
+        'hrsh7th/cmp-nvim-lsp',
+        -- after = "nvim-cmp"
+
     },
     {
-        'hrsh7th/cmp-buffer'
+        'hrsh7th/cmp-buffer',
+        after = "nvim-cmp"
+
     },
     {
-        'hrsh7th/cmp-path'
+        'hrsh7th/cmp-path',
+        after = "nvim-cmp"
+
     },
     {
-        'hrsh7th/cmp-cmdline'
+        'hrsh7th/cmp-cmdline',
+        after = "nvim-cmp"
+
     },
     {
-        'hrsh7th/nvim-cmp'
+        'hrsh7th/nvim-cmp',
+        after = "friendly-snippets",
     },
+    -- {
+    --     -- 'hrsh7th/cmp-vsnip'
+    -- },
+    -- {
+    --     -- 'hrsh7th/vim-vsnip'
+    -- },
+    -- {
+    --     -- 'hrsh7th/vim-vsnip-integ'
+    -- },
     {
-        -- 'hrsh7th/cmp-vsnip'
+        'saadparwaiz1/cmp_luasnip',
+        after = "nvim-cmp"
     },
+    -- {
+    --     -- 'SirVer/ultisnips'
+    -- },
+    -- {
+    --     -- 'quangnguyen30192/cmp-nvim-ultisnips'
+    -- },
+    -- {
+    --     -- 'dcampos/nvim-snippy'
+    -- },
+    -- {
+    --     -- 'dcampos/cmp-snippy'
+    -- },
     {
-        -- 'hrsh7th/vim-vsnip'
-    },
-    {
-        -- 'hrsh7th/vim-vsnip-integ'
-    },
-    {
-        'saadparwaiz1/cmp_luasnip'
-    },
-    {
-        -- 'SirVer/ultisnips'
-    },
-    {
-        -- 'quangnguyen30192/cmp-nvim-ultisnips'
-    },
-    {
-        -- 'dcampos/nvim-snippy'
-    },
-    {
-        -- 'dcampos/cmp-snippy'
-    },
-    {
-        "hrsh7th/cmp-nvim-lua"
+        "hrsh7th/cmp-nvim-lua",
+        after = "nvim-cmp"
+
     },
     {
         "weilbith/nvim-code-action-menu"
     },
     -- snippets
     {
-        "rafamadriz/friendly-snippets"
+        "rafamadriz/friendly-snippets",
+        event = "InsertEnter"
     },
     {
-        "L3MON4D3/LuaSnip"
+        "L3MON4D3/LuaSnip",
+        event = "InsertEnter"
     },
     {
         'MarcWeber/vim-addon-mw-utils'
@@ -324,25 +342,28 @@ local plugins = {
         'tomtom/tlib_vim'
     },
     {
-        'garbas/vim-snipmate'
+        'garbas/vim-snipmate',
+        after = "nvim-cmp"
     },
     {
-        "honza/vim-snippets"
+        "honza/vim-snippets",
+        after = "nvim-cmp"
     },
     -- color SCHEME
+    -- {
+    --     "dracula/vim",
+    --     as = "dracula",
+    -- },
+    -- {
+    --     "haystackandroid/strawberry",
+    -- },
+    -- {
+    --     "folke/tokyonight.nvim",
+    --     -- opt = true
+    -- },
     {
-        "dracula/vim",
-        as = "dracula",
-    },
-    {
-        "haystackandroid/strawberry",
-    },
-    {
-        "folke/tokyonight.nvim",
-        opt = true
-    },
-    {
-        "rebelot/kanagawa.nvim"
+        "rebelot/kanagawa.nvim",
+        -- after = "nvim-treesitter"
     },
 }
 

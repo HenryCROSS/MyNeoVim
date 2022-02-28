@@ -19,7 +19,7 @@ nvimlspinstaller_settings.settings({
 -- end)
 
 nvimlspinstaller.load = function ()
-    for _, name in pairs(servers) do
+    for _, name in pairs(servers.lspInstall) do
         local server_is_found, server = nvimlspinstaller_settings.get_server(name)
         if server_is_found then
             if not server:is_installed() then

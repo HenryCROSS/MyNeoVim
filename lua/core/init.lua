@@ -18,7 +18,10 @@ local lsp_config_exceptions = utils.ignore_configs{
 }
 
 M.load = function ()
-    require("core.theme").load()
+    -- require("core.theme").load()
+    local _, v =pcall(require, "core.theme")
+    v.load()
+
     -- load keymapping
     require("core.keymapping").load()
 
