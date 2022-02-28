@@ -1,12 +1,21 @@
 local M = {}
+local concealer = require("core.plugin_config.neorg.concealer")
 
 M.load = function ()
     require('neorg').setup {
         load = {
+            -- ["core.integrations.nvim-cmp"] = {},
             ["core.defaults"] = {},
             -- ["core.gtd.base"] = {},
-            -- ["core.norg.completion"] = {},
-            ["core.norg.concealer"] = {},
+            ["core.norg.completion"] = {
+                config = {
+                    engine = "nvim-cmp"
+                }
+            },
+            ["core.highlights"] = {},
+            ["core.norg.concealer"] = {
+                config = concealer
+            },
             ["core.norg.journal"] = {},
             ["core.norg.qol.toc"] = {},
             -- ["core.presenter"] = {},

@@ -1,5 +1,6 @@
 local treesitter = {}
 local treesitter_settings = require('nvim-treesitter.configs')
+local parser_configs = require('nvim-treesitter.parsers').get_parser_configs()
 
 treesitter.load = function()
     treesitter_settings.setup {
@@ -8,7 +9,7 @@ treesitter.load = function()
         -- Install languages synchronously (only applied to `ensure_installed`)
         sync_install = false,
         -- List of parsers to ignore installing
-        ignore_install = {"markdown", "phpdoc"},
+        ignore_install = {"phpdoc"},
         highlight = {
             -- `false` will disable the whole extension
             enable = true,
@@ -32,6 +33,25 @@ treesitter.load = function()
             }
         },
         autotag = {enable = false},
+    }
+
+    -- for neorg
+    -- These two are optional and provide syntax highlighting
+    -- for Neorg tables and the @document.meta tag
+    parser_configs.norg_meta = {
+        install_info = {
+            url = "https://github.com/nvim-neorg/tree-sitter-norg-meta",
+            files = { "src/parser.c" },
+            branch = "main"
+        },
+    }
+
+    parser_configs.norg_table = {
+        install_info = {
+            url = "https://github.com/nvim-neorg/tree-sitter-norg-table",
+            files = { "src/parser.c" },
+            branch = "main"
+        },
     }
 end
 

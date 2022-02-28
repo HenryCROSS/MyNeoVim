@@ -29,6 +29,14 @@ local plugins = {
         -- requires = { "nvim-lua/plenary.nvim" },
     },
     {
+        -- speed up start time
+        "lewis6991/impatient.nvim"
+    },
+    {
+        -- speed up start time
+        "nathom/filetype.nvim"
+    },
+    {
         "nvim-neorg/neorg",
     },
     {
