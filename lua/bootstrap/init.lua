@@ -1,7 +1,7 @@
 local M = {}
 
 M.load = function ()
-    require("impatient")
+    pcall(require, "impatient")
 
 end
 
