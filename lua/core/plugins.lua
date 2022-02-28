@@ -40,9 +40,9 @@ local plugins = {
     --     -- 'TimUntersberger/neogit',
     --     -- requires = { "nvim-lua/plenary.nvim" },
     -- },
-    -- {
-    --     -- "dstein64/vim-startuptime"
-    -- },
+    {
+        "dstein64/vim-startuptime"
+    },
     {
         -- speed up start time
         "lewis6991/impatient.nvim"
@@ -271,7 +271,7 @@ local plugins = {
     -- cmp
     {
         'hrsh7th/cmp-nvim-lsp',
-        -- after = "nvim-cmp"
+        after = "nvim-cmp"
 
     },
     {
