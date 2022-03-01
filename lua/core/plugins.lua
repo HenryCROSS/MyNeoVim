@@ -187,9 +187,9 @@ local plugins = {
         requires = {
             "nvim-lua/plenary.nvim",
         },
-        config = function()
-            require("core.plugin_config.gitsigns").load()
-       end
+       --  config = function()
+       --      require("core.plugin_config.gitsigns").load()
+       -- end
     },
     {
         "akinsho/toggleterm.nvim",

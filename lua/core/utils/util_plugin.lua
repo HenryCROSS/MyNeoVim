@@ -21,7 +21,7 @@ function M.packer_load(plugin_arr, config_dirs, exceptions)
             end
         end
     end
-            print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!==========")
+            -- print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!==========")
     --
     local status_ok, _ = xpcall(function()
         packer.startup(function(use)
@@ -29,14 +29,15 @@ function M.packer_load(plugin_arr, config_dirs, exceptions)
                 for idx, plugin in pairs(plugin_arr) do
                     -- I need to connect the plugin and the config_table <<<<<<<
                             if config_table[plugin[1]] ~= nil then
-                                -- print(plugin[1])
-                                plugin_arr[idx].config = function ()
-                                    config_table[plugin[1]].load()
-                                end
+                                -- print(
+                                --     type(config_table[plugin[1]])
+                                --     )
+                                plugin_arr[idx].config =
+                                    config_table[plugin[1]]()
                                 -- print("Name:", plugin[1],config_table[plugin[1]].load())
                                 -- config_table[plugin[1]].load()
                             end
-                    -- use(plugin)
+                    use(plugin)
                 end
             -- end
         end)
