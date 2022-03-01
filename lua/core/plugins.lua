@@ -204,8 +204,7 @@ local plugins = {
     },
     {
         "phaazon/hop.nvim",
-        after = 'gitsigns',
-        -- event = "BufRead",
+        event = "InsertEnter",
         config = function()
             require("core.plugin_config.hop").load()
        end
