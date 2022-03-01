@@ -1,6 +1,8 @@
 local M = {}
 local telescope = require("telescope")
 
+M.name = "rmagatti/goto-preview"
+
 M.load = function()
     require('goto-preview').setup {
         width = 120, -- Width of the floating window

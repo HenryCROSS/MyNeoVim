@@ -1,7 +1,9 @@
-local asyncrun = {}
+local M = {}
 
-asyncrun.load = function ()
+M.name = "skywind3000/asynctasks.vim"
+
+M.load = function ()
     vim.g.asyncrun_open = 6
 end
 
-return asyncrun
+return M

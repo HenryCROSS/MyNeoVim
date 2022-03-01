@@ -47,6 +47,8 @@ local config = {
     footer = {"CROSS.org"}
 }
 
+dashboard_settings.name = "glepnir/dashboard-nvim"
+
 function dashboard_settings.load()
     local opts =  {
         -- map = true

@@ -1,6 +1,8 @@
 local nvimgps = {}
 local nvimgps_settings = require('nvim-gps')
 
+nvimgps.name = "SmiteshP/nvim-gps"
+
 nvimgps.load = function ()
     nvimgps_settings.setup{
         icons = {

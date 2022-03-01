@@ -1,5 +1,7 @@
 local M = {}
 
+M.name = "nathom/filetype.nvim"
+
 M.load = function ()
     if vim.fn.has('nvim-0.6') ~= 1 then
         -- Do not source the default filetype.vim

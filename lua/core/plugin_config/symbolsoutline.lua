@@ -1,5 +1,7 @@
 local symbols_outline = {}
 
+symbols_outline.name = "simrat39/symbols-outline.nvim"
+
 symbols_outline.load = function ()
     -- keymapping
     vim.api.nvim_set_keymap('n', '<Leader>os', ':SymbolsOutline<CR>',

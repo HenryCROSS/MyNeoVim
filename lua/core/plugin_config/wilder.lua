@@ -1,5 +1,7 @@
 local wilder = {}
 
+wilder.name = "gelguy/wilder.nvim"
+
 wilder.load = function ()
     -- setup the wilder
     vim.cmd([[

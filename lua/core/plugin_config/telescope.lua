@@ -1,6 +1,8 @@
 local telescope = {}
 local telescope_settings = require('telescope')
 
+telescope.name = "nvim-telescope/telescope.nvim"
+
 telescope.load = function()
     telescope_settings.load_extension('media_files')
 

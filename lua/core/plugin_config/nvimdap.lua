@@ -1,6 +1,8 @@
 local nvimdap = {}
 local nvimdap_settings = require('dap')
 
+nvimdap.name = "mfussenegger/nvim-dap"
+
 nvimdap.load = function() end
 
 --[[

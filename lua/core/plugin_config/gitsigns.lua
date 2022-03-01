@@ -1,6 +1,8 @@
 local gitsigns = {}
 local gitsigns_settings = require('gitsigns')
 
+gitsigns.name = "lewis6991/gitsigns.nvim"
+
 gitsigns.load = function ()
     gitsigns_settings.setup{
         signs = {

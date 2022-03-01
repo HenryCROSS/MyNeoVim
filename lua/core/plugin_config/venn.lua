@@ -1,5 +1,7 @@
 local M = {}
 
+M.name = "jbyuki/venn.nvim"
+
 M.load= function ()
     -- venn.nvim: enable or disable keymappings
     function _G.Toggle_venn()

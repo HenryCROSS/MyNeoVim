@@ -6,6 +6,8 @@ local config= {
     }
 }
 
+whichkey.name = "folke/which-key.nvim"
+
 whichkey.load = function ()
     whichkey_settings.register({
 

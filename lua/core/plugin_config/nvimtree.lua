@@ -1,6 +1,7 @@
 local nvimtree_settings = {}
 local nvimtree = require("nvim-tree")
 
+nvimtree_settings.name = "kyazdani42/nvim-tree.lua"
 
 nvimtree_settings.load = function()
     -- keymapping

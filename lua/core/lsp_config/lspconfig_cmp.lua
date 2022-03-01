@@ -72,6 +72,8 @@ local on_attach = function(client, bufnr)
 
 end
 
+M.name = "neovim/nvim-lspconfig"
+
 M.load = function()
     -- Add additional capabilities supported by nvim-cmp
     local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -232,7 +234,6 @@ M.load = function()
         }
     }
 
-    
 end
 
 return M

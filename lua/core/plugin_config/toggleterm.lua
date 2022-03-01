@@ -15,6 +15,8 @@ end
 -- if you only want these mappings for toggle term use term://*toggleterm#* instead
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
+toggleterm.name = "akinsho/nvim-toggleterm.lua"
+
 toggleterm.load = function()
     toggleterm_settings.setup {
         size = function(term)

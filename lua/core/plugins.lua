@@ -41,7 +41,10 @@ local plugins = {
     --     -- requires = { "nvim-lua/plenary.nvim" },
     -- },
     {
-        "dstein64/vim-startuptime"
+        "dstein64/vim-startuptime",
+        cmd = {
+            'StartupTime'
+        }
     },
     {
         -- speed up start time
@@ -85,6 +88,9 @@ local plugins = {
     {
         "glepnir/dashboard-nvim",
         as = "dashboard",
+        config = function ()
+            require("core.plugin_config.dashboard").load()
+        end
         -- cmd = {
         --   "Dashboard",
         --   "DashboardChangeColorscheme",
@@ -177,15 +183,24 @@ local plugins = {
     },
     {
         "lewis6991/gitsigns.nvim",
+        event = "BufRead",
         requires = {
             "nvim-lua/plenary.nvim",
         },
+        config = function()
+            require("core.plugin_config.gitsigns").load()
+       end
     },
     {
         "akinsho/toggleterm.nvim",
     },
     {
         "kdheepak/lazygit.nvim",
+        cmd = {
+            "LazyGit",
+            "LazyGitFilter",
+            "LazyGitConfig",
+        }
     },
     {
         "phaazon/hop.nvim",
@@ -241,20 +256,25 @@ local plugins = {
     --     -- branch = "release",
     -- },
     {
-        'neovim/nvim-lspconfig'
+        'neovim/nvim-lspconfig',
+        -- event = "BufEnter"
     },
     {
         -- 与lspconfig配套
         'williamboman/nvim-lsp-installer',
+        -- after = "nvim-lspconfig"
     },
     {
-        'ray-x/lsp_signature.nvim'
+        'ray-x/lsp_signature.nvim',
+        -- after = "nvim-lspconfig"
     },
     {
         "onsails/lspkind-nvim"
     },
     {
         'folke/trouble.nvim',
+        -- after = "nvim-lspconfig"
+
     },
     -- {
     --     -- 'ms-jpq/coq_nvim',
@@ -324,7 +344,8 @@ local plugins = {
 
     },
     {
-        "weilbith/nvim-code-action-menu"
+        "weilbith/nvim-code-action-menu",
+        after = "nvim-lspconfig"
     },
     -- snippets
     {

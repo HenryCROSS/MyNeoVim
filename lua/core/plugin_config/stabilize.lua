@@ -1,6 +1,8 @@
 local stabilize = {}
 local stabilize_settings = require('stabilize')
 
+stabilize.name = "luukvbaal/stabilize.nvim"
+
 stabilize.load = function()
     stabilize_settings.setup {
         force = true, -- stabilize window even when current cursor position will be hidden behind new window

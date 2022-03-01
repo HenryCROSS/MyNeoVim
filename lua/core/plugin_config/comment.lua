@@ -1,7 +1,9 @@
-local comment = {}
+local M = {}
 local comment_settings = require("Comment")
 
-comment.load = function()
+M.name = "numToStr/Comment.nvim"
+
+M.load = function()
     comment_settings.setup {
         ---Add a space b/w comment and the line
         ---@type boolean
@@ -72,4 +74,4 @@ comment.load = function()
     }
 end
 
-return comment
+return M

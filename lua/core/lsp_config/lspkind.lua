@@ -4,6 +4,8 @@ local settings =
         "lspkind"
     )
 
+lspkind.name = "onsails/lspkind-nvim"
+
 lspkind.load =
     function()
         settings.init(

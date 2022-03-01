@@ -1,5 +1,7 @@
 local markdown_preview = {}
 
+markdown_preview.name = "iamcco/markdown-preview.nvim"
+
 markdown_preview.load = function()
     -- vim.g.mkdp_auto_start = 1
     -- vim.g.mkdp_auto_close = 0

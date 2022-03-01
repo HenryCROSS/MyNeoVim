@@ -2,6 +2,8 @@ local lualine = {}
 local lualine_settings = require('lualine')
 local gps = require("nvim-gps")
 
+lualine.name = "nvim-lualine/lualine.nvim"
+
 lualine.load = function()
     lualine_settings.setup {
         options = {

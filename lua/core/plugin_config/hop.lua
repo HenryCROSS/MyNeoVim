@@ -1,6 +1,8 @@
 local hop = {}
 local hop_settings = require('hop')
 
+hop.name = "phaazon/hop.nvim"
+
 hop.load = function()
     hop_settings.setup()
     vim.api.nvim_set_keymap('n', 'f',

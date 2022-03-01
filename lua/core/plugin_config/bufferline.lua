@@ -1,8 +1,10 @@
-local bufferline = {}
+local M = {}
 local bufferline_settings = require("bufferline")
 -- local config = {}
 
-bufferline.load = function()
+M.name = "akinsho/bufferline.nvim"
+
+M.load = function()
     bufferline_settings.setup {
         options = {
             offsets = {
@@ -47,4 +49,4 @@ bufferline.load = function()
 
 end
 
-return bufferline
+return M

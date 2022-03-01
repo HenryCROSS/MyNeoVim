@@ -1,10 +1,12 @@
-local autopairs_settings = {}
+local M = {}
 local npairs = require('nvim-autopairs')
 local ts_conds = require('nvim-autopairs.ts-conds')
 local Rule = require('nvim-autopairs.rule')
 local remap = vim.api.nvim_set_keymap
 
-function autopairs_settings.load()
+M.name = "windwp/nvim-autopairs"
+
+function M.load()
     npairs.setup {
         -- map_bs=false, map_cr=false,
         -- 启用treesitter
@@ -58,4 +60,4 @@ function autopairs_settings.load()
           {expr = true, noremap = true})
 end
 
-return autopairs_settings
+return M

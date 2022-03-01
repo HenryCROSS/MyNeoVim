@@ -18,6 +18,8 @@ nvimlspinstaller_settings.settings({
 --     vim.cmd([[ do User LspAttach Buffers ]])
 -- end)
 
+nvimlspinstaller.name = "williamboman/nvim-lsp-installer"
+
 nvimlspinstaller.load = function ()
     for _, name in pairs(servers.lspInstall) do
         local server_is_found, server = nvimlspinstaller_settings.get_server(name)

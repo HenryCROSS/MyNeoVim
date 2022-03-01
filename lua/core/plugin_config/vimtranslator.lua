@@ -1,5 +1,7 @@
 local M = {}
 
+M.name = "voldikss/vim-translator"
+
 M.load = function ()
     vim.cmd([[
     """ Configuration example

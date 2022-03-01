@@ -1,5 +1,7 @@
 local M = {}
 
+M.name = "j-hui/fidget.nvim"
+
 M.load = function ()
     require"fidget".setup{
         text = {

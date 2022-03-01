@@ -4,6 +4,8 @@ local cursorword_settings = require("mini.cursorword")
 local indentscope_settings = require("mini.indentscope")
 local pairs_settings = require("mini.pairs")
 
+mini.name = "echasnovski/mini.nvim"
+
 mini.load = function()
     surround_settings.setup {
         -- Number of lines within which surrounding is searched

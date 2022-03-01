@@ -1,7 +1,9 @@
-local autosave = {}
+local M = {}
 local autosave_settings = require "autosave"
 
-autosave.load = function ()
+M.name = "Pocco81/AutoSave.nvim"
+
+M.load = function ()
     autosave_settings.setup{
         enabled = true,
         execution_message = "AutoSave: saved at " .. vim.fn.strftime("%H:%M:%S"),
@@ -19,4 +21,4 @@ autosave.load = function ()
     }
 end
 
-return autosave
+return M

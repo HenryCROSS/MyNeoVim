@@ -1,6 +1,8 @@
 local M = {}
 local concealer = require("core.plugin_config.neorg.concealer")
 
+M.name = "nvim-neorg/neorg"
+
 M.load = function ()
     require('neorg').setup {
         load = {

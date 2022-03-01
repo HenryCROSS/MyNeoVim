@@ -23,6 +23,8 @@ local sources = {
 
 }
 
+null.name = "jose-elias-alvarez/null-ls"
+
 null.load =
     function()
         null_settings.setup(
