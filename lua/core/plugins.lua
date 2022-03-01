@@ -187,9 +187,9 @@ local plugins = {
         requires = {
             "nvim-lua/plenary.nvim",
         },
-        config = function()
-            require("core.plugin_config.gitsigns").load()
-       end
+       --  config = function()
+       --      require("core.plugin_config.gitsigns").load()
+       -- end
     },
     {
         "akinsho/toggleterm.nvim",
@@ -205,9 +205,9 @@ local plugins = {
     {
         "phaazon/hop.nvim",
         event = "InsertEnter",
-        config = function()
-            require("core.plugin_config.hop").load()
-       end
+       --  config = function()
+       --      require("core.plugin_config.hop").load()
+       -- end
     },
     {
         "nvim-lualine/lualine.nvim",
@@ -315,7 +315,7 @@ local plugins = {
     },
     {
         'hrsh7th/nvim-cmp',
-        after = "friendly-snippets",
+        -- after = "friendly-snippets",
     },
     -- {
     --     -- 'hrsh7th/cmp-vsnip'

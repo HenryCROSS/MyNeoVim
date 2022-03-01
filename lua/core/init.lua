@@ -31,14 +31,13 @@ M.load = function ()
     require("core.keymapping").load()
 
     utils.load_configs(utils.search_configs("plugin_config", plugin_config_exceptions))
-    utils.load_configs(utils.search_configs("lsp_config", lsp_config_exceptions))
-
-    utils.packer_install(require("core.plugins"))
+    -- utils.load_configs(utils.search_configs("lsp_config", lsp_config_exceptions))
+    
+    -- utils.packer_install(require("core.plugins"))
     -- load the general settings
     require("core.nvim_config.settings").load_options()
 
     -- not working !!!
---[[
     utils.packer_load(require("core.plugins"), {"plugin_config", "lsp_config"}, {
     "core.lsp_config.init.lua",
     "core.plugin_config.init.lua",
@@ -46,7 +45,6 @@ M.load = function ()
     -- "core.lsp_config.lspconfig_coq.lua",
     -- "core.lsp_config.lsp_servers.lua"
         })
-]]
 end
 
 return M
