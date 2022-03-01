@@ -50,7 +50,7 @@ function M.packer_install(plugin_arr)
     local status_ok, _ = xpcall(function()
         packer.startup(function(use)
             -- for _, plugins in ipairs(plugin_arr) do
-                for _, plugin in ipairs(plugin_arr) do
+                for _, plugin in pairs(plugin_arr) do
                     use(plugin)
                 end
             -- end
