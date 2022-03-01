@@ -295,22 +295,22 @@ local plugins = {
     -- cmp
     {
         'hrsh7th/cmp-nvim-lsp',
-        after = "nvim-cmp"
+        -- after = "nvim-cmp"
 
     },
     {
         'hrsh7th/cmp-buffer',
-        after = "nvim-cmp"
+        -- after = "nvim-cmp"
 
     },
     {
         'hrsh7th/cmp-path',
-        after = "nvim-cmp"
+        -- after = "nvim-cmp"
 
     },
     {
         'hrsh7th/cmp-cmdline',
-        after = "nvim-cmp"
+        -- after = "nvim-cmp"
 
     },
     {
@@ -328,7 +328,7 @@ local plugins = {
     -- },
     {
         'saadparwaiz1/cmp_luasnip',
-        after = "nvim-cmp"
+        -- after = "nvim-cmp"
     },
     -- {
     --     -- 'SirVer/ultisnips'
@@ -344,21 +344,21 @@ local plugins = {
     -- },
     {
         "hrsh7th/cmp-nvim-lua",
-        after = "nvim-cmp"
+        -- after = "nvim-cmp"
 
     },
     {
         "weilbith/nvim-code-action-menu",
-        after = "nvim-lspconfig"
+        -- after = "nvim-lspconfig"
     },
     -- snippets
     {
         "rafamadriz/friendly-snippets",
-        event = "InsertEnter"
+        -- event = "InsertEnter"
     },
     {
         "L3MON4D3/LuaSnip",
-        event = "InsertEnter"
+        -- event = "InsertEnter"
     },
     {
         'MarcWeber/vim-addon-mw-utils'
@@ -368,11 +368,11 @@ local plugins = {
     },
     {
         'garbas/vim-snipmate',
-        after = "nvim-cmp"
+        -- after = "nvim-cmp"
     },
     {
         "honza/vim-snippets",
-        after = "nvim-cmp"
+        -- after = "nvim-cmp"
     },
     -- color SCHEME
     -- {
