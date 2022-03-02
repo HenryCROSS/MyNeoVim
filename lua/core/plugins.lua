@@ -462,8 +462,8 @@ local plugins = {
     -- cmp
     {
         'hrsh7th/cmp-nvim-lsp',
+        event = {"BufRead", "BufNewFile"},
         -- event = "BufRead",
-        after = "nvim-cmp",
     },
     {
         'hrsh7th/cmp-buffer',
