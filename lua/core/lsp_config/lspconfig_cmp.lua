@@ -134,6 +134,8 @@ M.load = function()
     highlight! CmpItemKindUnit guibg=NONE guifg=#D4D4D4
     ]])
 
+    --[[
+
     -- general snippet setup
     local has_words_before = function()
         local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -233,6 +235,7 @@ M.load = function()
             ghost_text = true,
         }
     }
+    ]]
 
 end
 

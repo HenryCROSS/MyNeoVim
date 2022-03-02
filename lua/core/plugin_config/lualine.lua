@@ -1,6 +1,6 @@
 local lualine = {}
 local lualine_settings = require('lualine')
-local gps = require("nvim-gps")
+-- local gps = require("nvim-gps")
 
 lualine.name = "nvim-lualine/lualine.nvim"
 
@@ -17,7 +17,7 @@ lualine.load = function()
         sections = {
             lualine_a = {'mode'},
             lualine_b = {'branch', 'diff', 'diagnostics'},
-            lualine_c = {'filename', { gps.get_location, cond = gps.is_available }},
+            -- lualine_c = {'filename', { gps.get_location, cond = gps.is_available }},
             lualine_x = {'encoding', 'fileformat', 'filetype'},
             lualine_y = {'progress'},
             lualine_z = {'location'}

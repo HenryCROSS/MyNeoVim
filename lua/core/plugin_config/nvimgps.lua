@@ -89,6 +89,14 @@ nvimgps.load = function ()
         -- indicator used when context is hits depth limit
         depth_limit_indicator = ".."
     }
+
+    require("lualine").setup({
+        sections = {
+			lualine_c = {
+				{ nvimgps_settings .get_location, cond = nvimgps_settings.is_available },
+			}
+        }
+    })
 end
 
 return nvimgps

@@ -15,14 +15,11 @@ local plugins = {
     },
     {
         "kristijanhusak/vim-carbon-now-sh",
+        opt = true,
         event = "BufRead",
         cmd = {
             "CarbonNowSh"
         }
-    },
-    {
-        'glacambre/firenvim',
-        run = function() vim.fn['firenvim#install'](0) end
     },
     {
         'voldikss/vim-translator',
@@ -47,6 +44,8 @@ local plugins = {
     -- },
     {
         "dstein64/vim-startuptime",
+        opt = true,
+        -- event = "CmdlineEnter",
         cmd = {
             'StartupTime'
         }
@@ -59,12 +58,16 @@ local plugins = {
         -- speed up start time
         "nathom/filetype.nvim",
         config = function ()
-            require("core.plugin_config.filetype").load()
         end
     },
     {
         "nvim-neorg/neorg",
         ft = {"norg"},
+        after = {
+            "nvim-treesitter",
+            "telescope.nvim",
+        },
+        event = "BufRead",
         config = function ()
             require("core.plugin_config.neorg").load()
         end
@@ -72,19 +75,21 @@ local plugins = {
     {
         -- graph drawing
         'jbyuki/venn.nvim',
-        event = "InsertEnter",
+        event = "BufRead",
         config = function ()
             require("core.plugin_config.venn").load()
         end
     },
     {
         "skywind3000/asynctasks.vim",
+        event = "BufRead",
         config = function ()
             require("core.plugin_config.asynctasks").load()
         end
     },
     {
         "skywind3000/asyncrun.vim",
+        event = "BufRead",
     },
     {
         'Pocco81/AutoSave.nvim',
@@ -102,12 +107,15 @@ local plugins = {
     },
     {
         "gelguy/wilder.nvim",
+        after = "fzy-lua-native",
+        event = "CmdlineEnter",
         config = function ()
             require("core.plugin_config.wilder").load()
         end
     },
     {
         "jose-elias-alvarez/null-ls.nvim",
+        event = "BufRead",
         requires = {
             "nvim-lua/plenary.nvim",
         },
@@ -117,10 +125,12 @@ local plugins = {
     },
     {
         "romgrk/fzy-lua-native",
+        event = "CmdlineEnter",
     },
     {
         "glepnir/dashboard-nvim",
         as = "dashboard",
+        event = "VimEnter",
         config = function ()
             require("core.plugin_config.dashboard").load()
         end,
@@ -138,7 +148,7 @@ local plugins = {
     },
     {
         "nvim-treesitter/nvim-treesitter",
-        -- event = "BufRead",
+        event = "BufRead",
         run = ":TSUpdate",
         config = function ()
             require("core.plugin_config.treesitter").load()
@@ -150,7 +160,7 @@ local plugins = {
     { "sharkdp/fd" },
     {
         "echasnovski/mini.nvim",
-        event = "BufEnter",
+        event = "BufRead",
         config = function ()
             require("core.plugin_config.mini").load()
         end
@@ -158,6 +168,7 @@ local plugins = {
     },
     {
         "SmiteshP/nvim-gps",
+        event = "BufRead",
         config = function ()
             require("core.plugin_config.nvimgps").load()
         end
@@ -165,7 +176,7 @@ local plugins = {
     {
         -- 括号补全
         "windwp/nvim-autopairs",
-        -- after = "nvim-cmp",
+        after = "nvim-treesitter",
         config = function ()
             require("core.plugin_config.autopairs").load()
         end
@@ -174,19 +185,29 @@ local plugins = {
         "seandewar/nvimesweeper",
         opt = true
     },
-    {
-        "junegunn/fzf",
-        dir = "~/.fzf",
-        run = "./install --all",
-    },
-    {
-        "junegunn/fzf.vim",
-    },
+    -- {
+    --     "junegunn/fzf",
+    --     opt = true,
+    --     dir = "~/.fzf",
+    --     run = "./install --all",
+    -- },
+    -- {
+    --     "junegunn/fzf.vim",
+    --     opt = true
+    -- },
     {
         "kyazdani42/nvim-web-devicons", -- optional, for file icon
     },
     {
         "nvim-telescope/telescope.nvim",
+        event = "BufRead",
+        cmd = "Telescope",
+        keys = {
+            {'n', '<Leader>bl'},
+            {'n', '<Leader>fo'},
+            {'n', '<Leader>ff'},
+            {'n', '<Leader>fg'},
+        },
         requires = {
             {
                 "nvim-lua/plenary.nvim",
@@ -200,14 +221,10 @@ local plugins = {
         "nvim-telescope/telescope-media-files.nvim",
     },
     {
-        'nvim-telescope/telescope-fzf-native.nvim', run = 'make'
+        'nvim-telescope/telescope-fzf-native.nvim', run = 'make',
     },
     {
-        "tami5/sqlite.lua"
-    },
-    {
-        "nvim-telescope/telescope-frecency.nvim",
-        requires = {"tami5/sqlite.lua"}
+        "tami5/sqlite.lua",
     },
     -- {
     --   'yamatsum/nvim-nonicons',
@@ -215,6 +232,9 @@ local plugins = {
     -- },
     {
         "kyazdani42/nvim-tree.lua",
+        keys = {
+            'n', '<Leader>op'
+        },
         config = function ()
             require("lua.core.plugin_config.nvimtree").load()
         end,
@@ -236,13 +256,14 @@ local plugins = {
     },
     {
         "folke/which-key.nvim",
-        event = "VimEnter",
+        -- event = "VimEnter",
         config = function ()
             require("core.plugin_config.whichkey").load()
         end
     },
     {
         "akinsho/bufferline.nvim",
+        event = "BufEnter",
         requires = "kyazdani42/nvim-web-devicons",
         config = function ()
             require("core.plugin_config.bufferline").load()
@@ -260,7 +281,7 @@ local plugins = {
     },
     {
         "akinsho/toggleterm.nvim",
-        event = "BufEnter",
+        event = "BufRead",
         config = function ()
             require("core.plugin_config.toggleterm").load()
         end
@@ -275,7 +296,7 @@ local plugins = {
     },
     {
         "phaazon/hop.nvim",
-        event = "BufEnter",
+        event = "BufRead",
         config = function ()
             require("core.plugin_config.hop").load()
         end
@@ -293,7 +314,7 @@ local plugins = {
     },
     {
         "RRethy/vim-illuminate",
-        event = "BufEnter",
+        event = "BufRead",
         -- after = "nvim-lspconfig",
     },
     {
@@ -312,12 +333,12 @@ local plugins = {
     },
     {
         "p00f/nvim-ts-rainbow",
-        event = "BufRead",
+        event = "BufEnter",
     },
     {
         -- 对上面的补全
         'luochen1990/rainbow',
-        event = "BufRead",
+        event = "BufEnter",
         config = function ()
             require("core.plugin_config.rainbow").load()
         end
@@ -370,7 +391,9 @@ local plugins = {
     -- },
     {
         'neovim/nvim-lspconfig',
-        -- event = "BufEnter",
+        event = "BufRead",
+        after = "nvim-cmp",
+        -- after = "nvim-lsp-installer",
         config = function ()
             require("core.lsp_config.lspconfig_cmp").load()
         end
@@ -378,6 +401,7 @@ local plugins = {
     {
         -- 与lspconfig配套
         'williamboman/nvim-lsp-installer',
+        event = "BufRead",
         config = function ()
             require("core.lsp_config.nvimlspinstaller").load()
         end
@@ -392,6 +416,7 @@ local plugins = {
     },
     {
         "onsails/lspkind-nvim",
+        after = "LuaSnip"
     },
     {
         'folke/trouble.nvim',
@@ -415,26 +440,34 @@ local plugins = {
     {
         'hrsh7th/cmp-nvim-lsp',
         -- event = "BufRead",
-        -- after = "luasnip",
+        after = "nvim-cmp",
     },
     {
         'hrsh7th/cmp-buffer',
+        after = "LuaSnip",
     },
     {
         'hrsh7th/cmp-path',
+        event = "BufRead",
     },
     {
         'hrsh7th/cmp-cmdline',
-
+        event = "BufRead",
     },
     {
         'hrsh7th/nvim-cmp',
+        after = "cmp-buffer",
+        config = function ()
+            require("core.lsp_config.cmp").load()
+        end,
     },
     {
         'saadparwaiz1/cmp_luasnip',
+        event = "BufRead",
     },
     {
         "hrsh7th/cmp-nvim-lua",
+        event = "BufRead",
         -- event = "BufRead",
 
     },
@@ -449,13 +482,13 @@ local plugins = {
     -- snippets
     {
         "rafamadriz/friendly-snippets",
-        event = "BufRead",
+        -- event = "BufRead",
         -- event = "BufEnter",
-        -- event = "InsertEnter"
+        event = "InsertEnter"
     },
     {
         "L3MON4D3/LuaSnip",
-        -- event = "BufRead",
+        event = "InsertEnter",
         -- after = "nvim-cmp",
     },
     {
@@ -466,12 +499,12 @@ local plugins = {
     },
     {
         'garbas/vim-snipmate',
-        event = "BufRead",
+        event = "InsertEnter",
         -- after = "nvim-cmp"
     },
     {
         "honza/vim-snippets",
-        event = "BufRead",
+        event = "InsertEnter",
         -- after = "nvim-cmp"
     },
     -- color SCHEME
