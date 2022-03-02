@@ -62,7 +62,7 @@ local plugins = {
     },
     {
         "nvim-neorg/neorg",
-        ft = {"neorg"},
+        ft = {"norg"},
         config = function ()
             require("core.plugin_config.neorg").load()
         end
@@ -70,6 +70,7 @@ local plugins = {
     {
         -- graph drawing
         'jbyuki/venn.nvim',
+        event = "InsertEnter",
         config = function ()
             require("core.plugin_config.venn").load()
         end
@@ -84,7 +85,11 @@ local plugins = {
         "skywind3000/asyncrun.vim",
     },
     {
-        'Pocco81/AutoSave.nvim'
+        'Pocco81/AutoSave.nvim',
+        event = "InsertEnter",
+        config = function ()
+            require("core.plugin_config.autosave").load()
+        end
     },
     {
         "luukvbaal/stabilize.nvim",
@@ -209,16 +214,16 @@ local plugins = {
     {
         "kyazdani42/nvim-tree.lua",
         config = function ()
-            require("core.plugin_config.nvimtree").load()
+            require("lua.core.plugin_config.nvimtree").load()
         end,
         requires = {
             "kyazdani42/nvim-web-devicons", -- optional, for file icon
         },
-        cmd = {
-            "NvimTreeOpen",
-            "NvimTreeFocus",
-            "NvimTreeToggle",
-        },
+        -- cmd = {
+        --     "NvimTreeOpen",
+        --     "NvimTreeFocus",
+        --     "NvimTreeToggle",
+        -- },
         -- NOTE: you need to set other vim.g let g: nvim_tree variables BEFORE
         -- calling the setup if you want everything to work as expected :)
         -- config = function() require'nvim-tree'.setup {} end
@@ -267,7 +272,7 @@ local plugins = {
     },
     {
         "phaazon/hop.nvim",
-        -- event = "InsertEnter",
+        event = "BufEnter",
         config = function ()
             require("core.plugin_config.hop").load()
         end
@@ -315,21 +320,23 @@ local plugins = {
     },
     {
         'simrat39/symbols-outline.nvim',
+        after = "nvim-lspconfig",
         config = function ()
             require("core.plugin_config.symbolsoutline").load()
         end
     },
     {
         "norcalli/nvim-colorizer.lua",
+        event = "BufEnter",
         config = function ()
             require("core.plugin_config.nvimcolorizer").load()
         end
     },
     {
         "iamcco/markdown-preview.nvim",
-        -- ft = {
-        --     "markdown",
-        -- },
+        ft = {
+            "md",
+        },
         run = ":call mkdp#util#install()",
         config = function ()
             require("core.plugin_config.markdownpreview").load()
@@ -358,16 +365,12 @@ local plugins = {
         'neovim/nvim-lspconfig',
         event = "BufEnter",
         config = function ()
-            require("core.lsp_config.lspconfig_cmp").load()
         end
     },
     {
         -- 与lspconfig配套
         'williamboman/nvim-lsp-installer',
         after = "nvim-lspconfig",
-        config = function ()
-            require("core.lsp_config.nvimlspinstaller").load()
-        end
     },
     {
         'ray-x/lsp_signature.nvim',
@@ -378,7 +381,8 @@ local plugins = {
     },
     {
         "onsails/lspkind-nvim",
-        after = "nvim-lspconfig",
+        -- event = "BufEnter",
+        -- after = "nvim-cmp",
     },
     {
         'folke/trouble.nvim',
@@ -400,7 +404,11 @@ local plugins = {
     -- cmp
     {
         'hrsh7th/cmp-nvim-lsp',
-        after = "nvim-lsp-installer"
+        after = "nvim-lsp-installer",
+        config = function ()
+            require("core.lsp_config.lspconfig_cmp").load()
+            require("core.lsp_config.nvimlspinstaller").load()
+        end
     },
     {
         'hrsh7th/cmp-buffer',
@@ -420,31 +428,10 @@ local plugins = {
         'hrsh7th/nvim-cmp',
         after = "friendly-snippets",
     },
-    -- {
-    --     -- 'hrsh7th/cmp-vsnip'
-    -- },
-    -- {
-    --     -- 'hrsh7th/vim-vsnip'
-    -- },
-    -- {
-    --     -- 'hrsh7th/vim-vsnip-integ'
-    -- },
     {
         'saadparwaiz1/cmp_luasnip',
         after = "LuaSnip"
     },
-    -- {
-    --     -- 'SirVer/ultisnips'
-    -- },
-    -- {
-    --     -- 'quangnguyen30192/cmp-nvim-ultisnips'
-    -- },
-    -- {
-    --     -- 'dcampos/nvim-snippy'
-    -- },
-    -- {
-    --     -- 'dcampos/cmp-snippy'
-    -- },
     {
         "hrsh7th/cmp-nvim-lua",
         after = "nvim-cmp"
@@ -460,7 +447,8 @@ local plugins = {
     -- snippets
     {
         "rafamadriz/friendly-snippets",
-        event = "InsertEnter"
+        event = "BufEnter",
+        -- event = "InsertEnter"
     },
     {
         "L3MON4D3/LuaSnip",
@@ -494,6 +482,7 @@ local plugins = {
     -- },
     {
         "rebelot/kanagawa.nvim",
+        event = "VimEnter",
         config = function ()
             require("core.theme").load()
         end

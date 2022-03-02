@@ -36,12 +36,12 @@ M.load = function ()
     -- load the general settings
     require("core.nvim_config.settings").load_options()
 
-    vim.cmd([[
-      augroup packer_user_config
-        autocmd!
-        autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-      augroup end
-    ]])
+    -- vim.cmd([[
+    --   augroup packer_user_config
+    --     autocmd!
+    --     autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+    --   augroup end
+    -- ]])
 
     utils.packer_install(require("core.plugins"))
 

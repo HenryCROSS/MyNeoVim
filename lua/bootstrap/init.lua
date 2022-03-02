@@ -1,7 +1,8 @@
 local M = {}
 
 M.load = function ()
-    pcall(require, "impatient")
+    local _, value = pcall(require, "impatient")
+    value.enable_profile()
 
 end
 

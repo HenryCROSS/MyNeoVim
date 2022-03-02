@@ -16,8 +16,7 @@
 -- -- load test plugins
 -- require("test").load()
 
-
-require("bootstrap").load()
+-- require("bootstrap").load()
 require("global").load()
 require("core").load()
 -- require("test").load()
