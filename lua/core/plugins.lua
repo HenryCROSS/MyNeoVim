@@ -356,10 +356,9 @@ local plugins = {
     -- },
     {
         'neovim/nvim-lspconfig',
-        event = "BufEnter",
-        config = function ()
-            require("core.lsp_config.lspconfig_cmp").load()
-        end
+        event = "nvim-cmnvim-cmp",
+        -- config = function ()
+        -- end
     },
     {
         -- 与lspconfig配套
@@ -367,6 +366,7 @@ local plugins = {
         after = "nvim-lspconfig",
         config = function ()
             require("core.lsp_config.nvimlspinstaller").load()
+            require("core.lsp_config.lspconfig_cmp").load()
         end
     },
     {
@@ -378,7 +378,7 @@ local plugins = {
     },
     {
         "onsails/lspkind-nvim",
-        after = "nvim-lspconfig",
+        -- after = "nvim-lspconfig",
     },
     {
         'folke/trouble.nvim',
@@ -408,8 +408,7 @@ local plugins = {
     },
     {
         'hrsh7th/cmp-path',
-        after = "nvim-cmp"
-
+        after = "cmp-buffer"
     },
     {
         'hrsh7th/cmp-cmdline',
