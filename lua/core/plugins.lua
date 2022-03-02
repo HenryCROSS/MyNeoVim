@@ -467,12 +467,12 @@ local plugins = {
     },
     {
         'hrsh7th/cmp-buffer',
-        after = "LuaSnip",
+        after = "nvim-cmp"
     },
     {
         'hrsh7th/cmp-path',
         -- event = {"BufRead", "BufNewFile"},
-        after = "LuaSnip"
+        after = "nvim-cmp"
     },
     {
         'hrsh7th/cmp-cmdline',
