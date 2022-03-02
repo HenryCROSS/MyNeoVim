@@ -3,7 +3,7 @@ local logger = builtin_lib.log
 
 local M = {}
 
-function M.packer_install(plugin_arr)
+function M.load_packer_configs(plugin_arr)
     local status_ok, _ = xpcall(function()
         packer.startup(function(use)
             -- for _, plugins in ipairs(plugin_arr) do

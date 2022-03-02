@@ -43,7 +43,7 @@ M.load = function ()
     --   augroup end
     -- ]])
 
-    utils.packer_install(require("core.plugins"))
+    utils.load_packer_configs(require("core.plugins"))
     vim.g.rainbow_active = 1
 
 end
