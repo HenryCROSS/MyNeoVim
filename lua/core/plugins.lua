@@ -62,6 +62,7 @@ local plugins = {
     },
     {
         "nvim-neorg/neorg",
+        ft = {"neorg"},
         config = function ()
             require("core.plugin_config.neorg").load()
         end
@@ -140,6 +141,7 @@ local plugins = {
     { "sharkdp/fd" },
     {
         "echasnovski/mini.nvim",
+        event = "BufEnter",
         config = function ()
             require("core.plugin_config.mini").load()
         end
@@ -155,12 +157,14 @@ local plugins = {
     {
         -- 括号补全
         "windwp/nvim-autopairs",
+        after = "nvim-cmp",
         config = function ()
             require("core.plugin_config.autopairs").load()
         end
     },
     {
         "seandewar/nvimesweeper",
+        opt = true
     },
     {
         "junegunn/fzf",
@@ -172,6 +176,7 @@ local plugins = {
     },
     {
         "kyazdani42/nvim-web-devicons", -- optional, for file icon
+        event = "BufEnter"
     },
     {
         "nvim-telescope/telescope.nvim",
@@ -209,6 +214,11 @@ local plugins = {
         requires = {
             "kyazdani42/nvim-web-devicons", -- optional, for file icon
         },
+        cmd = {
+            "NvimTreeOpen",
+            "NvimTreeFocus",
+            "NvimTreeToggle",
+        },
         -- NOTE: you need to set other vim.g let g: nvim_tree variables BEFORE
         -- calling the setup if you want everything to work as expected :)
         -- config = function() require'nvim-tree'.setup {} end
@@ -218,6 +228,7 @@ local plugins = {
     },
     {
         "folke/which-key.nvim",
+        event = "VimEnter",
         config = function ()
             require("core.plugin_config.whichkey").load()
         end
@@ -241,17 +252,18 @@ local plugins = {
     },
     {
         "akinsho/toggleterm.nvim",
+        event = "BufEnter",
         config = function ()
             require("core.plugin_config.toggleterm").load()
         end
     },
     {
         "kdheepak/lazygit.nvim",
-        -- cmd = {
-        --     "LazyGit",
-        --     "LazyGitFilter",
-        --     "LazyGitConfig",
-        -- }
+        cmd = {
+            "LazyGit",
+            "LazyGitFilter",
+            "LazyGitConfig",
+        }
     },
     {
         "phaazon/hop.nvim",
@@ -262,6 +274,7 @@ local plugins = {
     },
     {
         "nvim-lualine/lualine.nvim",
+        after = "nvim-web-devicons",
         requires = {
             "kyazdani42/nvim-web-devicons",
             -- opt = true,
@@ -271,10 +284,12 @@ local plugins = {
         end
     },
     {
-        "RRethy/vim-illuminate"
+        "RRethy/vim-illuminate",
+        after = "nvim-lspconfig",
     },
     {
         "numToStr/Comment.nvim",
+        event = "BufEnter",
         config = function ()
             require("core.plugin_config.comment").load()
         end
@@ -284,13 +299,16 @@ local plugins = {
     -- },
     {
         "mfussenegger/nvim-dap",
+        event = "BufRead",
     },
     {
         "p00f/nvim-ts-rainbow",
+        after = "nvim-treesitter",
     },
     {
         -- 对上面的补全
         'luochen1990/rainbow',
+        event = "BufEnter",
         config = function ()
             require("core.plugin_config.rainbow").load()
         end
@@ -320,12 +338,14 @@ local plugins = {
     -- lsp
     {
         'j-hui/fidget.nvim',
+        after = "nvim-lspconfig",
         config = function ()
             require("core.lsp_config.fidget").load()
         end
     },
     {
         "rmagatti/goto-preview",
+        after = "nvim-lspconfig",
         config = function ()
             require("core.lsp_config.goto_preview").load()
         end
@@ -336,32 +356,33 @@ local plugins = {
     -- },
     {
         'neovim/nvim-lspconfig',
+        event = "BufEnter",
         config = function ()
             require("core.lsp_config.lspconfig_cmp").load()
         end
-        -- event = "BufEnter"
     },
     {
         -- 与lspconfig配套
         'williamboman/nvim-lsp-installer',
+        after = "nvim-lspconfig",
         config = function ()
             require("core.lsp_config.nvimlspinstaller").load()
         end
-        -- after = "nvim-lspconfig"
     },
     {
         'ray-x/lsp_signature.nvim',
+        after = "nvim-lspconfig",
         config = function ()
             require("core.lsp_config.lsp_signature").load()
         end
-        -- after = "nvim-lspconfig"
     },
     {
-        "onsails/lspkind-nvim"
+        "onsails/lspkind-nvim",
+        after = "nvim-lspconfig",
     },
     {
         'folke/trouble.nvim',
-        -- after = "nvim-lspconfig"
+        after = "nvim-lspconfig"
 
     },
     -- {
@@ -379,27 +400,25 @@ local plugins = {
     -- cmp
     {
         'hrsh7th/cmp-nvim-lsp',
-        -- after = "nvim-cmp"
-
+        after = "nvim-lsp-installer"
     },
     {
         'hrsh7th/cmp-buffer',
-        -- after = "nvim-cmp"
-
+        after = "nvim-cmp"
     },
     {
         'hrsh7th/cmp-path',
-        -- after = "nvim-cmp"
+        after = "nvim-cmp"
 
     },
     {
         'hrsh7th/cmp-cmdline',
-        -- after = "nvim-cmp"
+        after = "nvim-cmp"
 
     },
     {
         'hrsh7th/nvim-cmp',
-        -- after = "friendly-snippets",
+        after = "friendly-snippets",
     },
     -- {
     --     -- 'hrsh7th/cmp-vsnip'
@@ -412,7 +431,7 @@ local plugins = {
     -- },
     {
         'saadparwaiz1/cmp_luasnip',
-        -- after = "nvim-cmp"
+        after = "LuaSnip"
     },
     -- {
     --     -- 'SirVer/ultisnips'
@@ -428,24 +447,24 @@ local plugins = {
     -- },
     {
         "hrsh7th/cmp-nvim-lua",
-        -- after = "nvim-cmp"
+        after = "nvim-cmp"
 
     },
     {
         "weilbith/nvim-code-action-menu",
+        after = "nvim-lspconfig",
         config = function ()
             require("core.lsp_config.codeactionmenu").load()
-        end
-        -- after = "nvim-lspconfig"
+        end,
     },
     -- snippets
     {
         "rafamadriz/friendly-snippets",
-        -- event = "InsertEnter"
+        event = "InsertEnter"
     },
     {
         "L3MON4D3/LuaSnip",
-        -- event = "InsertEnter"
+        after = "nvim-cmp",
     },
     {
         'MarcWeber/vim-addon-mw-utils'
@@ -455,11 +474,11 @@ local plugins = {
     },
     {
         'garbas/vim-snipmate',
-        -- after = "nvim-cmp"
+        after = "nvim-cmp"
     },
     {
         "honza/vim-snippets",
-        -- after = "nvim-cmp"
+        after = "nvim-cmp"
     },
     -- color SCHEME
     -- {
