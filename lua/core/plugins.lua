@@ -371,6 +371,10 @@ local plugins = {
         -- 与lspconfig配套
         'williamboman/nvim-lsp-installer',
         after = "nvim-lspconfig",
+        config = function ()
+            require("core.lsp_config.nvimlspinstaller").load()
+            require("core.lsp_config.lspconfig_cmp").load()
+        end
     },
     {
         'ray-x/lsp_signature.nvim',
@@ -381,8 +385,6 @@ local plugins = {
     },
     {
         "onsails/lspkind-nvim",
-        -- event = "BufEnter",
-        -- after = "nvim-cmp",
     },
     {
         'folke/trouble.nvim',
@@ -416,8 +418,7 @@ local plugins = {
     },
     {
         'hrsh7th/cmp-path',
-        after = "nvim-cmp"
-
+        after = "cmp-buffer"
     },
     {
         'hrsh7th/cmp-cmdline',
