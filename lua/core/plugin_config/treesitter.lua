@@ -21,7 +21,7 @@ treesitter.load = function()
             -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
             -- Using this option may slow down your editor, and you may see some duplicate highlights.
             -- Instead of true it can also be a list of languages
-            additional_vim_regex_highlighting = true
+            additional_vim_regex_highlighting = true,
         },
         indent = {enable = false },
         rainbow = {enable = true, extended_mode = true, max_file_lines = nil},
@@ -55,6 +55,14 @@ treesitter.load = function()
             branch = "main"
         },
     }
+
+    -- handle the conflit from rainbow
+    vim.cmd[[augroup rainbow]]
+    vim.cmd[[	au BufEnter *     hi      TSPunctBracket NONE]]
+    vim.cmd[[	au BufEnter *     hi link TSPunctBracket nonexistenthl]]
+    vim.cmd[[	au BufEnter *.lua hi      TSConstructor  NONE]]
+    vim.cmd[[	au BufEnter *.lua hi link TSConstructor  nonexistenthl]]
+    vim.cmd[[augroup END]]
 end
 
 return treesitter

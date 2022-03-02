@@ -77,6 +77,7 @@ M.name = "neovim/nvim-lspconfig"
 M.load = function()
     -- Add additional capabilities supported by nvim-cmp
     local capabilities = vim.lsp.protocol.make_client_capabilities()
+    capabilities.offsetEncoding = { "utf-16" }
     capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
     local lspconfig = require('lspconfig')

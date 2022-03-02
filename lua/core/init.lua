@@ -44,17 +44,8 @@ M.load = function ()
     -- ]])
 
     utils.packer_install(require("core.plugins"))
+    vim.g.rainbow_active = 1
 
-    -- not working !!!
---[[
-    utils.packer_load(require("core.plugins"), {"plugin_config", "lsp_config"}, {
-    "core.lsp_config.init.lua",
-    "core.plugin_config.init.lua",
-    -- "core.plugin_config.gitsigns.lua",
-    -- "core.lsp_config.lspconfig_coq.lua",
-    -- "core.lsp_config.lsp_servers.lua"
-        })
-]]
 end
 
 return M

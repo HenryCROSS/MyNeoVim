@@ -16,26 +16,35 @@ local plugins = {
     {
         "kristijanhusak/vim-carbon-now-sh",
         opt = true,
-        event = "BufRead",
+        event = {"BufRead", "BufNewFile"},
         cmd = {
             "CarbonNowSh"
         }
     },
     {
         'voldikss/vim-translator',
-        event = "BufRead",
+        -- event = {"BufRead", "BufNewFile"},
         config = function ()
             require("core.plugin_config.vimtranslator").load()
         end,
-        -- cmd = {
-        --     "Translate",
-        --     "TranslateV",
-        --     "TranslateW",
-        --     "TranslateWV",
-        --     "TranslateR",
-        --     "TranslateRV",
-        --     "TranslateX",
-        -- }
+        keys = {
+            {"n", "<Leader>tw"},
+            {"v", "<Leader>tw"},
+            {"n", "<Leader>tt"},
+            {"v", "<Leader>tt"},
+            {"n", "<Leader>tr"},
+            {"v", "<Leader>tr"},
+            {"n", "<Leader>tx"},
+        },
+        cmd = {
+            "Translate",
+            "TranslateV",
+            "TranslateW",
+            "TranslateWV",
+            "TranslateR",
+            "TranslateRV",
+            "TranslateX",
+        }
     },
     -- {
     --     -- it has a lot of problems
@@ -67,7 +76,7 @@ local plugins = {
             "nvim-treesitter",
             "telescope.nvim",
         },
-        event = "BufRead",
+        event = {"BufRead", "BufNewFile"},
         config = function ()
             require("core.plugin_config.neorg").load()
         end
@@ -75,32 +84,32 @@ local plugins = {
     {
         -- graph drawing
         'jbyuki/venn.nvim',
-        event = "BufRead",
+        event = {"BufRead", "BufNewFile"},
         config = function ()
             require("core.plugin_config.venn").load()
         end
     },
     {
         "skywind3000/asynctasks.vim",
-        event = "BufRead",
+        event = {"BufRead", "BufNewFile"},
         config = function ()
             require("core.plugin_config.asynctasks").load()
         end
     },
     {
         "skywind3000/asyncrun.vim",
-        event = "BufRead",
+        event = {"BufRead", "BufNewFile"},
     },
     {
         'Pocco81/AutoSave.nvim',
-        event = "InsertEnter",
+        event = {"BufRead", "BufNewFile"},
         config = function ()
             require("core.plugin_config.autosave").load()
         end
     },
     {
         "luukvbaal/stabilize.nvim",
-        event = "BufRead",
+        event = {"BufRead", "BufNewFile"},
         config = function ()
             require("core.plugin_config.stabilize").load()
         end
@@ -115,7 +124,7 @@ local plugins = {
     },
     {
         "jose-elias-alvarez/null-ls.nvim",
-        event = "BufRead",
+        event = {"BufRead", "BufNewFile"},
         requires = {
             "nvim-lua/plenary.nvim",
         },
@@ -148,7 +157,7 @@ local plugins = {
     },
     {
         "nvim-treesitter/nvim-treesitter",
-        event = "BufRead",
+        event = {"BufRead", "BufNewFile"},
         run = ":TSUpdate",
         config = function ()
             require("core.plugin_config.treesitter").load()
@@ -160,7 +169,7 @@ local plugins = {
     { "sharkdp/fd" },
     {
         "echasnovski/mini.nvim",
-        event = "BufRead",
+        event = {"BufRead", "BufNewFile"},
         config = function ()
             require("core.plugin_config.mini").load()
         end
@@ -168,7 +177,7 @@ local plugins = {
     },
     {
         "SmiteshP/nvim-gps",
-        event = "BufRead",
+        event = {"BufRead", "BufNewFile"},
         config = function ()
             require("core.plugin_config.nvimgps").load()
         end
@@ -177,6 +186,7 @@ local plugins = {
         -- 括号补全
         "windwp/nvim-autopairs",
         after = "nvim-treesitter",
+        event = "InsertEnter",
         config = function ()
             require("core.plugin_config.autopairs").load()
         end
@@ -200,7 +210,7 @@ local plugins = {
     },
     {
         "nvim-telescope/telescope.nvim",
-        event = "BufRead",
+        event = {"BufRead", "BufNewFile"},
         cmd = "Telescope",
         keys = {
             {'n', '<Leader>bl'},
@@ -219,13 +229,24 @@ local plugins = {
     },
     {
         "nvim-telescope/telescope-media-files.nvim",
+        after = "telescope.nvim",
+        config = function ()
+            require('telescope').load_extension('media_files')
+        end
     },
     {
         'nvim-telescope/telescope-fzf-native.nvim', run = 'make',
+        after = "telescope.nvim",
+        config = function ()
+            -- it is very annoying to setup these in Windows, fuck it
+            if vim.loop.os_uname().sysname ~= "Windows_NT" then
+                require('telescope').load_extension('fzf')
+            end
+        end
     },
-    {
-        "tami5/sqlite.lua",
-    },
+    -- {
+    --     "tami5/sqlite.lua",
+    -- },
     -- {
     --   'yamatsum/nvim-nonicons',
     --   requires = {'kyazdani42/nvim-web-devicons'}
@@ -236,7 +257,7 @@ local plugins = {
             'n', '<Leader>op'
         },
         config = function ()
-            require("lua.core.plugin_config.nvimtree").load()
+            require("core.plugin_config.nvimtree").load()
         end,
         requires = {
             "kyazdani42/nvim-web-devicons", -- optional, for file icon
@@ -252,7 +273,7 @@ local plugins = {
     },
     {
         "sheerun/vim-polyglot",
-        event = "BufRead"
+        event = {"BufRead", "BufNewFile"}
     },
     {
         "folke/which-key.nvim",
@@ -271,7 +292,7 @@ local plugins = {
     },
     {
         "lewis6991/gitsigns.nvim",
-        event = "BufRead",
+        event = {"BufRead", "BufNewFile"},
         requires = {
             "nvim-lua/plenary.nvim",
         },
@@ -281,7 +302,7 @@ local plugins = {
     },
     {
         "akinsho/toggleterm.nvim",
-        event = "BufRead",
+        event = {"BufRead", "BufNewFile"},
         config = function ()
             require("core.plugin_config.toggleterm").load()
         end
@@ -296,7 +317,7 @@ local plugins = {
     },
     {
         "phaazon/hop.nvim",
-        event = "BufRead",
+        event = {"BufRead", "BufNewFile"},
         config = function ()
             require("core.plugin_config.hop").load()
         end
@@ -314,12 +335,12 @@ local plugins = {
     },
     {
         "RRethy/vim-illuminate",
-        event = "BufRead",
+        event = {"BufRead", "BufNewFile"},
         -- after = "nvim-lspconfig",
     },
     {
         "numToStr/Comment.nvim",
-        event = "BufRead",
+        event = {"BufRead", "BufNewFile"},
         config = function ()
             require("core.plugin_config.comment").load()
         end
@@ -329,23 +350,23 @@ local plugins = {
     -- },
     {
         "mfussenegger/nvim-dap",
-        event = "BufRead",
+        event = "BufReadPre",
     },
     {
         "p00f/nvim-ts-rainbow",
-        event = "BufEnter",
+        event = {"BufRead", "BufNewFile"},
     },
     {
         -- 对上面的补全
         'luochen1990/rainbow',
-        event = "BufEnter",
+        event = "BufReadPost",
         config = function ()
             require("core.plugin_config.rainbow").load()
         end
     },
     {
         'simrat39/symbols-outline.nvim',
-        event = "BufRead",
+        event = {"BufRead", "BufNewFile"},
         -- after = "nvim-lspconfig",
         config = function ()
             require("core.plugin_config.symbolsoutline").load()
@@ -353,7 +374,8 @@ local plugins = {
     },
     {
         "norcalli/nvim-colorizer.lua",
-        event = "BufEnter",
+        -- event = "BufEnter",
+        event = {"BufRead", "BufNewFile"},
         config = function ()
             require("core.plugin_config.nvimcolorizer").load()
         end
@@ -371,7 +393,7 @@ local plugins = {
     -- lsp
     {
         'j-hui/fidget.nvim',
-        event = "BufRead",
+        event = {"BufRead", "BufNewFile"},
         -- after = "nvim-lspconfig",
         config = function ()
             require("core.lsp_config.fidget").load()
@@ -379,7 +401,7 @@ local plugins = {
     },
     {
         "rmagatti/goto-preview",
-        event = "BufRead",
+        event = {"BufRead", "BufNewFile"},
         -- after = "nvim-lspconfig",
         config = function ()
             require("core.lsp_config.goto_preview").load()
@@ -391,7 +413,7 @@ local plugins = {
     -- },
     {
         'neovim/nvim-lspconfig',
-        event = "BufRead",
+        event = {"BufRead", "BufNewFile"},
         after = "nvim-cmp",
         -- after = "nvim-lsp-installer",
         config = function ()
@@ -401,14 +423,14 @@ local plugins = {
     {
         -- 与lspconfig配套
         'williamboman/nvim-lsp-installer',
-        event = "BufRead",
+        event = {"BufRead", "BufNewFile"},
         config = function ()
             require("core.lsp_config.nvimlspinstaller").load()
         end
     },
     {
         'ray-x/lsp_signature.nvim',
-        event = "BufRead",
+        event = {"BufRead", "BufNewFile"},
         -- after = "nvim-lspconfig",
         config = function ()
             require("core.lsp_config.lsp_signature").load()
@@ -420,7 +442,7 @@ local plugins = {
     },
     {
         'folke/trouble.nvim',
-        event = "BufRead",
+        event = {"BufRead", "BufNewFile"},
         -- after = "nvim-lspconfig"
 
     },
@@ -448,11 +470,13 @@ local plugins = {
     },
     {
         'hrsh7th/cmp-path',
-        event = "BufRead",
+        -- event = {"BufRead", "BufNewFile"},
+        after = "LuaSnip"
     },
     {
         'hrsh7th/cmp-cmdline',
-        event = "BufRead",
+        -- event = {"BufRead", "BufNewFile"},
+        after = "LuaSnip"
     },
     {
         'hrsh7th/nvim-cmp',
@@ -463,17 +487,19 @@ local plugins = {
     },
     {
         'saadparwaiz1/cmp_luasnip',
-        event = "BufRead",
+        -- event = {"BufRead", "BufNewFile"},
+        after = "LuaSnip"
     },
     {
         "hrsh7th/cmp-nvim-lua",
-        event = "BufRead",
+        -- event = {"BufRead", "BufNewFile"},
+        after = "LuaSnip"
         -- event = "BufRead",
 
     },
     {
         "weilbith/nvim-code-action-menu",
-        event = "BufRead",
+        event = {"BufRead", "BufNewFile"},
         -- after = "nvim-lspconfig",
         config = function ()
             require("core.lsp_config.codeactionmenu").load()

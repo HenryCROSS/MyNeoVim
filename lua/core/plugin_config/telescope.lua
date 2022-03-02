@@ -4,12 +4,7 @@ local telescope_settings = require('telescope')
 telescope.name = "nvim-telescope/telescope.nvim"
 
 telescope.load = function()
-    telescope_settings.load_extension('media_files')
 
-    -- it is very annoying to setup these in Windows, fuck it
-    if vim.loop.os_uname().sysname ~= "Windows_NT" then
-        telescope_settings.load_extension('fzf')
-    end
 
     telescope_settings.setup {
         mappings = {
