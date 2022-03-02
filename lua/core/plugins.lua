@@ -489,7 +489,7 @@ local plugins = {
     {
         'saadparwaiz1/cmp_luasnip',
         -- event = {"BufRead", "BufNewFile"},
-        after = "LuaSnip"
+        after = "nvim-cmp"
     },
     {
         "hrsh7th/cmp-nvim-lua",
