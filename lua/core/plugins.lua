@@ -467,7 +467,7 @@ local plugins = {
     },
     {
         'hrsh7th/cmp-buffer',
-        after = "LuaSnip",
+        after = "nvim-cmp",
     },
     {
         'hrsh7th/cmp-path',
@@ -481,7 +481,7 @@ local plugins = {
     },
     {
         'hrsh7th/nvim-cmp',
-        after = "cmp-buffer",
+        after = "LuaSnip",
         config = function ()
             require("core.lsp_config.cmp").load()
         end,
