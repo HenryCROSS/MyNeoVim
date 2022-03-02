@@ -494,7 +494,7 @@ local plugins = {
     {
         "hrsh7th/cmp-nvim-lua",
         -- event = {"BufRead", "BufNewFile"},
-        after = "LuaSnip"
+        after = "nvim-cmp"
         -- event = "BufRead",
 
     },
