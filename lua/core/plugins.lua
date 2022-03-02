@@ -414,7 +414,7 @@ local plugins = {
     {
         'neovim/nvim-lspconfig',
         event = {"BufRead", "BufNewFile"},
-        after = "nvim-cmp",
+        after = "cmp-nvim-lsp",
         -- after = "nvim-lsp-installer",
         config = function ()
             require("core.lsp_config.lspconfig_cmp").load()
@@ -424,6 +424,7 @@ local plugins = {
         -- 与lspconfig配套
         'williamboman/nvim-lsp-installer',
         event = {"BufRead", "BufNewFile"},
+        after = "cmp-nvim-lsp",
         config = function ()
             require("core.lsp_config.nvimlspinstaller").load()
         end
