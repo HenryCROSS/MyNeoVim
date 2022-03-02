@@ -17,10 +17,14 @@ function M.packer_load(plugin_arr, config_dirs, exceptions)
             -- config_table[config[1]] = config.load
             -- print(config_table[tmp[1]])
             if config.name ~= nil then
-                config_table[config.name] = config.load
+                config_table[config.name] = config_path
             end
         end
     end
+
+    -- for key, value in pairs(config_table) do
+    --     print(key, value)
+    -- end
             -- print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!==========")
     --
     local status_ok, _ = xpcall(function()
@@ -28,16 +32,30 @@ function M.packer_load(plugin_arr, config_dirs, exceptions)
             -- for _, plugins in ipairs(plugin_arr) do
                 for idx, plugin in pairs(plugin_arr) do
                     -- I need to connect the plugin and the config_table <<<<<<<
+                                print("==================")
                             if config_table[plugin[1]] ~= nil then
                                 -- print(
                                 --     type(config_table[plugin[1]])
                                 --     )
-                                plugin_arr[idx].config =
-                                    config_table[plugin[1]]()
+                                plugin["config"] = function ()
+                                    -- code
+                                    -- config_table[plugin[1]]()
+                                    require(config_table[plugin[1]]).load()
+                                end
+                                print(plugin[1], "      ", config_table[plugin[1]])
                                 -- print("Name:", plugin[1],config_table[plugin[1]].load())
                                 -- config_table[plugin[1]].load()
+                                -- print(plugin_arr[idx][1])
+                                -- print(plugin_arr[idx])
+                                -- print(plugin_arr[idx].config)
                             end
+                    print(plugin.config)
+                                print("==================")
                     use(plugin)
+
+                    -- if plugin_arr[idx].load ~= nil then
+                    --     plugin_arr[idx].load()
+                    -- end
                 end
             -- end
         end)
