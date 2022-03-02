@@ -80,7 +80,6 @@ M.load = function()
     capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
     local lspconfig = require('lspconfig')
-    local lspkind = require('lspkind')
 
     local nvimlspinstaller_settings = require("nvim-lsp-installer")
     nvimlspinstaller_settings.on_server_ready(function(server)
@@ -163,6 +162,7 @@ M.load = function()
     cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
     cmp_autopairs.lisp[#cmp_autopairs.lisp+1] = "racket"
 
+    local lspkind = require('lspkind')
     cmp.setup {
         formatting = {
             format = lspkind.cmp_format({
