@@ -7,7 +7,7 @@ local remap = vim.api.nvim_set_keymap
 M.name = "windwp/nvim-autopairs"
 
 function M.load()
-    npairs.setup {
+    npair.setup {
         -- map_bs=false, map_cr=false,
         -- 启用treesitter
         check_ts = true,
