@@ -37,11 +37,10 @@ function M.packer_load(plugin_arr, config_dirs, exceptions)
                                 -- print(
                                 --     type(config_table[plugin[1]])
                                 --     )
-                                plugin["config"] = function ()
+                                plugin["config"] =
                                     -- code
                                     -- config_table[plugin[1]]()
                                     require(config_table[plugin[1]]).load()
-                                end
                                 print(plugin[1], "      ", config_table[plugin[1]])
                                 -- print("Name:", plugin[1],config_table[plugin[1]].load())
                                 -- config_table[plugin[1]].load()

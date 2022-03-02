@@ -1,7 +1,7 @@
 local M = {}
 local packer = require('packer')
 
-M.name = "wbthomason/packer.nvim"
+-- M.name = "wbthomason/packer.nvim"
 
 M.load = function()
     -- packer.init({

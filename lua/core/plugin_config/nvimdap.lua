@@ -1,5 +1,5 @@
 local nvimdap = {}
-local nvimdap_settings = require('dap')
+-- local nvimdap_settings = require('dap')
 
 nvimdap.name = "mfussenegger/nvim-dap"
 

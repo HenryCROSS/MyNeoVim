@@ -1,5 +1,7 @@
 local M = {}
 
+M.name = "hrsh7th/nvim-cmp"
+
 M.load = function()
     -- general snippet setup
     local has_words_before = function()
