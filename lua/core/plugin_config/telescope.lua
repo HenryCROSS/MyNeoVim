@@ -8,7 +8,6 @@ telescope.load = function()
 
     -- it is very annoying to setup these in Windows, fuck it
     if vim.loop.os_uname().sysname ~= "Windows_NT" then
-        telescope_settings.load_extension('frecency')
         telescope_settings.load_extension('fzf')
     end
 
