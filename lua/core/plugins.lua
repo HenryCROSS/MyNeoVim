@@ -536,11 +536,11 @@ local plugins = {
         "rafamadriz/friendly-snippets",
         -- event = "BufRead",
         -- event = "BufEnter",
-        event = "InsertEnter"
+        event = {"BufRead", "BufNewFile"},
     },
     {
         "L3MON4D3/LuaSnip",
-        event = "InsertEnter",
+        event = {"BufRead", "BufNewFile"},
         -- after = "nvim-cmp",
     },
     {
@@ -551,12 +551,12 @@ local plugins = {
     },
     {
         'garbas/vim-snipmate',
-        event = "InsertEnter",
+        event = {"BufRead", "BufNewFile"},
         -- after = "nvim-cmp"
     },
     {
         "honza/vim-snippets",
-        event = "InsertEnter",
+        event = {"BufRead", "BufNewFile"},
         -- after = "nvim-cmp"
     },
     -- color SCHEME
