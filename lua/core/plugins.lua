@@ -400,7 +400,7 @@ local plugins = {
     {
         "norcalli/nvim-colorizer.lua",
         -- event = "BufEnter",
-        event = {"BufRead", "BufNewFile"},
+        event = {"BufReadPre", "BufNewFile"},
         config = function ()
             require("core.plugin_config.nvimcolorizer").load()
         end
