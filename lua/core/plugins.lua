@@ -22,6 +22,17 @@ local plugins = {
         }
     },
     {
+        'ethanholz/nvim-lastplace',
+        event = {"BufReadPre"},
+        config = function ()
+            require'nvim-lastplace'.setup {
+                lastplace_ignore_buftype = {"quickfix", "nofile", "help"},
+                lastplace_ignore_filetype = {"gitcommit", "gitrebase", "svn", "hgcommit"},
+                lastplace_open_folds = true
+            }
+        end
+    },
+    {
         'voldikss/vim-translator',
         -- event = {"BufRead", "BufNewFile"},
         config = function ()
@@ -168,6 +179,18 @@ local plugins = {
     },
     { "sharkdp/fd" },
     {
+        "ThePrimeagen/refactoring.nvim",
+        after = {"telescope.nvim"},
+        requires = {
+            {"nvim-lua/plenary.nvim"},
+            {"nvim-treesitter/nvim-treesitter"},
+            {"nvim-telescope/telescope.nvim"},
+        },
+        config = function ()
+            require("core.plugin_config.refactoring").load()
+        end
+    },
+    {
         "echasnovski/mini.nvim",
         event = {"BufRead", "BufNewFile"},
         config = function ()
@@ -248,7 +271,7 @@ local plugins = {
         config = function ()
             -- it is very annoying to setup these in Windows, fuck it
             if vim.loop.os_uname().sysname ~= "Windows_NT" then
-                require('telescope').load_extension('fzf')
+               require('telescope').load_extension('fzf')
             end
         end
     },
@@ -478,7 +501,9 @@ local plugins = {
         'folke/trouble.nvim',
         event = {"BufRead", "BufNewFile"},
         -- after = "nvim-lspconfig"
-
+        config = function ()
+            require("core.plugin_config.trouble").load()
+        end
     },
     -- {
     --     -- 'ms-jpq/coq_nvim',
@@ -501,6 +526,10 @@ local plugins = {
     {
         'hrsh7th/cmp-buffer',
         after = "nvim-cmp",
+    },
+    {
+        "lukas-reineke/cmp-under-comparator",
+        event = {"BufRead", "BufNewFile"},
     },
     {
         'hrsh7th/cmp-path',

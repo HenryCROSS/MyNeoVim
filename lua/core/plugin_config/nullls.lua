@@ -5,6 +5,7 @@ local null_settings =
     )
 
 local sources = {
+    null_settings.builtins.diagnostics.zsh,
     null_settings.builtins
         .formatting
         .lua_format,
