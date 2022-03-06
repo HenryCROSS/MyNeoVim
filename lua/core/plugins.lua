@@ -217,6 +217,7 @@ local plugins = {
             {'n', '<Leader>fo'},
             {'n', '<Leader>ff'},
             {'n', '<Leader>fg'},
+            {'n', '<Leader>fb'},
         },
         requires = {
             {
@@ -225,6 +226,13 @@ local plugins = {
         },
         config = function ()
             require("core.plugin_config.telescope").load()
+        end
+    },
+    {
+        "nvim-telescope/telescope-file-browser.nvim",
+        after = "telescope.nvim",
+        config = function ()
+            require('telescope').load_extension('file_browser')
         end
     },
     {

@@ -5,7 +5,6 @@ telescope.name = "nvim-telescope/telescope.nvim"
 
 telescope.load = function()
 
-
     telescope_settings.setup {
         mappings = {
             i = {
@@ -22,10 +21,21 @@ telescope.load = function()
                 find_cmd = "rg" -- find command (defaults to `fd`)
             },
             fzf = {
-                fuzzy = true,                    -- false will only do exact matching
-                override_generic_sorter = true,  -- override the generic sorter
-                override_file_sorter = true,     -- override the file sorter
-                case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+                fuzzy = true, -- false will only do exact matching
+                override_generic_sorter = true, -- override the generic sorter
+                override_file_sorter = true, -- override the file sorter
+                case_mode = "smart_case" -- or "ignore_case" or "respect_case"
+            },
+            file_browser = {
+                theme = "ivy",
+                mappings = {
+                    ["i"] = {
+                        -- your custom insert mode mappings
+                    },
+                    ["n"] = {
+                        -- your custom normal mode mappings
+                    }
+                }
             }
         }
     }
@@ -37,6 +47,8 @@ telescope.load = function()
     -- vim.api.nvim_set_keymap('n', '<Leader>fo', ':Telescope frecency<CR>', {})
     vim.api.nvim_set_keymap('n', '<Leader>ff', ':Telescope find_files<CR>', {})
     vim.api.nvim_set_keymap('n', '<Leader>fg', '<cmd>Telescope live_grep<CR>', {})
+    vim.api.nvim_set_keymap( "n", "<space>fb", ":Telescope file_browser<CR>", { noremap = true }
+)
 end
 
 return telescope
