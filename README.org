@@ -1,0 +1,63 @@
+#+TITLE: README
+#+AUTHOR: Henry CROSS
+#+DATE: <2022-03-09 Wed>
+
+* Instruction
+- This is the first nvim config built by myselft.
+- The general purpose of this to build an editor that could handle all my work in once
+- (Although this README is writting in Doom Emacs, and I am quiet like some features from the Emacs lmao)
+
+* Features
+- Optimization of the startup time
+  The Startup time of my config is down to around 60ms (i7-10510U)
+
+* The plugin list
+| Plugin Name                 |
+|-----------------------------|
+| Packer.nvim                 |
+| vim-carbon-now-sh           |
+| nvim-lastplace              |
+| vim-translator              |
+| vim-startuptime             |
+| impatient.nvim              |
+| filetype.nvim               |
+| neorg                       |
+| venn.nvim                   |
+| asynctasks.vim              |
+| asyncrun.vim                |
+| AutoSave.nvim               |
+| stabilize.nvim              |
+| wilder.nvim                 |
+| null-ls.nvim                |
+| fzy-lua-native              |
+| dashboard-nvim              |
+| nvim-treesitter             |
+| plenary.nvim                |
+| fd                          |
+| refactoring.nvim            |
+| mini.nvim                   |
+| nvim-gps                    |
+| nvim-autopairs              |
+| nvimesweeper                |
+| nvim-web-devicons           |
+| telescope.nvim              |
+| telescope-file-browser.nvim |
+| telescope-media-files.nvim  |
+| telescope-fzf-native.nvim   |
+| nvim-tree.lua               |
+| vim-polyglot                |
+| which-key.nvim              |
+| bufferline.nvim             |
+| gitsigns.nvim               |
+| toggleterm.nvim             |
+| lazygit.nvim                |
+| hop.nvim                    |
+| lualine.nvim                |
+| vim-illuminate              |
+| Comment.nvim                |
+| nvim-dap                    |
+| nvim-dap-ui                 |
+| nvim-dap-virtual-text       |
+| DAPInstall.nvim             |
+| nvim-ts-rainbow             |
+|                             |

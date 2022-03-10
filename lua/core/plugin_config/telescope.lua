@@ -1,11 +1,26 @@
 local telescope = {}
 local telescope_settings = require('telescope')
+local wk = require("which-key")
 
 telescope.name = "nvim-telescope/telescope.nvim"
 
 telescope.load = function()
 
     telescope_settings.setup {
+        pickers = {
+            oldfiles = {
+                theme = "ivy",
+            },
+            find_files = {
+                theme = "ivy",
+            },
+            live_grep = {
+                theme = "ivy",
+            },
+            buffers = {
+                theme = "ivy",
+            },
+        },
         mappings = {
             i = {
                 --
@@ -40,15 +55,30 @@ telescope.load = function()
         }
     }
 
-    vim.api.nvim_set_keymap('n', '<Leader>bl', ':Telescope buffers<CR>', {})
+    -- vim.api.nvim_set_keymap('n', '<Leader>bl', ':Telescope buffers<CR>', {})
+    --
+    -- -- files
+    -- vim.api.nvim_set_keymap('n', '<Leader>fo', ':Telescope oldfiles<CR>', {})
+    -- -- vim.api.nvim_set_keymap('n', '<Leader>fo', ':Telescope frecency<CR>', {})
+    -- vim.api.nvim_set_keymap('n', '<Leader>ff', ':Telescope find_files<CR>', {})
+    -- vim.api.nvim_set_keymap('n', '<Leader>fg', '<cmd>Telescope live_grep<CR>',
+    --                         {})
+    -- vim.api.nvim_set_keymap("n", "<space>fb", ":Telescope file_browser<CR>",
+    --                         {noremap = true})
 
-    -- files
-    vim.api.nvim_set_keymap('n', '<Leader>fo', ':Telescope oldfiles<CR>', {})
-    -- vim.api.nvim_set_keymap('n', '<Leader>fo', ':Telescope frecency<CR>', {})
-    vim.api.nvim_set_keymap('n', '<Leader>ff', ':Telescope find_files<CR>', {})
-    vim.api.nvim_set_keymap('n', '<Leader>fg', '<cmd>Telescope live_grep<CR>', {})
-    vim.api.nvim_set_keymap( "n", "<space>fb", ":Telescope file_browser<CR>", { noremap = true }
-)
+    wk.register({
+            f = {
+                name = 'File',
+                o = {"<cmd>Telescope oldfiles<cr>", "Open Recent File"},
+                f = {"<cmd>Telescope find_files<cr>", "Find File"},
+                g = {"<cmd>Telescope live_grep<cr>", "Find String"},
+                b = {"<cmd>Telescope file_browser<cr>", "Open File Manager"},
+            },
+            b = {
+                name = "Buffer",
+                l = {"<cmd>Telescope buffers<cr>", "List Buffers"}
+            }
+        }, {prefix = "<leader>"})
 end
 
 return telescope
