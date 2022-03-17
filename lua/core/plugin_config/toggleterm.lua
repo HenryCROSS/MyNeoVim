@@ -1,6 +1,5 @@
 local toggleterm = {}
 local toggleterm_settings = require('toggleterm')
-local config = {}
 
 function _G.set_terminal_keymaps()
     local opts = {noremap = true}
@@ -11,6 +10,9 @@ function _G.set_terminal_keymaps()
     vim.api.nvim_buf_set_keymap(0, 't', '<C-k>', [[<C-\><C-n><C-W>k]], opts)
     vim.api.nvim_buf_set_keymap(0, 't', '<C-l>', [[<C-\><C-n><C-W>l]], opts)
 end
+
+-- toggleterm = { {"n", "<leader>tt", "<cmd>exe v:count.'ToggleTerm'<cr>", "ntst"}, {"n", "<leader>tf", "<cmd>lua require('toggleterm').float_toggle()<cr>", "ntst"}, {"n", "<leader>tg", "<cmd>lua require('toggleterm').lazygit_toggle()<cr>", "ntst"}, {"n", "<leader>ta", "<cmd>ToggleTermToggleAll<cr>", "ntst"} },
+
 
 -- if you only want these mappings for toggle term use term://*toggleterm#* instead
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
@@ -26,13 +28,15 @@ toggleterm.load = function()
                 return vim.o.columns * 0.4
             end
         end,
-        open_mapping = '<Leader>ot',
+        open_mapping = nil,
         insert_mappings = false,
-        direction = 'vertical',
+        direction = 'horizontal',
         shell = '/bin/zsh',
         -- if you only want these mappings for toggle term use term://*toggleterm#* instead
         vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
     }
+
+    vim.api.nvim_set_keymap('n', '<leader>ot', "<cmd>ToggleTerm<cr>", {})
 end
 
 return toggleterm

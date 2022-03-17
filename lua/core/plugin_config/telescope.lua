@@ -56,6 +56,7 @@ telescope.load = function()
     }
 
     -- vim.api.nvim_set_keymap('n', '<Leader>bl', ':Telescope buffers<CR>', {})
+    vim.api.nvim_set_keymap('n', '<Leader>,', ':Telescope buffers<CR>', {})
     --
     -- -- files
     -- vim.api.nvim_set_keymap('n', '<Leader>fo', ':Telescope oldfiles<CR>', {})

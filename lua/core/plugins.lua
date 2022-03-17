@@ -57,6 +57,13 @@ local plugins = {
             "TranslateX",
         }
     },
+    {
+        "uga-rosa/translate.nvim",
+        opt = true,
+        config = function ()
+            require("core.plugin_config.translatenvim").load()
+        end,
+    },
     -- {
     --     -- it has a lot of problems
     --     -- 'TimUntersberger/neogit',
@@ -200,7 +207,9 @@ local plugins = {
     },
     {
         "SmiteshP/nvim-gps",
-        event = {"BufRead", "BufNewFile"},
+        after = {"nvim-treesitter"},
+        requires = "nvim-treesitter/nvim-treesitter",
+        -- event = {"BufRead", "BufNewFile"},
         config = function ()
             require("core.plugin_config.nvimgps").load()
         end
@@ -332,20 +341,34 @@ local plugins = {
        end
     },
     {
+        "famiu/bufdelete.nvim",
+        event = {"BufRead", "BufNewFile"},
+        config = function()
+            require("core.plugin_config.bufdelete").load()
+       end
+    },
+    {
+        "matbme/JABS.nvim",
+        event = {"BufRead", "BufNewFile"},
+        config = function ()
+            require("core.plugin_config.jabs").load()
+        end
+    },
+    {
         "akinsho/toggleterm.nvim",
         event = {"BufRead", "BufNewFile"},
         config = function ()
             require("core.plugin_config.toggleterm").load()
         end
     },
-    {
-        "kdheepak/lazygit.nvim",
-        cmd = {
-            "LazyGit",
-            "LazyGitFilter",
-            "LazyGitConfig",
-        }
-    },
+    -- {
+    --     "kdheepak/lazygit.nvim",
+    --     cmd = {
+    --         "LazyGit",
+    --         "LazyGitFilter",
+    --         "LazyGitConfig",
+    --     }
+    -- },
     {
         "phaazon/hop.nvim",
         event = {"BufRead", "BufNewFile"},
@@ -355,7 +378,8 @@ local plugins = {
     },
     {
         "nvim-lualine/lualine.nvim",
-        after = "nvim-web-devicons",
+        -- after = "nvim-web-devicons",
+        after = "kanagawa.nvim",
         requires = {
             "kyazdani42/nvim-web-devicons",
             -- opt = true,
@@ -610,12 +634,18 @@ local plugins = {
     -- },
     {
         "rebelot/kanagawa.nvim",
-        event = "VimEnter",
+        -- event = "VimEnter",
         config = function ()
             require("core.theme").load()
         end
         -- after = "nvim-treesitter"
     },
+    -- {
+    --     "catppuccin/nvim"
+    -- },
+    -- {
+    --     "folke/tokyonight.nvim"
+    -- },
 }
 
 return plugins
