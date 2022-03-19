@@ -117,6 +117,9 @@ local plugins = {
     {
         "skywind3000/asyncrun.vim",
         event = {"BufRead", "BufNewFile"},
+        config = function ()
+            require("core.plugin_config.asyncrun").load()
+        end
     },
     {
         'Pocco81/AutoSave.nvim',
@@ -439,7 +442,7 @@ local plugins = {
     {
         -- 对上面的补全
         'luochen1990/rainbow',
-        event = "BufReadPost",
+        -- event = "BufReadPost",
         config = function ()
             require("core.plugin_config.rainbow").load()
         end
