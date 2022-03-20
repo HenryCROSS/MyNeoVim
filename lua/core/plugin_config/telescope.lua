@@ -29,7 +29,11 @@ telescope.load = function()
             }
         },
         extensions = {
+            asynctasks = {
+                theme = "ivy",
+            },
             media_files = {
+                theme = "ivy",
                 -- filetypes whitelist
                 -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
                 filetypes = {"png", "webp", "jpg", "jpeg"},
