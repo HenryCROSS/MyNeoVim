@@ -485,6 +485,12 @@ local plugins = {
             require("core.plugin_config.markdownpreview").load()
         end
     },
+    {
+        "rcarriga/nvim-notify",
+        config = function ()
+            require("core.plugin_config.notify").load()
+        end
+    },
     -- lsp
     {
         'j-hui/fidget.nvim',
@@ -612,11 +618,11 @@ local plugins = {
         "rafamadriz/friendly-snippets",
         -- event = "BufRead",
         -- event = "BufEnter",
-        event = {"BufRead", "BufNewFile"},
+        -- event = {"BufRead", "BufNewFile"},
     },
     {
         "L3MON4D3/LuaSnip",
-        event = {"BufRead", "BufNewFile"},
+        -- event = {"BufRead", "BufNewFile"},
         -- after = "nvim-cmp",
     },
     {
@@ -627,12 +633,12 @@ local plugins = {
     },
     {
         'garbas/vim-snipmate',
-        event = {"BufRead", "BufNewFile"},
+        -- event = {"BufRead", "BufNewFile"},
         -- after = "nvim-cmp"
     },
     {
         "honza/vim-snippets",
-        event = {"BufRead", "BufNewFile"},
+        -- event = {"BufRead", "BufNewFile"},
         -- after = "nvim-cmp"
     },
     -- color SCHEME
