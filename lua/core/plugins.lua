@@ -271,15 +271,15 @@ local plugins = {
             "asyncrun.vim",
         },
         config = function ()
-            require("core.plugin_config.telescope").load()
+            vim.api.nvim_set_keymap("n", "<leader>at", ":lua require('telescope').extensions.asynctasks.all()<cr>"
+            , {})
         end
     },
     {
         "nvim-telescope/telescope-file-browser.nvim",
         after = "telescope.nvim",
         config = function ()
-            vim.api.nvim_set_keymap("n", "<leader>at", ":lua require('telescope').extensions.asynctasks.all()<cr>"
-            , {})
+            require("telescope").load_extension "file_browser"
         end
     },
     {

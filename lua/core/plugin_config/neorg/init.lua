@@ -27,6 +27,7 @@ M.load = function ()
                     workspaces = {
                         work = "~/notes/work",
                         home = "~/notes/home",
+                        plugin_config = "~/.config/MyNeoVim/doc/"
                     }
                 }
             }

@@ -1,0 +1,29 @@
+@document.meta
+    title: BreakingChanges
+    description: To make sure all the changes will be applied
+    authors: henry
+    categories: Change description
+    created: 2022-03-25
+    version: 0.0.11
+@end
+
+
+* That will be the first breaking change for my neovim config
+* Goal of the change
+ ** Info:
+    - It is able to config the lazy loading within a file for a better viewing.
+    - Prevent the error from the first time installation as it would cause some errors before the plugins are installed
+    - A better way to seperate the config with the plugin list
+    - Notify plugin be applied to each load method if Notify is installed, it let user be able to check config loading in lazy loading state
+    - Key map config will be organized in a better way, and all the setting will be integrated in a file
+    - Add KeyMapConfig class and PluginConfig class to the global folder
+    -- KeyMapConfig methods:
+    --- Public:
+    --- Private:
+    -- PluginConfig methods:
+    --- Public:
+    --- Private:
+
+* Progress:
+ ** ds
+
