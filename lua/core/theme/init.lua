@@ -3,7 +3,7 @@ local M = {}
 M.name = "rebelot/kanagawa.nvim"
 
 M.load = function ()
-    vim.cmd [[colorscheme kanagawa]]
+    vim.cmd [[colorscheme tokyonight]]
 end
 
 return M

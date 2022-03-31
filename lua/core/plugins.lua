@@ -162,7 +162,7 @@ local plugins = {
         as = "dashboard",
         event = "VimEnter",
         config = function ()
-            require("core.plugin_config.dashboard").load()
+            require("core.plugin_config.dashboard"):load()
         end,
         -- cmd = {
         --   "Dashboard",
@@ -306,25 +306,40 @@ local plugins = {
     --   'yamatsum/nvim-nonicons',
     --   requires = {'kyazdani42/nvim-web-devicons'}
     -- },
+    -- {
+    --     "kyazdani42/nvim-tree.lua",
+    --     keys = {
+    --         'n', '<Leader>op'
+    --     },
+    --     config = function ()
+    --         require("core.plugin_config.nvimtree").load()
+    --     end,
+    --     requires = {
+    --         "kyazdani42/nvim-web-devicons", -- optional, for file icon
+    --     },
+    --     -- cmd = {
+    --     --     "NvimTreeOpen",
+    --     --     "NvimTreeFocus",
+    --     --     "NvimTreeToggle",
+    --     -- },
+    --     -- NOTE: you need to set other vim.g let g: nvim_tree variables BEFORE
+    --     -- calling the setup if you want everything to work as expected :)
+    --     -- config = function() require'nvim-tree'.setup {} end
+    -- },
     {
-        "kyazdani42/nvim-tree.lua",
-        keys = {
-            'n', '<Leader>op'
+        "nvim-neo-tree/neo-tree.nvim",
+        -- keys = {
+        --     'n', '<Leader>op'
+        -- },
+        branch = "v2.x",
+        requires = {
+          "nvim-lua/plenary.nvim",
+          "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+          "MunifTanjim/nui.nvim"
         },
         config = function ()
-            require("core.plugin_config.nvimtree").load()
+            require("core.plugin_config.neotree").load()
         end,
-        requires = {
-            "kyazdani42/nvim-web-devicons", -- optional, for file icon
-        },
-        -- cmd = {
-        --     "NvimTreeOpen",
-        --     "NvimTreeFocus",
-        --     "NvimTreeToggle",
-        -- },
-        -- NOTE: you need to set other vim.g let g: nvim_tree variables BEFORE
-        -- calling the setup if you want everything to work as expected :)
-        -- config = function() require'nvim-tree'.setup {} end
     },
     {
         "sheerun/vim-polyglot",
@@ -394,7 +409,7 @@ local plugins = {
     {
         "nvim-lualine/lualine.nvim",
         -- after = "nvim-web-devicons",
-        after = "kanagawa.nvim",
+        -- after = "kanagawa.nvim",
         requires = {
             "kyazdani42/nvim-web-devicons",
             -- opt = true,
@@ -418,6 +433,14 @@ local plugins = {
     -- {
     --     -- "glepnir/indent-guides.nvim",
     -- },
+    {
+        "michaelb/sniprun",
+        run = 'bash ./install.sh',
+        event = {"BufRead", "BufNewFile"},
+        config = function ()
+            require("core.plugin_config.sniprun"):load()
+        end
+    },
     {
         "mfussenegger/nvim-dap",
         opt = true,
@@ -653,20 +676,23 @@ local plugins = {
     --     "folke/tokyonight.nvim",
     --     -- opt = true
     -- },
-    {
-        "rebelot/kanagawa.nvim",
-        -- event = "VimEnter",
-        config = function ()
-            require("core.theme").load()
-        end
-        -- after = "nvim-treesitter"
-    },
+    -- {
+    --     "rebelot/kanagawa.nvim",
+    --     -- event = "VimEnter",
+    --     config = function ()
+    --         require("core.theme").load()
+    --     end
+    --     -- after = "nvim-treesitter"
+    -- },
     -- {
     --     "catppuccin/nvim"
     -- },
-    -- {
-    --     "folke/tokyonight.nvim"
-    -- },
+    {
+        "folke/tokyonight.nvim",
+        config = function ()
+            require("core.theme").load()
+        end
+    },
 }
 
 return plugins

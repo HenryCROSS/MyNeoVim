@@ -8,9 +8,9 @@ symbols_outline.load = function ()
                             {noremap = true, silent = true})
 
     vim.g.symbols_outline = {
-        highlight_hovered_item = true,
-        show_guides = true,
-        auto_preview = true,
+        highlight_hovered_item = false,
+        show_guides = false,
+        auto_preview = false,
         position = 'right',
         relative_width = true,
         width = 40,
@@ -18,7 +18,7 @@ symbols_outline.load = function ()
         show_numbers = false,
         show_relative_numbers = false,
         show_symbol_details = false,
-        preview_bg_highlight = 'kanagawa',
+        preview_bg_highlight = 'Pmenu',
         keymaps = { -- These keymaps can be a string or a table for multiple keys
         close = {"<Esc>", "q"},
         goto_location = "<Cr>",

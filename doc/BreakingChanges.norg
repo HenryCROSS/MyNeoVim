@@ -23,7 +23,17 @@
     -- PluginConfig methods:
     --- Public:
     --- Private:
+    - Apply a feature that could mask some plugins easily
+    -- Be able to set some preconfig plans for easier plugin switches
+
 
 * Progress:
- ** ds
+ - [ ] Complete keymap class
+ - [ ] Complete general plugin class
+ - [ ] Complete lazy loading class
+ - [ ] Implement the notify for every load method for each plugin
+ - [ ] Refactor the plugin list
+ - [ ] Create a way of connection between plugin config and plugin list
+ - [ ] A fold for general config, which controls the plugin loading plan, lazy loading and etc
+ - [ ] Implement the try catch block for the plugins that prevent errors for first time installation
 

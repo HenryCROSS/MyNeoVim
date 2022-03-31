@@ -1,4 +1,6 @@
-local dashboard_settings = {}
+local M = builtin_Class.GenPluginConfig:new(nil)
+
+-- local dashboard_settings = {}
 local config = {
     search_handler = 'telescope',
     custom_header = {
@@ -122,19 +124,36 @@ local config = {
 }
 
 
-dashboard_settings.name = "glepnir/dashboard-nvim"
+-- dashboard_settings.name = "glepnir/dashboard-nvim"
 
-function dashboard_settings.load()
+-- function dashboard_settings.load()
+--     local opts =  {
+--         -- map = true
+--     }
+--     vim.api.nvim_set_keymap('n', '<Leader>ss', ':SessionSave<CR>', opts)
+--     vim.api.nvim_set_keymap('n', '<Leader>sl', ':SessionLoad<CR>', opts)
+--     vim.g.dashboard_default_executive = config.search_handler
+--     vim.g.dashboard_custom_header = config.custom_header3
+--     vim.g.dashboard_custom_section = config.custom_section
+--     -- vim.g.dashboard_custom_footer = config.custom_header4
+--     vim.g.dashboard_custom_footer = config.footer
+-- end
+
+local generalConfig = function()
     local opts =  {
         -- map = true
     }
     vim.api.nvim_set_keymap('n', '<Leader>ss', ':SessionSave<CR>', opts)
     vim.api.nvim_set_keymap('n', '<Leader>sl', ':SessionLoad<CR>', opts)
     vim.g.dashboard_default_executive = config.search_handler
-    vim.g.dashboard_custom_header = config.custom_header3
+    vim.g.dashboard_custom_header = config.custom_header2
     vim.g.dashboard_custom_section = config.custom_section
     -- vim.g.dashboard_custom_footer = config.custom_header4
     vim.g.dashboard_custom_footer = config.footer
 end
 
-return dashboard_settings
+M:set_name("glepnir/dashboard-nvim")
+M:append_fn(generalConfig)
+-- M:append_fn(generalConfig)
+
+return M

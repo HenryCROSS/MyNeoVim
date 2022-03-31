@@ -17,7 +17,14 @@ _G.api_fn = {
 
 _G.builtin_lib = {
     log = require('libs.Lib_Log'),
-    fio = require('libs.Lib_Fio')
+    fio = require('libs.Lib_Fio'),
+}
+
+_G.vim = vim
+
+_G.builtin_Class = {
+    GenPluginConfig = require('libs.GeneralPlugin'),
+    GenKeyMapConfig = require('libs.GeneralKeyMap')
 }
 
 end

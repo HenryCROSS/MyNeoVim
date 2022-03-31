@@ -8,17 +8,17 @@ M.load = function()
     bufferline_settings.setup {
         options = {
             offsets = {
-                {
-                    filetype = "NvimTree",
-                    text = "File Explorer",
-                    highlight = "Directory",
-                    text_align = "left"
-                },
-                {
-                    filetype = "Outline",
-                    text = "Lsp Tags",
-                    text_align = "right"
-                }
+                -- {
+                --     filetype = "NvimTree",
+                --     text = "File Explorer",
+                --     highlight = "Directory",
+                --     text_align = "left"
+                -- },
+                -- {
+                --     filetype = "Outline",
+                --     text = "Lsp Tags",
+                --     text_align = "right"
+                -- }
             },
             -- numbers = function(opts)
             --     return string.format('%s·%s', opts.raise(opts.id),
