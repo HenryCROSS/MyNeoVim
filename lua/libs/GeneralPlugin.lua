@@ -48,11 +48,11 @@ function M:load()
         end
     end, debug.traceback)
 
-    if ok then
-        config.announcement_fn()
-    else
-        print(config.name .. "has some issues...")
-    end
+    -- if ok then
+    --     config.announcement_fn()
+    -- else
+    --     print(config.name .. "has some issues...")
+    -- end
 end
 
 function M:append_fn(fn)

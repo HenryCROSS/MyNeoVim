@@ -46,6 +46,7 @@ function()
         relativenumber = false, -- set relative numbered lines
         numberwidth = 4, -- set number column width to 4
         signcolumn = "yes", -- always show the sign column, otherwise it would shift the text each time
+        wrap = false,
         linebreak = true, -- display lines as one long line
         spell = false,
         spelllang = "en",
@@ -58,6 +59,8 @@ function()
         shell = "/bin/zsh",
 
         tm = 1000, -- set timeout of the leader key
+        fillchars = "vert:┃,horiz:━,verthoriz:╋,horizup:┻,horizdown:┳,vertleft:┫,vertright:┣",
+        laststatus = 3
     }
     ---  SETTINGS  ---
 

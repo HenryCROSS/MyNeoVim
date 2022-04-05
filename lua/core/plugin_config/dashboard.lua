@@ -120,7 +120,7 @@ local config = {
         e = {description = {"[      Load Session             ] "}, command = "SessionLoad"},
         f = {description = {"[      Change Colorscheme       ] "}, command = "Telescope colorscheme"},
     },
-    footer = {"CROSS.org"}
+    footer = {"  CROSS.org  "}
 }
 
 

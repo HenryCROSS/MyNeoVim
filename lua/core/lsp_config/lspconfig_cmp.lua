@@ -105,6 +105,14 @@ M.load = function()
         }
     end
 
+    -- racket
+    require'lspconfig'.racket_langserver.setup{
+        cmd = { "xvfb-run", "racket", "--lib", "racket-langserver" },
+        on_attach = on_attach,
+        capabilities = capabilities,
+        handlers = handlers,
+    }
+
     -- To instead override globally
     local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
     function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)

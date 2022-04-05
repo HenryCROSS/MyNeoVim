@@ -1,7 +1,7 @@
 local M = {}
 
 local function keymap_config()
-    vim.api.nvim_set_keymap('n', '<Leader>op', ':Neotree float<CR>',
+    vim.api.nvim_set_keymap('n', '<Leader>op', ':Neotree<CR>',
                             {noremap = true, silent = true})
 end
 
@@ -22,7 +22,7 @@ M.load = function()
     -- in the form "LspDiagnosticsSignWarning"
 
     require("neo-tree").setup({
-        close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
+        close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
         popup_border_style = "rounded",
         enable_git_status = true,
         enable_diagnostics = true,
