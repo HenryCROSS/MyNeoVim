@@ -1,10 +1,9 @@
 local M = {}
 
 M.load = function ()
-    -- local _, value = pcall(require, "impatient")
+    local _, _ = pcall(require, "impatient")
     -- value.enable_profile()
-    require("impatient")
-    require("core.plugin_config.filetype").load()
+    -- require("impatient")
 
     vim.cmd ([[
     autocmd InsertLeave * :silent !fcitx5-remote -c 

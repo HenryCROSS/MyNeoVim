@@ -85,6 +85,7 @@ local plugins = {
         -- speed up start time
         "nathom/filetype.nvim",
         config = function ()
+            require("core.plugin_config.filetype").load()
         end
     },
     {
