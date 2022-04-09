@@ -1,8 +1,5 @@
 local null = {}
-local null_settings =
-    require(
-        "null-ls"
-    )
+local null_settings = require("null-ls")
 
 local sources = {
     null_settings.builtins.diagnostics.zsh,

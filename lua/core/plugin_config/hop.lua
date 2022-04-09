@@ -24,10 +24,10 @@ hop.load = function()
                             "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>",
                             {})
 
-    vim.api.nvim_set_keymap('n', '<Leader>jw', ':HopWord<CR>', {})
-    vim.api.nvim_set_keymap('n', '<Leader>jl', ':HopLine<CR>', {})
-    vim.api.nvim_set_keymap('n', '<Leader>jo', ':HopChar1<CR>', {})
-    vim.api.nvim_set_keymap('n', '<Leader>jt', ':HopChar2<CR>', {})
+    vim.api.nvim_set_keymap('n', '<Leader>j', ':HopWord<CR>', {})
+    -- vim.api.nvim_set_keymap('n', '<Leader>jl', ':HopLine<CR>', {})
+    -- vim.api.nvim_set_keymap('n', '<Leader>jo', ':HopChar1<CR>', {})
+    -- vim.api.nvim_set_keymap('n', '<Leader>jt', ':HopChar2<CR>', {})
 end
 
 return hop

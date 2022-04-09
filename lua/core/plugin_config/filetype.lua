@@ -31,6 +31,9 @@ M.load = function ()
                         -- Remove annoying indent jumping
                         vim.bo.cinoptions = vim.bo.cinoptions .. "L0"
                     end,
+                    ["txt"] = function ()
+                        vim.bo.filetype = "txt"
+                    end,
                     ["pdf"] = function()
                         vim.bo.filetype = "pdf"
                         -- Open in PDF viewer (Skim.app) automatically
