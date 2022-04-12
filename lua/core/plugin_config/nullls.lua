@@ -8,6 +8,10 @@ local sources = {
     null_settings.builtins.formatting.shellharden,
     null_settings.builtins.formatting.shfmt,
 
+    null_settings.builtins.code_actions.gitsigns,
+
+    null_settings.builtins.diagnostics.cppcheck,
+
     null_settings.builtins.formatting.lua_format,
     null_settings.builtins
         .formatting

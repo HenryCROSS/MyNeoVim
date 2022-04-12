@@ -49,6 +49,8 @@ local cfg = {
 
 lsp_signature.name = "ray-x/lsp_signature.nvim"
 
-lsp_signature.load = function() lsp_signature_settings.setup(cfg) end
+lsp_signature.load = function()
+    lsp_signature_settings.setup(cfg)
+end
 
 return lsp_signature

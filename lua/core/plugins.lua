@@ -372,6 +372,9 @@ local plugins = {
        end
     },
     {
+        "tpope/vim-fugitive",
+    },
+    {
         "petertriho/nvim-scrollbar",
         config = function ()
             require("core.plugin_config.scrollbar"):load()

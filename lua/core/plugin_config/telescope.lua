@@ -73,11 +73,12 @@ telescope.load = function()
 
     wk.register({
             f = {
-                name = 'File',
-                o = {"<cmd>Telescope oldfiles<cr>", "Open Recent File"},
+                name = 'Find',
+                o = {"<cmd>Telescope oldfiles<cr>", "Find Recent File"},
                 f = {"<cmd>Telescope find_files<cr>", "Find File"},
                 g = {"<cmd>Telescope live_grep<cr>", "Find String"},
                 b = {"<cmd>Telescope file_browser<cr>", "Open File Manager"},
+                s = {"<cmd>Telescope grep_string<cr>", "Find this String"},
             },
             b = {
                 name = "Buffer",
