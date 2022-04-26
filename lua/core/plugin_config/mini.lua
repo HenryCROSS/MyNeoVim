@@ -16,7 +16,7 @@ mini.load = function()
 
         -- Pattern to match function name in 'function call' surrounding
         -- By default it is a string of letters, '_' or '.'
-        funname_pattern = '[%w_%.]+',
+        -- funname_pattern = '[%w_%.]+',
 
         -- Mappings. Use `''` (empty string) to disable one.
         mappings = {
@@ -27,7 +27,12 @@ mini.load = function()
             highlight = '<Leader>mh', -- Highlight surrounding
             replace = '<Leader>mr', -- Replace surrounding
             update_n_lines = '<Leader>mn' -- Update `n_lines`
-        }
+        },
+
+        -- How to search for surrounding (first inside current line, then inside
+        -- neighborhood). One of 'cover', 'cover_or_next', 'cover_or_prev',
+        -- 'cover_or_nearest'. For more details, see `:h MiniSurround.config`.
+        search_method = 'cover',
     }
     cursorword_settings.setup {
         delay = 0;

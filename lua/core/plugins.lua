@@ -451,35 +451,35 @@ local plugins = {
             require("core.plugin_config.sniprun"):load()
         end
     },
-    {
-        "mfussenegger/nvim-dap",
-        opt = true,
-        --event = "BufReadPre",
-        config = function ()
-            require("core.plugin_config.nvimdap").load()
-        end
-    },
-    {
-        "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"},
-        after = "nvim-dap",
-        config = function ()
-            require("core.plugin_config.dapui").load()
-        end
-    },
-    {
-        'theHamsta/nvim-dap-virtual-text',
-        after = {"nvim-dap", "nvim-treesitter"},
-        config = function ()
-            require("core.plugin_config.dapvirtualtext").load()
-        end
-    },
-    {
-        "Pocco81/DAPInstall.nvim",
-        --event = "BufReadPre",
-        config = function ()
-            require("core.plugin_config.dapinstall").load()
-        end
-    },
+    -- {
+    --     "mfussenegger/nvim-dap",
+    --     opt = true,
+    --     --event = "BufReadPre",
+    --     config = function ()
+    --         require("core.plugin_config.nvimdap").load()
+    --     end
+    -- },
+    -- {
+    --     "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"},
+    --     after = "nvim-dap",
+    --     config = function ()
+    --         require("core.plugin_config.dapui").load()
+    --     end
+    -- },
+    -- {
+    --     'theHamsta/nvim-dap-virtual-text',
+    --     after = {"nvim-dap", "nvim-treesitter"},
+    --     config = function ()
+    --         require("core.plugin_config.dapvirtualtext").load()
+    --     end
+    -- },
+    -- {
+    --     "Pocco81/DAPInstall.nvim",
+    --     --event = "BufReadPre",
+    --     config = function ()
+    --         require("core.plugin_config.dapinstall").load()
+    --     end
+    -- },
     {
         "p00f/nvim-ts-rainbow",
         --event = {"BufRead", "BufNewFile"},
