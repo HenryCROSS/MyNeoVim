@@ -93,7 +93,7 @@ M.load = function()
             -- { name = 'vsnip', keyword_length = 1 },
             -- { name = 'ultisnips', keyword_length = 1 },
             -- { name = 'snippy', keyword_length = 1 },
-            { name = 'buffer', keyword_length = 5 },
+            { name = 'buffer', keyword_length = 3 },
             { name = 'nvim_lua', keyword_length = 1 },
             { name = 'path', keyword_length = 1 },
         },
@@ -112,6 +112,17 @@ M.load = function()
             cmp.config.compare.length,
             cmp.config.compare.order,
         },
+        enabled = function()
+            -- disable completion in comments
+            local context = require 'cmp.config.context'
+            -- keep command mode completion enabled when cursor is in a comment
+            if vim.api.nvim_get_mode().mode == 'c' then
+                return true
+            else
+                return not context.in_treesitter_capture("comment")
+                and not context.in_syntax_group("Comment")
+            end
+        end
     }
 end
 
