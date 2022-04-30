@@ -221,7 +221,7 @@ local plugins = {
     {
         -- 括号补全
         "windwp/nvim-autopairs",
-        after = "nvim-treesitter",
+        -- after = "nvim-treesitter",
         --event = "InsertEnter",
         config = function ()
             require("core.plugin_config.autopairs").load()
