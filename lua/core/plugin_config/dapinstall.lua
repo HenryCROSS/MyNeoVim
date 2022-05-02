@@ -1,6 +1,6 @@
-local M = {}
+local M = builtin_Class.GenPluginConfig:new(nil)
 
-M.load = function ()
+local config = function ()
     local dap_install = require("dap-install")
     local dbg_list = require("dap-install.api.debuggers").get_installed_debuggers()
 
@@ -12,5 +12,8 @@ M.load = function ()
         dap_install.config(debugger)
     end
 end
+
+M:set_name("dap-install")
+M:append_fn(config)
 
 return  M

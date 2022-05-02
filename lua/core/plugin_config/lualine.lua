@@ -1,10 +1,10 @@
-local lualine = {}
+local M = builtin_Class.GenPluginConfig:new(nil)
 local lualine_settings = require('lualine')
 -- local gps = require("nvim-gps")
 
-lualine.name = "nvim-lualine/lualine.nvim"
+M:set_name("nvim-lualine/lualine.nvim")
 
-lualine.load = function()
+local config = function()
     lualine_settings.setup {
         options = {
             icons_enabled = true,
@@ -37,4 +37,6 @@ lualine.load = function()
     vim.cmd[[highlight WinSeparator guifg=#545c7e]]
 end
 
-return lualine
+M:append_fn(config)
+
+return M

@@ -38,6 +38,7 @@ M.load = function()
                 with_text = true,
                 menu = ({
                     buffer = "[Buffer]",
+                    -- cmp_tabnine = "[Tabnine]",
                     nvim_lsp = "[LSP]",
                     luasnip = "[LuaSnip]",
                     nvim_lua = "[Lua]",
@@ -96,6 +97,7 @@ M.load = function()
             { name = 'buffer', keyword_length = 3 },
             { name = 'nvim_lua', keyword_length = 1 },
             { name = 'path', keyword_length = 1 },
+            -- { name = 'cmp_tabnine' },
         },
         experimental = {
             native_menu = false,
@@ -103,6 +105,7 @@ M.load = function()
         },
         comparators = {
             cmp.config.compare.recently_used,
+            -- require('cmp_tabnine.compare'),
             cmp.config.compare.score,
             cmp.config.compare.offset,
             cmp.config.compare.exact,
@@ -124,6 +127,20 @@ M.load = function()
             end
         end
     }
+
+    -- local tabnine = require('cmp_tabnine.config')
+    -- tabnine:setup({
+    --     max_lines = 1000;
+    --     max_num_results = 20;
+    --     sort = true;
+    --     run_on_every_keystroke = true;
+    --     snippet_placeholder = '..';
+    --     ignored_file_types = { -- default is not to ignore
+    --         -- uncomment to ignore in lua:
+    --         -- lua = true
+    --     };
+    --     show_prediction_strength = false;
+    -- })
 end
 
 return M

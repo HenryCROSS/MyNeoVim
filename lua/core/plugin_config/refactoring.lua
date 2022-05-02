@@ -1,6 +1,6 @@
-local M = {}
+local M = builtin_Class.GenPluginConfig:new(nil)
 
-M.load = function()
+local config = function()
     require('refactoring').setup({
         -- prompt for return type
         prompt_func_return_type = {go = true, cpp = true, c = true, java = true},
@@ -48,5 +48,8 @@ M.load = function()
     --                         [[ <Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>]],
     --                         {noremap = true, silent = true, expr = false})
 end
+
+M:append_fn(config)
+M:set_name("refactoring")
 
 return M

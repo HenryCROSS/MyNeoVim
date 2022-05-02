@@ -1,6 +1,6 @@
-local M = {}
+local M = builtin_Class.GenPluginConfig:new(nil)
 
-M.load = function ()
+local config = function ()
     require("nvim-dap-virtual-text").setup {
         enabled = true,                     -- enable this plugin (the default)
         enabled_commands = true,            -- create commands DapVirtualTextEnable, DapVirtualTextDisable, DapVirtualTextToggle, (DapVirtualTextForceRefresh for refreshing when debug adapter did not notify its termination)
@@ -16,5 +16,8 @@ M.load = function ()
         -- e.g. 80 to position at column 80, see `:h nvim_buf_set_extmark()`
     }
 end
+
+M:set_name("nvim-dap-virtual-text")
+M:append_fn(config)
 
 return M

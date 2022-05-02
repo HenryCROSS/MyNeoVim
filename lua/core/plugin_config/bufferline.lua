@@ -1,10 +1,11 @@
-local M = {}
-local bufferline_settings = require("bufferline")
+local M = builtin_Class.GenPluginConfig:new(nil)
+local bufferline_settings = M:require("bufferline")
 -- local config = {}
 
 M.name = "akinsho/bufferline.nvim"
+M:set_name("akinsho/bufferline.nvim")
 
-M.load = function()
+local config = function()
     bufferline_settings.setup {
         options = {
             offsets = {
@@ -48,5 +49,7 @@ M.load = function()
     -- vim.api.nvim_set_keymap('n', '<C-x>', ':BufferLinePickClose<CR>', opts)
 
 end
+
+M:append_fn(config)
 
 return M

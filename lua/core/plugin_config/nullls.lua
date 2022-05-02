@@ -1,4 +1,4 @@
-local null = {}
+local M = builtin_Class.GenPluginConfig:new(nil)
 local null_settings = require("null-ls")
 
 local sources = {
@@ -28,9 +28,9 @@ local sources = {
 
 }
 
-null.name = "jose-elias-alvarez/null-ls"
+M:set_name("jose-elias-alvarez/null-ls")
 
-null.load = function()
+local config = function()
     null_settings.setup(
         {
             sources = sources,
@@ -53,4 +53,6 @@ null.load = function()
         )
 end
 
-return null
+M:append_fn(config)
+
+return M

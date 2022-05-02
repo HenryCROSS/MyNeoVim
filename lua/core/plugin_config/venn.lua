@@ -1,8 +1,8 @@
-local M = {}
+local M = builtin_Class.GenPluginConfig:new(nil)
 
-M.name = "jbyuki/venn.nvim"
+M:set_name("jbyuki/venn.nvim")
 
-M.load= function ()
+local config = function ()
     -- venn.nvim: enable or disable keymappings
     function _G.Toggle_venn()
         local venn_enabled = vim.inspect(vim.b.venn_enabled)
@@ -26,6 +26,8 @@ M.load= function ()
     -- toggle keymappings for venn using <leader>v
     vim.api.nvim_set_keymap('n', '<leader>v', ":lua Toggle_venn()<CR>", { noremap = true})
 end
+
+M:append_fn(config)
 
 return M
 --

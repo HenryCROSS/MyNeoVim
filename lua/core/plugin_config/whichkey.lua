@@ -1,4 +1,4 @@
-local whichkey = {}
+local M = builtin_Class.GenPluginConfig:new(nil)
 local whichkey_settings = require('which-key')
 local config= {
     keymap1 = {
@@ -6,9 +6,9 @@ local config= {
     }
 }
 
-whichkey.name = "folke/which-key.nvim"
+M:set_name("folke/which-key.nvim")
 
-whichkey.load = function ()
+local config = function ()
     whichkey_settings.register({
 
     })
@@ -52,7 +52,7 @@ whichkey.load = function ()
             scroll_up = '<c-u>', -- binding to scroll up inside the popup
         },
         window = {
-            border = "single", -- none, single, double, shadow
+            border = "none", -- none, single, double, shadow
             position = "bottom", -- bottom, top
             margin = { 1, 2, 2, 5 }, -- extra window margin [top, right, bottom, left]
             padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
@@ -79,4 +79,6 @@ whichkey.load = function ()
     }
 end
 
-return whichkey
+M:append_fn(config)
+
+return M

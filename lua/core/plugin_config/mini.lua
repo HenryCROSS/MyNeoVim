@@ -1,12 +1,12 @@
-local mini = {}
+local M = builtin_Class.GenPluginConfig:new(nil)
 local surround_settings = require("mini.surround")
 local cursorword_settings = require("mini.cursorword")
 local indentscope_settings = require("mini.indentscope")
 local pairs_settings = require("mini.pairs")
 
-mini.name = "echasnovski/mini.nvim"
+M:set_name("echasnovski/mini.nvim")
 
-mini.load = function()
+local config = function()
     surround_settings.setup {
         -- Number of lines within which surrounding is searched
         n_lines = 20,
@@ -111,4 +111,6 @@ mini.load = function()
     -- }
 end
 
-return mini
+M:append_fn(config)
+
+return M

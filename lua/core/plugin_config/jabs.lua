@@ -1,6 +1,6 @@
-local M = {}
+local M = builtin_Class.GenPluginConfig:new(nil)
 
-M.load = function ()
+local config = function ()
     -- (Optional) easy way to get Neovim current size.
     local ui = vim.api.nvim_list_uis()[1]
 
@@ -24,5 +24,8 @@ M.load = function ()
     }
     vim.api.nvim_set_keymap('n', '<Leader>bj', ':JABSOpen<CR>', {silent = true})
 end
+
+M:set_name("jabs")
+M:append_fn(config)
 
 return M

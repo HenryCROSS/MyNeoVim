@@ -1,12 +1,12 @@
-local M = {}
+local M = builtin_Class.GenPluginConfig:new(nil)
 local npairs = require('nvim-autopairs')
 local ts_conds = require('nvim-autopairs.ts-conds')
 local Rule = require('nvim-autopairs.rule')
 local remap = vim.api.nvim_set_keymap
 
-M.name = "windwp/nvim-autopairs"
+M:set_name("windwp/nvim-autopairs")
 
-function M.load()
+function config()
     npairs.setup {
         -- map_bs=false, map_cr=false,
         -- 启用treesitter
@@ -59,5 +59,7 @@ function M.load()
     remap('i', '<s-tab>', [[pumvisible() ? "<c-p>" : "<bs>"]],
           {expr = true, noremap = true})
 end
+
+M:append_fn(config)
 
 return M

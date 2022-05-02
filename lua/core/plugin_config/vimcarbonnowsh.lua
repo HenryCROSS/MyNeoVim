@@ -1,9 +1,11 @@
-local M = {}
+local M = builtin_Class.GenPluginConfig:new(nil)
 
-M.name = "kristijanhusak/vim-carbon-now-sh"
+M:set_name("kristijanhusak/vim-carbon-now-sh")
 
-M.load = function ()
+local config = function ()
     -- vim.g.carbon_now_sh_base_url = 'http://localhost:3000'
 end
+
+M:append_fn(config)
 
 return M

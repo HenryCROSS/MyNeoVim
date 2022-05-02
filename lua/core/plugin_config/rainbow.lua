@@ -1,9 +1,11 @@
-local M = {}
+local M = builtin_Class.GenPluginConfig:new(nil)
 
-M.name = 'luochen1990/rainbow'
+M:set_name('luochen1990/rainbow')
 
-M.load = function ()
+local config = function ()
     vim.g.rainbow_active = 1
 end
+
+M:append_fn(config)
 
 return M

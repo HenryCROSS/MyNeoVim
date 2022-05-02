@@ -1,9 +1,9 @@
-local nvimtree_settings = {}
+local M = builtin_Class.GenPluginConfig:new(nil)
 local nvimtree = require("nvim-tree")
 
-nvimtree_settings.name = "kyazdani42/nvim-tree.lua"
+M:set_name("kyazdani42/nvim-tree.lua")
 
-nvimtree_settings.load = function()
+local config = function()
     -- keymapping
     vim.api.nvim_set_keymap('n', '<Leader>op', ':NvimTreeToggle<CR>',
                             {noremap = true, silent = true})
@@ -91,4 +91,6 @@ nvimtree_settings.load = function()
     }
 end
 
-return nvimtree_settings
+M:append_fn(config)
+
+return M

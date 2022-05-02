@@ -1,3 +1,4 @@
+-- deprecated
 local M = {}
 
 M.name = "nathom/filetype.nvim"

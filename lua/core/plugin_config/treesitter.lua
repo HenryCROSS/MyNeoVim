@@ -1,10 +1,10 @@
-local treesitter = {}
+local M = builtin_Class.GenPluginConfig:new(nil)
 local treesitter_settings = require('nvim-treesitter.configs')
 local parser_configs = require('nvim-treesitter.parsers').get_parser_configs()
 
-treesitter.name = "nvim-treesitter/nvim-treesitter"
+M:set_name("nvim-treesitter/nvim-treesitter")
 
-treesitter.load = function()
+local config = function()
     treesitter_settings.setup {
         -- One of "all", "maintained" (parsers with maintainers), or a list of languages
         ensure_installed = "all",
@@ -65,4 +65,6 @@ treesitter.load = function()
     vim.cmd[[augroup END]]
 end
 
-return treesitter
+M:append_fn(config)
+
+return M

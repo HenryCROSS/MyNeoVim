@@ -1,9 +1,9 @@
-local stabilize = {}
+local M = builtin_Class.GenPluginConfig:new(nil)
 local stabilize_settings = require('stabilize')
 
-stabilize.name = "luukvbaal/stabilize.nvim"
+M:set_name("luukvbaal/stabilize.nvim")
 
-stabilize.load = function()
+local config = function()
     stabilize_settings.setup {
         force = true, -- stabilize window even when current cursor position will be hidden behind new window
         forcemark = nil, -- set context mark to register on force event which can be jumped to with '<forcemark>
@@ -16,4 +16,6 @@ stabilize.load = function()
     }
 end
 
-return stabilize
+M:append_fn(config)
+
+return M

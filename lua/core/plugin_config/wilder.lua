@@ -1,8 +1,8 @@
-local wilder = {}
+local M = builtin_Class.GenPluginConfig:new(nil)
 
-wilder.name = "gelguy/wilder.nvim"
+M:set_name("gelguy/wilder.nvim")
 
-wilder.load = function ()
+local config = function ()
     -- setup the wilder
     vim.cmd([[
     call wilder#setup({'modes': [':']})
@@ -38,4 +38,6 @@ wilder.load = function ()
     ]])
 end
 
-return wilder
+M:append_fn(config)
+
+return M

@@ -1,6 +1,6 @@
-local M = {}
+local M = builtin_Class.GenPluginConfig:new(nil)
 
-M.load = function()
+local config = function()
     require("dapui").setup({
         icons = {expanded = "▾", collapsed = "▸"},
         mappings = {
@@ -38,5 +38,8 @@ M.load = function()
         windows = {indent = 1}
     })
 end
+
+M:set_name("dapui")
+M:append_fn(config)
 
 return M

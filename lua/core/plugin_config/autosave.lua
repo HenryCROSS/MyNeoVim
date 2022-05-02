@@ -1,9 +1,9 @@
-local M = {}
-local autosave_settings = require "autosave"
+local M = builtin_Class.GenPluginConfig:new(nil)
+local autosave_settings = M:require("autosave")
 
-M.name = "Pocco81/AutoSave.nvim"
+M:set_name("Pocco81/AutoSave.nvim")
 
-M.load = function ()
+local config = function ()
     autosave_settings.setup{
         enabled = true,
         execution_message = "AutoSave: saved at " .. vim.fn.strftime("%H:%M:%S"),
@@ -20,5 +20,7 @@ M.load = function ()
         debounce_delay = 135
     }
 end
+
+M:append_fn(config)
 
 return M

@@ -1,9 +1,9 @@
-local gitsigns = {}
-local gitsigns_settings = require('gitsigns')
+local M = builtin_Class.GenPluginConfig:new(nil)
+local gitsigns_settings = M:require('gitsigns')
 
-gitsigns.name = "lewis6991/gitsigns.nvim"
+M:set_name("lewis6991/gitsigns.nvim")
 
-gitsigns.load = function ()
+local config = function ()
     gitsigns_settings.setup{
         signs = {
             add          = {hl = 'GitSignsAdd'   , text = '+', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
@@ -75,4 +75,6 @@ gitsigns.load = function ()
     }
 end
 
-return gitsigns
+M:append_fn(config)
+
+return M

@@ -1,4 +1,4 @@
-local toggleterm = {}
+local M = builtin_Class.GenPluginConfig:new(nil)
 local toggleterm_settings = require('toggleterm')
 
 function _G.set_terminal_keymaps()
@@ -17,9 +17,9 @@ end
 -- if you only want these mappings for toggle term use term://*toggleterm#* instead
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
-toggleterm.name = "akinsho/nvim-toggleterm.lua"
+M:set_name("akinsho/nvim-toggleterm.lua")
 
-toggleterm.load = function()
+local config = function()
     toggleterm_settings.setup {
         size = function(term)
             if term.direction == "horizontal" then
@@ -39,4 +39,6 @@ toggleterm.load = function()
     vim.api.nvim_set_keymap('n', '<leader>ot', "<cmd>ToggleTerm<cr>", {})
 end
 
-return toggleterm
+M:append_fn(config)
+
+return M

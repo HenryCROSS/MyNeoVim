@@ -1,10 +1,10 @@
-local telescope = {}
+local M = builtin_Class.GenPluginConfig:new(nil)
 local telescope_settings = require('telescope')
 local wk = require("which-key")
 
-telescope.name = "nvim-telescope/telescope.nvim"
+M:set_name("nvim-telescope/telescope.nvim")
 
-telescope.load = function()
+local config = function()
 
     telescope_settings.setup {
         pickers = {
@@ -87,4 +87,6 @@ telescope.load = function()
         }, {prefix = "<leader>"})
 end
 
-return telescope
+M:append_fn(config)
+
+return M

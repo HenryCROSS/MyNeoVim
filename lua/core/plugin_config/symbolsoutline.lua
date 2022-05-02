@@ -1,8 +1,8 @@
-local symbols_outline = {}
+local M = builtin_Class.GenPluginConfig:new(nil)
 
-symbols_outline.name = "simrat39/symbols-outline.nvim"
+M:set_name("simrat39/symbols-outline.nvim")
 
-symbols_outline.load = function ()
+local config = function ()
     -- keymapping
     vim.api.nvim_set_keymap('n', '<Leader>os', ':SymbolsOutline<CR>',
                             {noremap = true, silent = true})
@@ -61,6 +61,6 @@ symbols_outline.load = function ()
 }
 end
 
+M:append_fn(config)
 
-
-return symbols_outline
+return M

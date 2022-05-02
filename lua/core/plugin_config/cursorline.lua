@@ -1,9 +1,12 @@
-local cursorline = {}
+local M = builtin_Class.GenPluginConfig:new(nil)
 
-cursorline.name = "yamatsum/nvim-cursorline"
+M:set_name("yamatsum/nvim-cursorline")
 
-cursorline.load = function()
+
+local config = function()
     vim.g.cursorline_timeout = 1
 end
 
-return cursorline
+M:append_fn(config)
+
+return M

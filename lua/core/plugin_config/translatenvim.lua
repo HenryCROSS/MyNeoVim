@@ -1,6 +1,6 @@
-local M = {}
+local M = builtin_Class.GenPluginConfig:new(nil)
 
-M.load = function()
+local config = function()
     require("translate").setup({
         default = {command = "translate_shell", output = "floating"},
         preset = {output = {split = {append = true}}}
@@ -26,5 +26,7 @@ M.load = function()
     xnoremap ,er :Translate EN -output=replace<CR>
     ]]
 end
+
+M:append_fn(config)
 
 return M

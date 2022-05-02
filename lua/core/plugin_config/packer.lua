@@ -1,9 +1,9 @@
-local M = {}
-local packer = require('packer')
+local M = builtin_Class.GenPluginConfig:new(nil)
+local packer = M:require('packer')
 
 -- M.name = "wbthomason/packer.nvim"
 
-M.load = function()
+local config = function()
     -- packer.init({
     --     ensure_dependencies = true, -- Should packer install plugin dependencies?
     --     -- snapshot = nil, -- Name of the snapshot you would like to load at startup
@@ -68,5 +68,7 @@ M.load = function()
     --     }
     -- })
 end
+
+M:append_fn(config)
 
 return M

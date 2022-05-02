@@ -1,11 +1,11 @@
-local M = {}
+local M = builtin_Class.GenPluginConfig:new(nil)
 
 local function keymap_config()
     vim.api.nvim_set_keymap('n', '<Leader>op', ':Neotree<CR>',
                             {noremap = true, silent = true})
 end
 
-M.load = function()
+local config = function()
     -- Unless you are still migrating, remove the deprecated commands from v1.x
     vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
 
@@ -142,5 +142,7 @@ M.load = function()
     keymap_config()
 end
 
+M:append_fn(config)
+M:set_name("neotree")
 
 return M

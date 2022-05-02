@@ -1,5 +1,5 @@
 -- It store a list of keymapping
-local M ={}
+local M = {}
 local _, whichkey = pcall(require, "which-key")
 
 local scheme = {
@@ -18,7 +18,7 @@ local scheme = {
 
 local config_list = {}
 
-function M:new (obj)
+function M:new(obj)
     local o = obj or {}
     setmetatable(o, self)
     self.__index = self
@@ -26,25 +26,27 @@ function M:new (obj)
 end
 
 function M:load()
-    local _, _ = xpcall(function ()
+    local _, _ = xpcall(function()
         for _, info in pairs(config_list) do
             if whichkey ~= nil then
                 whichkey.register({
-                        [info.lhs] = { info.rhs, name = info.desc }
-                    }, {
-                        mode = info.mode,
-                        silent = info.opts.silent,
-                        noremap = info.opts.noremap,
-                        nowait = info.opts.nowait
-                    })
+                    [info.lhs] = { info.rhs, name = info.desc }
+                }, {
+                    mode = info.mode,
+                    silent = info.opts.silent,
+                    noremap = info.opts.noremap,
+                    nowait = info.opts.nowait
+                })
             else
                 vim.api.nvim_set_keymap(info.mode, info.lhs, info.rhs, info.opts)
+                -- try to change to vim.map.set later
             end
         end
     end, debug.traceback)
 end
 
 -- TODO: return a list of lhs
+-- not sure what to do haha
 function M:get_lhs_list()
     local lhs_list = {}
 

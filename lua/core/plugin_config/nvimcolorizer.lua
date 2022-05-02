@@ -1,11 +1,14 @@
-local colorizer = {}
+local M = builtin_Class.GenPluginConfig:new(nil)
 local colorizer_settings = require('colorizer')
 
-colorizer.name = "norcalli/nvim-colorizer.lua"
+M:set_name("norcalli/nvim-colorizer.lua")
 
-colorizer.load = function ()
+local config = function ()
     colorizer_settings.setup{
         '*'
     }
 end
-return colorizer
+
+M:append_fn(config)
+
+return M

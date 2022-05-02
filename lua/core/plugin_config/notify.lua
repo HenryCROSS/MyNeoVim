@@ -1,6 +1,6 @@
-local M = {}
+local M = builtin_Class.GenPluginConfig:new(nil)
 
-M.load = function()
+local config = function()
     require("notify").setup({
         -- Animation style (see below for details)
         stages = "fade_in_slide_out",
@@ -41,5 +41,8 @@ M.load = function()
 
     vim.notify = require("notify")
 end
+
+M:set_name("notify")
+M:append_fn(config)
 
 return M

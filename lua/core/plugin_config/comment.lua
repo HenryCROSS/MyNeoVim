@@ -1,9 +1,8 @@
-local M = {}
-local comment_settings = require("Comment")
+local M = builtin_Class.GenPluginConfig:new(nil)
+local comment_settings = M:require("Comment")
 
-M.name = "numToStr/Comment.nvim"
-
-M.load = function()
+-- M.name = "numToStr/Comment.nvim"
+local config = function()
     comment_settings.setup {
         ---Add a space b/w comment and the line
         ---@type boolean
@@ -73,5 +72,8 @@ M.load = function()
         post_hook = nil
     }
 end
+
+M:set_name("numToStr/Comment.nvim")
+M:append_fn(config)
 
 return M

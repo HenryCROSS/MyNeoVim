@@ -1,9 +1,9 @@
-local hop = {}
+local M = builtin_Class.GenPluginConfig:new(nil)
 local hop_settings = require('hop')
 
-hop.name = "phaazon/hop.nvim"
+M:set_name("phaazon/hop.nvim")
 
-hop.load = function()
+local config = function()
     hop_settings.setup()
     vim.api.nvim_set_keymap('n', 'f',
                             "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>",
@@ -30,4 +30,6 @@ hop.load = function()
     -- vim.api.nvim_set_keymap('n', '<Leader>jt', ':HopChar2<CR>', {})
 end
 
-return hop
+M:append_fn(config)
+
+return M

@@ -83,20 +83,20 @@ M.load = function()
 
     local lspconfig = require('lspconfig')
 
-    local nvimlspinstaller_settings = require("nvim-lsp-installer")
-    nvimlspinstaller_settings.on_server_ready(function(server)
-        local opts = {
-            on_attach = on_attach,
-            capabilities = capabilities,
-            handlers = handlers,
-        }
-        server:setup(opts)
-        vim.cmd([[ do User LspAttach Buffers ]])
-    end)
+    -- local nvimlspinstaller_settings = require("nvim-lsp-installer")
+    -- nvimlspinstaller_settings.on_server_ready(function(server)
+    --     local opts = {
+    --         on_attach = on_attach,
+    --         capabilities = capabilities,
+    --         handlers = handlers,
+    --     }
+    --     server:setup(opts)
+    --     vim.cmd([[ do User LspAttach Buffers ]])
+    -- end)
 
     -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
     -- local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver' }
-    for _, lsp in ipairs(servers.manualInstall) do
+    for _, lsp in pairs(servers.lspInstall) do
         lspconfig[lsp].setup {
             -- flags = {debounce_text_changes = 150},
             on_attach = on_attach,

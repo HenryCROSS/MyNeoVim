@@ -1,9 +1,9 @@
-local nvimgps = {}
+local M = builtin_Class.GenPluginConfig:new(nil)
 local nvimgps_settings = require('nvim-gps')
 
-nvimgps.name = "SmiteshP/nvim-gps"
+M:set_name("SmiteshP/nvim-gps")
 
-nvimgps.load = function ()
+local config = function ()
     nvimgps_settings.setup{
         icons = {
             ["class-name"] = ' ',      -- Classes and class-like objects
@@ -99,4 +99,6 @@ nvimgps.load = function ()
     })
 end
 
-return nvimgps
+M:append_fn(config)
+
+return M

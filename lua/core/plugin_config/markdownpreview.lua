@@ -1,8 +1,8 @@
-local markdown_preview = {}
+local M = builtin_Class.GenPluginConfig:new(nil)
 
-markdown_preview.name = "iamcco/markdown-preview.nvim"
+M:set_name("iamcco/markdown-preview.nvim")
 
-markdown_preview.load = function()
+local config = function()
     -- vim.g.mkdp_auto_start = 1
     -- vim.g.mkdp_auto_close = 0
     -- vim.g.mkdp_open_to_the_world = 1
@@ -101,4 +101,6 @@ let g:mkdp_filetypes = ['markdown']
     ]]
 end
 
-return markdown_preview
+M:append_fn(config)
+
+return M

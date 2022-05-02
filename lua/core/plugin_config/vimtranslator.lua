@@ -1,8 +1,8 @@
-local M = {}
+local M = builtin_Class.GenPluginConfig:new(nil)
 
-M.name = "voldikss/vim-translator"
+M:set_name("voldikss/vim-translator")
 
-M.load = function ()
+local config = function ()
     vim.cmd([[
     """ Configuration example
     " Echo translation in the cmdline
@@ -18,5 +18,7 @@ M.load = function ()
     nmap <silent> <Leader>tx <Plug>TranslateX
     ]])
 end
+
+M:append_fn(config)
 
 return M
