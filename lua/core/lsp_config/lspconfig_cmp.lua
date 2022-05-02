@@ -1,5 +1,5 @@
-local M = {}
-local servers = require('core.lsp_config.lsp_servers')
+local M = builtin_Class.GenPluginConfig:new(nil)
+local servers = M:require('core.lsp_config.lsp_servers')
 
 vim.cmd [[autocmd! ColorScheme * highlight NormalFloat guibg=#1f2335]]
 vim.cmd [[autocmd! ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]]
@@ -73,9 +73,9 @@ local on_attach = function(client, bufnr)
 
 end
 
-M.name = "neovim/nvim-lspconfig"
+M:set_name("neovim/nvim-lspconfig")
 
-M.load = function()
+local config = function()
     -- Add additional capabilities supported by nvim-cmp
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities.offsetEncoding = { "utf-16" }
@@ -248,5 +248,7 @@ M.load = function()
     ]]
 
 end
+
+M:append_fn(config)
 
 return M

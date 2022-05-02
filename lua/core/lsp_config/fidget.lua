@@ -1,8 +1,8 @@
-local M = {}
+local M = builtin_Class.GenPluginConfig:new(nil)
 
-M.name = "j-hui/fidget.nvim"
+M:set_name("j-hui/fidget.nvim")
 
-M.load = function ()
+local config = function ()
     require"fidget".setup{
         text = {
             spinner = "pipe",         -- animation shown when tasks are ongoing
@@ -48,5 +48,7 @@ M.load = function ()
         },
     }
 end
+
+M:append_fn(config)
 
 return M

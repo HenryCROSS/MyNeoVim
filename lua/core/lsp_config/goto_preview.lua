@@ -1,9 +1,9 @@
-local M = {}
-local telescope = require("telescope")
+local M = builtin_Class.GenPluginConfig:new(nil)
+local telescope = M:require("telescope")
 
-M.name = "rmagatti/goto-preview"
+M:set_name("rmagatti/goto-preview")
 
-M.load = function()
+local config = function()
     require('goto-preview').setup {
         width = 120, -- Width of the floating window
         height = 15, -- Height of the floating window
@@ -28,5 +28,7 @@ M.load = function()
     vim.api.nvim_set_keymap("n", "<Leader>cP", "<cmd>lua require('goto-preview').close_all_win()<CR>", {noremap = true})
     vim.api.nvim_set_keymap("n", "<Leader>cpr", "<cmd>lua require('goto-preview').goto_preview_references()<CR>", {noremap = true})
 end
+
+M:append_fn(config)
 
 return M

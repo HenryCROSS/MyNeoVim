@@ -1,6 +1,6 @@
-local nvimlspinstaller = {}
-local nvimlspinstaller_settings = require("nvim-lsp-installer")
-local servers = require("core.lsp_config.lsp_servers")
+local M = builtin_Class.GenPluginConfig:new(nil)
+local nvimlspinstaller_settings = M:require("nvim-lsp-installer")
+local servers = M:require("core.lsp_config.lsp_servers")
 
 -- nvimlspinstaller_settings.settings({
 --     ui = {
@@ -18,9 +18,9 @@ local servers = require("core.lsp_config.lsp_servers")
 --     vim.cmd([[ do User LspAttach Buffers ]])
 -- end)
 
-nvimlspinstaller.name = "williamboman/nvim-lsp-installer"
+M:set_name("williamboman/nvim-lsp-installer")
 
-nvimlspinstaller.load = function()
+local config = function()
     -- for _, name in pairs(servers.lspInstall) do
     --     local server_is_found, server = nvimlspinstaller_settings.get_server(name)
     --     if server_is_found then
@@ -88,4 +88,6 @@ nvimlspinstaller.load = function()
     })
 end
 
-return nvimlspinstaller
+M:append_fn(config)
+
+return M

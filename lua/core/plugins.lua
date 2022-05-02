@@ -530,7 +530,7 @@ local plugins = {
         --event = {"BufRead", "BufNewFile"},
         -- after = "nvim-lspconfig",
         config = function ()
-            require("core.lsp_config.fidget").load()
+            require("core.lsp_config.fidget"):load()
         end
     },
     {
@@ -538,7 +538,7 @@ local plugins = {
         --event = {"BufRead", "BufNewFile"},
         -- after = "nvim-lspconfig",
         config = function ()
-            require("core.lsp_config.goto_preview").load()
+            require("core.lsp_config.goto_preview"):load()
         end
     },
     -- {
@@ -551,7 +551,7 @@ local plugins = {
         -- after = "cmp-nvim-lsp",
         after = "nvim-lsp-installer",
         config = function ()
-            require("core.lsp_config.lspconfig_cmp").load()
+            require("core.lsp_config.lspconfig_cmp"):load()
         end
     },
     {
@@ -560,7 +560,7 @@ local plugins = {
         --event = {"BufRead", "BufNewFile"},
         after = "cmp-nvim-lsp",
         config = function ()
-            require("core.lsp_config.nvimlspinstaller").load()
+            require("core.lsp_config.nvimlspinstaller"):load()
         end
     },
     {
@@ -568,7 +568,7 @@ local plugins = {
         --event = {"BufRead", "BufNewFile"},
         -- after = "nvim-lspconfig",
         config = function ()
-            require("core.lsp_config.lsp_signature").load()
+            require("core.lsp_config.lsp_signature"):load()
         end
     },
     {
@@ -628,7 +628,7 @@ local plugins = {
         'hrsh7th/nvim-cmp',
         after = "LuaSnip",
         config = function ()
-            require("core.lsp_config.cmp").load()
+            require("core.lsp_config.cmp"):load()
         end,
     },
     {
@@ -648,7 +648,7 @@ local plugins = {
         --event = {"BufRead", "BufNewFile"},
         -- after = "nvim-lspconfig",
         config = function ()
-            require("core.lsp_config.codeactionmenu").load()
+            require("core.lsp_config.codeactionmenu"):load()
         end,
     },
     -- snippets
@@ -705,7 +705,7 @@ local plugins = {
     {
         "folke/tokyonight.nvim",
         config = function ()
-            require("core.theme").load()
+            require("core.theme"):load()
         end
     },
 }

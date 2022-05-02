@@ -1,8 +1,8 @@
-local M = {}
+local M = builtin_Class.GenPluginConfig:new(nil)
 
-M.name = "rebelot/kanagawa.nvim"
+M:set_name("rebelot/kanagawa.nvim")
 
-M.load = function ()
+local config = function ()
     -- Example config in Lua
     vim.g.tokyonight_style = "night"
     vim.g.tokyonight_italic_functions = true
@@ -13,5 +13,7 @@ M.load = function ()
     -- vim.cmd [[colorscheme tokyonight]]
     vim.api.nvim_command("colorscheme tokyonight")
 end
+
+M:append_fn(config)
 
 return M

@@ -1,4 +1,4 @@
-local lsp_signature = {}
+local M = builtin_Class.GenPluginConfig:new(nil)
 local lsp_signature_settings = require('lsp_signature')
 
 local cfg = {
@@ -47,10 +47,12 @@ local cfg = {
     toggle_key = '<M-x>' -- toggle signature on and off in insert mode,  e.g. toggle_key = '<M-x>'
 }
 
-lsp_signature.name = "ray-x/lsp_signature.nvim"
+M:set_name("ray-x/lsp_signature.nvim")
 
-lsp_signature.load = function()
+local config = function()
     lsp_signature_settings.setup(cfg)
 end
 
-return lsp_signature
+M:append_fn(config)
+
+return M

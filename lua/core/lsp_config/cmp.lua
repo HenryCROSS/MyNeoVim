@@ -1,8 +1,8 @@
-local M = {}
+local M = builtin_Class.GenPluginConfig:new(nil)
 
-M.name = "hrsh7th/nvim-cmp"
+M:set_name("hrsh7th/nvim-cmp")
 
-M.load = function()
+local config = function()
     -- general snippet setup
     local has_words_before = function()
         local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -142,5 +142,7 @@ M.load = function()
     --     show_prediction_strength = false;
     -- })
 end
+
+M:append_fn(config)
 
 return M
