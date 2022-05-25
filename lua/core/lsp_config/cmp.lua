@@ -28,8 +28,8 @@ local config = function()
     -- loading friendly-snippets
     local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 
-    cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
-    cmp_autopairs.lisp[#cmp_autopairs.lisp+1] = "racket"
+    -- cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
+    -- cmp_autopairs.lisp[#cmp_autopairs.lisp+1] = "racket"
 
     local lspkind = require('lspkind')
     cmp.setup {
@@ -97,6 +97,7 @@ local config = function()
             { name = 'buffer', keyword_length = 3 },
             { name = 'nvim_lua', keyword_length = 1 },
             { name = 'path', keyword_length = 1 },
+            { name = 'nvim_lsp_signature_help' },
             -- { name = 'cmp_tabnine' },
         },
         experimental = {

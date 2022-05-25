@@ -558,7 +558,7 @@ local plugins = {
         -- 与lspconfig配套
         'williamboman/nvim-lsp-installer',
         --event = {"BufRead", "BufNewFile"},
-        after = "cmp-nvim-lsp",
+        -- after = "cmp-nvim-lsp",
         config = function ()
             require("core.lsp_config.nvimlspinstaller"):load()
         end
@@ -618,6 +618,9 @@ local plugins = {
         'hrsh7th/cmp-path',
         -- --event = {"BufRead", "BufNewFile"},
         after = "nvim-cmp",
+    },
+    {
+        'hrsh7th/cmp-nvim-lsp-signature-help'
     },
     {
         'hrsh7th/cmp-cmdline',

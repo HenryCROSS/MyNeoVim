@@ -11,6 +11,7 @@
 * That will be the first breaking change for my neovim config
 * Goal of the change
  ** Info:
+    *dads*
     - It is able to config the lazy loading within a file for a better viewing.
     - Prevent the error from the first time installation as it would cause some errors before the plugins are installed
     - A better way to seperate the config with the plugin list

@@ -22,3 +22,4 @@ require("core").load()
 -- vim.o.fillchars = "vert:┃,horiz:━,verthoriz:╋,horizup:┻,horizdown:┳,vertleft:┫,vertright:┣"
 -- vim.o.laststatus = 3
 -- require("test").load()
+

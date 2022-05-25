@@ -108,6 +108,7 @@ local config = function()
     -- racket
     require'lspconfig'.racket_langserver.setup{
         cmd = { "xvfb-run", "racket", "--lib", "racket-langserver" },
+        -- cmd = { "xvfb-run", "racket", "--lib", "racket-langserver" },
         on_attach = on_attach,
         capabilities = capabilities,
         handlers = handlers,

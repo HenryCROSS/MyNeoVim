@@ -66,8 +66,8 @@ function()
 
     -- for nvim 0.7
     -- use filetype.lua instead of filetype.vim
-    vim.g.do_filetype_lua = 1
-    vim.g.did_load_filetypes = 0
+    -- vim.g.do_filetype_lua = 1
+    -- vim.g.did_load_filetypes = 0
 
     -- change the neovim settings one by one from default_options dict
     for k, v in pairs(default_options) do
