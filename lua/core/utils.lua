@@ -1,7 +1,8 @@
 local uv = vim.loop
-local vars = {
+local vim_vars = {
     -- get the runtime path
-    config_path = vim.api.nvim_exec([[echo stdpath('config')]], true)
+    config_path = vim.api.nvim_exec([[echo stdpath('config')]], true),
+    version = vim.inspect(vim.version())
 }
 
 local function const(tbl)
@@ -24,7 +25,7 @@ end
 
 
 local get_config_path = function ()
-    return vars.config_path
+    return vim_vars.config_path
 end
 
 local get_current_path = function ()
@@ -51,46 +52,66 @@ local get_file_from_dir = function (dir)
     return files
 end
 
---[[ it will return a list of plugin from the specified directory in core directory
---   path: it starts from path "nvim/"
+--[[ it will return a list of config from the specified directory
+--   path: it starts from path "nvim/lua/"
+--   return: a table contains files including the variable path
+--           and without the .lua postfix
+--   {
+--   {{path/name}},
+--   {{path/name}},
+--   ...
+--   }
 --]]
-local function search_configs(path, folder_name, exceptions)
+local function search_configs(path, exceptions)
     exceptions = exceptions or {}
-    local dir = get_config_path() .. path .. folder_name
-    local plugin_list = get_file_from_dir(dir)
+    local dir = get_config_path() .. "/lua/" .. path
+    local files = get_file_from_dir(dir)
     local plugin_table = {}
 
-    for _, value in pairs(plugin_list) do
+    for _, value in pairs(files) do
         if not string.match(value.file_name, ".lua$") and value.type == "file" then
             -- not add to table
         elseif exceptions[value.file_name] then
             -- not add to table
         else
             if value.type == "file" then
+                -- remove .lua from the file name
                 value.file_name = string.sub(value.file_name, 1, -5)
             end
-            local file = "core." .. folder_name .. "." .. value.file_name
+            local file = path ..  "." .. value.file_name
             table.insert(plugin_table, file)
         end
     end
     return plugin_table
 end
 
-local function ignore_configs(t)
+local function ignore_configs(table)
     local result = {}
-    for _, value in pairs(t) do
+    for _, value in pairs(table) do
         result[value] = 1;
     end
 
     return result
 end
 
+local function get_nvim_ver()
+    return vim_vars.version
+end
+
+local function rm_plugin_prefix(name)
+    local pos = string.find(name, "/")
+    return string.sub(name, pos + 1, #name)
+end
+
+
 return {
-    const,
-    table_concat,
-    get_config_path,
-    get_current_path,
-    get_file_from_dir,
-    search_configs,
-    ignore_configs,
+    const = const,
+    table_concat = table_concat,
+    get_config_path = get_config_path,
+    get_current_path = get_current_path,
+    get_file_from_dir = get_file_from_dir,
+    search_configs = search_configs,
+    ignore_configs = ignore_configs,
+    get_nvim_ver = get_nvim_ver,
+    rm_plugin_prefix = rm_plugin_prefix,
 }

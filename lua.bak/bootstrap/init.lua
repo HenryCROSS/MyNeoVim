@@ -1,7 +1,7 @@
 local M = {}
 
 M.load = function ()
-    local _, _ = pcall(require, "impatient")
+    -- local _, _ = pcall(require, "impatient")
     -- value.enable_profile()
     -- require("impatient")
     -- require("core.plugin_config.filetype").load()

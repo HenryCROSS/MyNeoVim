@@ -13,7 +13,8 @@ list:
     desc
 }
 --]]
-local table_concate = api_o_utils.table_concate
+
+local table_concate = require("core.utils").table_concat
 
 local function set_keymap (modes, lhs, rhs, opts)
     vim.keymap.set(modes, lhs, rhs, opts)

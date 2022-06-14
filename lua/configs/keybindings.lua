@@ -1,6 +1,6 @@
 -- api_o_keymap.set();
 -- local function set_keymap (modes, lhs, rhs, opts)
-local PROPERTY = api_o_const
+local PROPERTY = api_o_const.PROPERTY
 local set = api_o_keymap.set
 local mask = api_o_keymap.mask
 local opts = {

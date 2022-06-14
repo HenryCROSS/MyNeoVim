@@ -2,9 +2,10 @@
 --    This file provide constant list for some requirements
 --]]
 
-local const = api_utils.const
+local const = require("core.utils").const
 
 -- For definding the property of a file in plugins folder
+-- local PROPERTY = {
 local PROPERTY = const({
     LOAD_FIRST = "LOAD_FIRST",
     VIM_CONFIG = "VIM_CONFIG",
@@ -17,5 +18,5 @@ local PROPERTY = const({
 })
 
 return {
-    PROPERTY,
+    PROPERTY = PROPERTY,
 }

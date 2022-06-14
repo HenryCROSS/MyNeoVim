@@ -1,0 +1,14 @@
+{
+    "leetcode.language": "cpp",
+    "translator.engines": [
+        "google",
+        "haici"
+    ],
+    "coc.preferences.extensionUpdateCheck": "daily",
+    "semanticTokens.filetypes": ["*"],
+    "snippets.ultisnips.directories": [
+        "UltiSnips",
+        "gosnippets/UltiSnips"
+    ]
+
+}

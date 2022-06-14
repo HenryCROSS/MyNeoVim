@@ -16,10 +16,19 @@
 -- -- load test plugins
 -- require("test").load()
 
-require("bootstrap").load()
-require("global").load()
-require("core").load()
+-- require("bootstrap").load()
+-- require("global").load()
+-- require("core").load()
 -- vim.o.fillchars = "vert:┃,horiz:━,verthoriz:╋,horizup:┻,horizdown:┳,vertleft:┫,vertright:┣"
 -- vim.o.laststatus = 3
 -- require("test").load()
+--
+require("api")
+require("configs")
+vim.g.coc_global_extensions = {
+	"coc-json",
+	"coc-sh",
+	"coc-translator",
+	"coc-syntax",
+}
 
