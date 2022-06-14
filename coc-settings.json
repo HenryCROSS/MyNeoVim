@@ -9,6 +9,7 @@
     "snippets.ultisnips.directories": [
         "UltiSnips",
         "gosnippets/UltiSnips"
-    ]
+    ],
+    "Lua.telemetry.enable": true
 
 }

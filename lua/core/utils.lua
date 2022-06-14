@@ -10,31 +10,31 @@ local function const(tbl)
         __index = tbl,
         __newindex = function(_, key, value)
             error("attempting to change constant " ..
-                   tostring(key) .. " to " .. tostring(value), 2)
+                tostring(key) .. " to " .. tostring(value), 2)
         end
     })
 end
 
 -- combine t2 to t1
-local function table_concat(t1,t2)
-   for i=1,#t2 do
-      t1[#t1+1] = t2[i]
-   end
-   return t1
+local function table_concat(t1, t2)
+    for key, value in pairs(t2) do
+        t1[key] = value
+    end
+
+    return t1
 end
 
-
-local get_config_path = function ()
+local get_config_path = function()
     return vim_vars.config_path
 end
 
-local get_current_path = function ()
+local get_current_path = function()
     return uv.fs_realpath(uv.cwd())
 end
 
 -- returns table of table
 -- return: {file_name, type}
-local get_file_from_dir = function (dir)
+local get_file_from_dir = function(dir)
     local handle = uv.fs_scandir(dir)
     local files = {}
 
@@ -46,7 +46,7 @@ local get_file_from_dir = function (dir)
         local name, t = uv.fs_scandir_next(handle)
         if not name then break end
 
-        table.insert(files, {file_name = name, type = t})
+        table.insert(files, { file_name = name, type = t })
     end
 
     return files
@@ -78,7 +78,7 @@ local function search_configs(path, exceptions)
                 -- remove .lua from the file name
                 value.file_name = string.sub(value.file_name, 1, -5)
             end
-            local file = path ..  "." .. value.file_name
+            local file = path .. "." .. value.file_name
             table.insert(plugin_table, file)
         end
     end
@@ -102,7 +102,6 @@ local function rm_plugin_prefix(name)
     local pos = string.find(name, "/")
     return string.sub(name, pos + 1, #name)
 end
-
 
 return {
     const = const,

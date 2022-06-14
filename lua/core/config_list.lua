@@ -10,32 +10,21 @@ local _, packer = pcall(require, "packer")
 local plugin_list = {}
 local group_list = {}
 local config_list = {}
+local source_plugin_list = {}
 
 local function get_plugin_list()
     return plugin_list
 end
 
 local function add_plugin_list(table)
-    -- print("<<<<<<<<<<<<<<<<<<<<<<" .. name)
-    -- local config = table.config
     plugin_list[table.name] = {
         table.name,
         config = table.config,
         branch = table.branch,
         run = table.run,
         cmd = table.cmd,
-        -- config = function ()
-        --     if table.config ~= nil then
-        --         -- print(table.name .. ">>>")
-        --         -- print(table.config)
-        --         -- table.config()
-        --     end
-        -- end
+        requires = table.requires,
     }
-
-    -- for key, value in pairs(plugin_list[name]) do
-    --     print(value)
-    -- end
 end
 
 local function rm_plugin_list(name)
@@ -64,6 +53,37 @@ local function get_config_list()
     return config_list
 end
 
+local function get_source_plugin_list()
+    return source_plugin_list
+end
+
+local function add_source_plugin_list(table)
+    source_plugin_list[table.name] = {
+        table.name,
+        config = table.config,
+        -- branch = table.branch,
+        -- run = table.run,
+        -- cmd = table.cmd,
+        -- requires = table.requires,
+    }
+end
+
+local function rm_source_plugin_list(name)
+    source_plugin_list[name] = nil
+end
+
+local function load_source_plugin_list()
+    local status_ok, _ = xpcall(function()
+        for key, plugin in pairs(source_plugin_list) do
+            print("work")
+            print(key)
+            plugin.config()
+        end
+    end, debug.traceback)
+
+    if not status_ok then print("ERROR") end
+end
+
 return {
     plugin = {
         get = get_plugin_list,
@@ -76,5 +96,12 @@ return {
     },
     config = {
         get = get_config_list
+    },
+    source_plugin = {
+        get = get_source_plugin_list,
+        add = add_source_plugin_list,
+        rm = rm_source_plugin_list,
+        load = load_source_plugin_list
     }
+
 }

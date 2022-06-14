@@ -59,7 +59,7 @@ return {
             syntax = "on",
             shell = "/bin/zsh",
 
-            tm = 1000, -- set timeout of the leader key
+            tm = 3000, -- set timeout of the leader key
         },
         {
             type = api_o_const.VIM_CONFIG,

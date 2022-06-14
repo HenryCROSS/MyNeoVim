@@ -45,6 +45,14 @@ local function hooks(config)
 
 end
 
+local function source_plugin(table)
+    api_o_config.source_plugin.add(table)
+end
+
+local function mask(table)
+    -- TODO: disable groups or configs
+end
+
 PORPERTIES_LIST = const {
     LOAD_FIRST = load_first,
     VIM_CONFIG = vim_config,
@@ -54,6 +62,8 @@ PORPERTIES_LIST = const {
     LOAD_EVENT = load_event,
     DEPENDENCY = dependency,
     HOOKS = hooks,
+    SOURCE_PLUGIN = source_plugin,
+    MASK = mask,
 }
 
      

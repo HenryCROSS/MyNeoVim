@@ -15,6 +15,8 @@ local PROPERTY = const({
     LOAD_EVENT = "LOAD_EVENT",
     DEPENDENCY = "DEPENDENCY",
     HOOKS = "HOOKS",
+    SOURCE_PLUGIN = "SOURCE_PLUGIN",
+    MASK = "MASK",
 })
 
 return {

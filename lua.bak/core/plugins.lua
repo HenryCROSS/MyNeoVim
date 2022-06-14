@@ -10,7 +10,7 @@ vim.cmd [[packadd packer.nvim]]
 -- ]])
 
 local plugins = {
---[[    {
+    {
         "wbthomason/packer.nvim",
     },
     {
@@ -711,7 +711,6 @@ local plugins = {
             require("core.theme"):load()
         end
     },
-    --]]
 }
 
 return plugins

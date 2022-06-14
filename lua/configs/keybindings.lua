@@ -19,11 +19,11 @@ return {
 
             -- screen operations
             -- switch screen
-            set('n', '<Leader>wh', '<C-w>h', mask(opts, {desc = "go left screen"}))
-            set('n', '<Leader>wl', '<C-w>l', mask(opts, {desc = "go down screen"}))
-            set('n', '<Leader>wj', '<C-w>j', mask(opts, {desc = "go up screen"}))
-            set('n', '<Leader>wk', '<C-w>k', mask(opts, {desc = "go right screen"}))
-            set('n', '<Leader>wf', '<C-w><C-w>', mask(opts, {desc = "go prev screen"}))
+            set('n', '<Leader>wh', '<C-w>h', mask(opts, {desc = "go left window"}))
+            set('n', '<Leader>wl', '<C-w>l', mask(opts, {desc = "go down window"}))
+            set('n', '<Leader>wj', '<C-w>j', mask(opts, {desc = "go up window"}))
+            set('n', '<Leader>wk', '<C-w>k', mask(opts, {desc = "go right window"}))
+            set('n', '<Leader>wf', '<C-w><C-w>', mask(opts, {desc = "go prev window"}))
 
             -- split screen
             set('n', '<Leader>ws', ':sp<CR>', mask(opts, {desc = "horizontal split"}))

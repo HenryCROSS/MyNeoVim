@@ -24,7 +24,7 @@
 -- require("test").load()
 --
 require("api")
-require("configs")
+require(".")
 vim.g.coc_global_extensions = {
 	"coc-json",
 	"coc-sh",
