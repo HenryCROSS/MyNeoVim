@@ -23,7 +23,6 @@ return {
             --     -- The border style to use for the floating window.
             --     border = 'single'
             -- })
-print("?????????")
 
             api_o_keymap.set('n', '<Leader>wg', ':lua require(\'configs.nvim_window.nvim-window\').pick()<CR>', {desc = "Jump to the window", noremap = true, silent = true})
         end

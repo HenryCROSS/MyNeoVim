@@ -75,13 +75,11 @@ end
 local function load_source_plugin_list()
     local status_ok, _ = xpcall(function()
         for key, plugin in pairs(source_plugin_list) do
-            print("work")
-            print(key)
             plugin.config()
         end
     end, debug.traceback)
 
-    if not status_ok then print("ERROR") end
+    if not status_ok then print("Source plugin loading ERROR!!!!!!") end
 end
 
 return {
