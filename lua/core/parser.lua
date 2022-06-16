@@ -21,6 +21,7 @@ local function vim_config(table)
     end
 end
 
+-- TODO: load the table config other than exec a func
 local function gen_keymap(table)
     table.config()
 end
@@ -30,7 +31,7 @@ local function plugin_config(table)
 end
 
 local function group_binding(config)
-
+    api_o_config.group.add(config)
 end
 
 local function load_event(config)
@@ -41,8 +42,12 @@ local function dependency(config)
 
 end
 
-local function hooks(config)
+local function augroup(config)
+    api_o_config.augroup.add(config)
+end
 
+local function autocmd(config)
+    api_o_config.autocmd.add(config)
 end
 
 local function source_plugin(table)
@@ -51,6 +56,13 @@ end
 
 local function mask(table)
     -- TODO: disable groups or configs
+
+    if table.mask_type == "GROUPS" then
+        local group = api_o_config.group.get()[table.name]
+
+    elseif table.mask_type == "PLUGINS" then
+
+    end
 end
 
 PORPERTIES_LIST = const {
@@ -61,18 +73,19 @@ PORPERTIES_LIST = const {
     GROUP_BINDING = group_binding,
     LOAD_EVENT = load_event,
     DEPENDENCY = dependency,
-    HOOKS = hooks,
+    AUGROUP = augroup,
+    AUTOCMD = autocmd,
     SOURCE_PLUGIN = source_plugin,
     MASK = mask,
 }
 
-     
+
 local function config_parser(o_config)
     -- local PROPERTY = api_o_const.PROPERTY
-    local status = xpcall(function ()
+    local status = xpcall(function()
         -- print("here" .. o_config.type)
         PORPERTIES_LIST[o_config.type](o_config)
-    end , debug.traceback)
+    end, debug.traceback)
 end
 
 return config_parser

@@ -108,4 +108,12 @@ return {
             local _, _ = pcall(require, "impatient")
         end
     },
+    {
+        type = PROPERTY.PLUGIN_CONFIG,
+        name = "rafamadriz/friendly-snippets",
+    },
+    {
+        type = PROPERTY.PLUGIN_CONFIG,
+        name = "honza/vim-snippets",
+    },
 }

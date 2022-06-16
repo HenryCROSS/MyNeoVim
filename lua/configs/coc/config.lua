@@ -33,7 +33,8 @@ vim.g.coc_global_extensions = {
 	"coc-yaml",
 	"coc-leetcode",
 	"coc-pairs",
-	"coc-highlight"
+	"coc-highlight",
+	"coc-neosnippet"
 }
 
 
@@ -80,14 +81,13 @@ vim.cmd(
 " other plugin before putting this into your config.
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" : "\<TAB>"
-      " \ Check_back_space() ? "\<TAB>" :
-      " \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+
 " Use <c-space> to trigger completion.
 if has('nvim')
   inoremap <silent><expr> <c-space> coc#refresh()

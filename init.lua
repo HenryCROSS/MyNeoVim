@@ -25,10 +25,6 @@
 --
 require("api")
 require(".")
-vim.g.coc_global_extensions = {
-	"coc-json",
-	"coc-sh",
-	"coc-translator",
-	"coc-syntax",
-}
 
+vim.g.did_load_filetypes = 0
+vim.g.do_filetype_lua = 1

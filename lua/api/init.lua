@@ -14,13 +14,13 @@ _G.api_o_utils = core.utils
 -- contains the functions for the key bindings
 _G.api_o_keymap = core.keymap
 
--- This function reads the files from plugins folder
-_G.api_f_parser = core.parser
-
 -- constains constans values
 _G.api_o_const = core.constant
 
 _G.api_o_config = core.config
+
+-- This function reads the files from plugins folder
+_G.api_f_parser = core.parser
 
 -- avoid warning
 _G.vim = vim

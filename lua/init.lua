@@ -14,11 +14,14 @@ local config_list = api_o_utils.search_configs("configs", {["init.lua"]=1})
 for _, file_config in pairs(config_list) do
     local fn_list = require(file_config)
 
-    for _, fn in pairs(fn_list) do
-        api_f_parser(fn)
+    if type(fn_list) == "table" then
+        for _, fn in pairs(fn_list) do
+            api_f_parser(fn)
+        end
     end
 end
 
 -- load list
 api_o_config.plugin.load()
 api_o_config.source_plugin.load()
+api_o_config.autocmd.load()

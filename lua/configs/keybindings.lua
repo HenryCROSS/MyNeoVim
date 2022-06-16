@@ -14,8 +14,10 @@ return {
             vim.g.mapleader = ' '
             --
             -- esc keymapping
-            set('n', 'j', "gj", mask(opts, {}))
-            set('n', 'k', "gk", mask(opts, {}))
+            set({'n', 'v'}, 'j', "gj", mask(opts, {}))
+            set({'n', 'v'}, 'k', "gk", mask(opts, {}))
+            set({'n', 'v'}, '^', "g^", mask(opts, {}))
+            set({'n', 'v'}, '$', "g$", mask(opts, {}))
 
             -- screen operations
             -- switch screen

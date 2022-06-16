@@ -67,7 +67,7 @@
     │           ┌───────────────┐      │plugins list       │
     │           │  lists        │─────►│group list         │
     │config is  └───────────────┘      │       etc...      │
-    │required          │               └───────────────────┘
+    │required to       │               └───────────────────┘
     │load              │
     │first             ▼
     │           ┌───────────────┐

@@ -1,4 +1,11 @@
 {
+    "suggest.detailMaxLength": 60,
+    "suggest.triggerCompletionWait": 50,
+    "suggest.triggerAfterInsertEnter": true,
+    "coc.preferences.snippetStatusText": "Ⓢ ",
+    "suggest.selection": "recentlyUsed",
+    "suggest.floatEnable": true,
+    "suggest.enablePreview": true,
     "leetcode.language": "cpp",
     "translator.engines": [
         "google",
@@ -7,8 +14,62 @@
     "coc.preferences.extensionUpdateCheck": "daily",
     "semanticTokens.filetypes": ["*"],
     "snippets.ultisnips.directories": [
-        "UltiSnips",
-        "gosnippets/UltiSnips"
+        "UltiSnips"
     ],
-    "Lua.telemetry.enable": true
+    "Lua.telemetry.enable": true,
+    "suggest.completionItemKindLabels": {
+        "class": "\uf0e8",
+        "color": "\ue22b",
+        "constant": "\uf8fe",
+        "default": "\uf29c",
+        "enum": "\uf435",
+        "enumMember": "\uf02b",
+        "event": "\ufacd",
+        "field": "\uf93d",
+        "file": "\uf723",
+        "folder": "\uf115",
+        "function": "\u0192",
+        "interface": "\uf417",
+        "keyword": "\uf1de",
+        "method": "\uf6a6",
+        "module": "\uf40d",
+        "operator": "\uf915",
+        "property": "\ue624",
+        "reference": "\ufa46",
+        "snippet": "\ue60b",
+        "struct": "\ufb44",
+        "text": "\ue612",
+        "typeParameter": "\uf728",
+        "unit": "\uf475",
+        "value": "\uf89f",
+        "variable": "\ue71b"
+    },
+    "diagnostic.errorSign": "\uf467",
+    "diagnostic.warningSign": "\uf071",
+    "diagnostic.infoSign": "\uf129",
+    "diagnostic.hintSign": "\uf864",
+    "diagnostic.refreshOnInsertMode": false,
+    "diagnostic.checkCurrentLine": true,
+    "diagnostic.virtualTextPrefix": " ❯❯❯ ",
+    "diagnostic.virtualText": false,
+    "diagnostic-languageserver.filetypes": {
+        // lint `sh` (includes `bash`) files
+        "sh": "shellcheck"
+    },
+    "diagnostic-languageserver.formatFiletypes": {
+        // format `sh` (includes `bash`) files using formatter defined below
+        "sh": "shfmt"
+    },
+    "diagnostic-languageserver.formatters": {
+        // define our formatter so that we can reference it from
+        // `diagnostic-languageserver.formatFiletypes`
+        "shfmt": {
+            "command": "shfmt",
+            // all the below args are entirely optional
+            // primarily listed here to call out that flags which take an
+            // argument (such as `-i <num-spaces>` for specifying indentation)
+            // should be split into two strings, the flag and then the value
+            "args": ["-i", "2", "-bn", "-ci", "-sr"]
+        }
+    }
 }
