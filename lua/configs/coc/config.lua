@@ -56,8 +56,8 @@ vim.api.nvim_set_keymap('n', '[g', '<Plug>(coc-diagnostic-prev)', { silent = tru
 vim.api.nvim_set_keymap('n', ']g', '<Plug>(coc-diagnostic-next)', { silent = true })
 
 -- Formatting selected code.
-vim.api.nvim_set_keymap('x', '<leader>zf', '<Plug>(coc-format-selected)', { silent = true })
-vim.api.nvim_set_keymap('n', '<leader>zf', '<Plug>(coc-format-selected)', { silent = true })
+vim.api.nvim_set_keymap('x', '<leader>cf', '<Plug>(coc-format-selected)', { silent = true })
+vim.api.nvim_set_keymap('n', '<leader>cf', '<Plug>(coc-format-selected)', { silent = true })
 
 -- Applying codeAction to the selected region.
 -- Example: `<leader>aap` for current paragraph
@@ -152,7 +152,7 @@ command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.org
 " set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " Mappings for CoCList
 " Show all diagnostics.
-nnoremap <silent><nowait> <space>za  :<C-u>CocList diagnostics<cr>
+nnoremap <silent><nowait> <space>cd  :<C-u>CocList diagnostics<cr>
 " Manage extensions.
 nnoremap <silent><nowait> <space>ze  :<C-u>CocList extensions<cr>
 " Show commands.
