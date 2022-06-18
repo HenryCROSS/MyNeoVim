@@ -13,6 +13,7 @@ local config_list = {}
 local source_plugin_list = {}
 local augroup_list = {}
 local autocmd_list = {}
+local mask_list = {}
 
 local function get_plugin_list()
     return plugin_list
@@ -51,7 +52,12 @@ local function get_group_list()
     return group_list
 end
 
+local function get_group(name)
+    return group_list[name]
+end
+
 local function add_group_list(table)
+    print("working")
     group_list[table.name] = table.config
 end
 
@@ -128,6 +134,27 @@ local function load_autocmd_list()
     if not status_ok then print("ERROR") end
 end
 
+local function get_mask_list()
+    return mask_list
+end
+
+local function add_mask_list(table)
+    mask_list[table.name] = table
+end
+
+local function rm_mask_list(name)
+    mask_list[name] = nil
+end
+
+local function load_mask_list()
+    local status_ok, _ = xpcall(function()
+        for key, value in pairs(mask_list) do
+            print(value)
+        end
+    end, debug.traceback)
+    if not status_ok then print("ERROR") end
+end
+
 return {
     plugin = {
         get = get_plugin_list,
@@ -136,7 +163,8 @@ return {
         load = load_plugin_list
     },
     group = {
-        get = get_group_list,
+        getAll = get_group_list,
+        getOne = get_group,
         add = add_group_list,
         rm = rm_group_list,
     },
@@ -159,6 +187,12 @@ return {
         add = add_autocmd_list,
         rm = rm_autocmd_list,
         load = load_autocmd_list
+    },
+    mask = {
+        get = get_mask_list,
+        add = add_mask_list,
+        rm = rm_mask_list,
+        load = load_mask_list
     }
 
 }

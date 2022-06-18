@@ -1,16 +1,25 @@
 require("telescope").setup {
+    defaults = {
+        layout_strategy = "bottom_pane",
+        layout_config = {
+            bottom_pane = {
+                height = 15,
+                preview_cutoff = 100,
+                prompt_position = "bottom",
+            },
+        },
+    },
     pickers = {
         oldfiles = {
-            theme = "ivy",
         },
         find_files = {
-            theme = "ivy",
+            hidden = true
         },
         live_grep = {
-            theme = "ivy",
         },
         buffers = {
-            theme = "ivy",
+            ignore_current_buffer = true,
+            sort_mru = true
         },
     },
     mappings = {
@@ -51,9 +60,9 @@ require("telescope").setup {
     }
 }
 
-api_o_keymap.set('n', '<Leader>,', '<cmd>Telescope buffers<CR>', {desc = "List Buffers"})
-api_o_keymap.set('n', '<Leader>fo', '<cmd>Telescope oldfiles<cr>', {desc = "Open Recent File"})
-api_o_keymap.set('n', '<Leader>ff', '<cmd>Telescope find_files<cr>', {desc = "Find File"})
-api_o_keymap.set('n', '<Leader>fg', '<cmd>Telescope live_grep<cr>', {desc = "Find String"})
-api_o_keymap.set('n', '<Leader>fb', '<cmd>Telescope buffers<cr>', {desc = "List Buffers"})
-api_o_keymap.set('n', '<Leader>fs', '<cmd>Telescope grep_string<cr>', {desc = "Find This String"})
+api_o_keymap.set('n', '<Leader>,', '<cmd>Telescope buffers<CR>', { desc = "List Buffers" })
+api_o_keymap.set('n', '<Leader>fo', '<cmd>Telescope oldfiles<cr>', { desc = "Open Recent File" })
+api_o_keymap.set('n', '<Leader>ff', '<cmd>Telescope find_files<cr>', { desc = "Find File" })
+api_o_keymap.set('n', '<Leader>fg', '<cmd>Telescope live_grep<cr>', { desc = "Find String" })
+api_o_keymap.set('n', '<Leader>fb', '<cmd>Telescope buffers<cr>', { desc = "List Buffers" })
+api_o_keymap.set('n', '<Leader>fs', '<cmd>Telescope grep_string<cr>', { desc = "Find This String" })

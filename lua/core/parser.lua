@@ -7,17 +7,19 @@ end
 --   receive a table
 --]]
 local function vim_config(table)
-    local config = table.config
-    if (config.version) then
-        if vim.fn.has(config.version) == 1 then
-            config.version = nil
+    table.type = nil
+    if (table.version) then
+        if vim.fn.has(table.version) == 1 then
+            table.version = nil
         else
             return
         end
     end
 
-    for k, v in pairs(config) do
-        vim.opt[k] = v
+    for opts, config in pairs(table) do
+        for k, v in pairs(config) do
+            vim[opts][k] = v
+        end
     end
 end
 

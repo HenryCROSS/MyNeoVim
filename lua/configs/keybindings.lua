@@ -52,8 +52,17 @@ return {
             -- tab operations
             set('n', '<Leader>tn', '<cmd>tabnew<cr>', mask(opts, {desc = "create tab"}))
             set('n', '<Leader>tq', '<cmd>tabclose<cr>', mask(opts, {desc = "quit tab"}))
+            set('n', '<Leader>to', '<cmd>tabonly<cr>', mask(opts, {desc = "quit other tab"}))
             set('n', '<M-n>', '<cmd>tabnext<cr>', mask(opts, {desc = "next tab"}))
             set('n', '<M-p>', '<cmd>tabprevious<cr>', mask(opts, {desc = "prev tab"}))
+
+            -- buffer operations
+            -- set('n', '<Leader>tn', '<cmd>tabnew<cr>', mask(opts, {desc = "create tab"}))
+            -- set('n', '<Leader>tq', '<cmd>tabclose<cr>', mask(opts, {desc = "quit tab"}))
+            -- set('n', '<Leader>to', '<cmd>tabonly<cr>', mask(opts, {desc = "quit other tab"}))
+            set('n', '<Leader>bc', '<cmd>enew<cr>', mask(opts, {desc = "Create Buffer"}))
+            set('n', '<C-n>', '<cmd>bn<cr>', mask(opts, {desc = "Next Buffer"}))
+            set('n', '<C-p>', '<cmd>bp<cr>', mask(opts, {desc = "Prev Buffer"}))
         end
     }
 }

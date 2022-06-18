@@ -2,10 +2,10 @@ local PROPERTY = api_o_const.PROPERTY
 return {
     {
         type = PROPERTY.VIM_CONFIG,
-        config = {
+        opt = {
             backup = false, -- creates a backup file
             clipboard = "unnamedplus", -- allows neovim to access the system clipboard
-            cmdheight = 2, -- more space in the neovim command line for displaying messages
+            cmdheight = 1, -- more space in the neovim command line for displaying messages
             colorcolumn = "99999", -- fixes indentline for now
             completeopt = {
                 "menuone",
@@ -14,7 +14,7 @@ return {
             conceallevel = 0, -- so that `` is visible in markdown files
             fileencoding = "utf-8", -- the encoding written to a file
             foldmethod = "expr", -- folding, set to "expr" for treesitter based folding
-            foldexpr = "nvim_treesitter#foldexpr()", -- set to "nvim_treesitter#foldexpr()" for treesitter based folding
+            -- foldexpr = "nvim_treesitter#foldexpr()", -- set to "nvim_treesitter#foldexpr()" for treesitter based folding
             foldlevel = 99,
             guifont = "Cascadia Code:h12", -- the font used in graphical neovim applications
             -- guifont = "CaskaydiaCove Nerd Font:h10", -- the font used in graphical neovim applications
@@ -61,12 +61,14 @@ return {
 
             tm = 1000, -- set timeout of the leader key
         },
-        {
-            type = api_o_const.VIM_CONFIG,
-            version = "nvim-0.8",
+
+    },
+    {
+        type = PROPERTY.VIM_CONFIG,
+        version = "nvim-0.8",
+        o = {
             fillchars = "vert:┃,horiz:━,verthoriz:╋,horizup:┻,horizdown:┳,vertleft:┫,vertright:┣",
             laststatus = 3,
         }
-
     }
 }

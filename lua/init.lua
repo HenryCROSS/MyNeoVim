@@ -21,7 +21,17 @@ for _, file_config in pairs(config_list) do
     end
 end
 
--- load list
+-- generate other users' config list
+-- TODO
+
+-- load mask list
+-- TODO
+api_o_config.mask.load()
+
+-- load plugin list
 api_o_config.plugin.load()
+-- load source plugin list
 api_o_config.source_plugin.load()
+-- load autocmd list
 api_o_config.autocmd.load()
+

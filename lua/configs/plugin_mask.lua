@@ -11,7 +11,7 @@ return {
         type = PROPERTY.MASK,
         mask_type = "GROUPS",
         config = {
-
+            "THEME"
         }
     },
     {
