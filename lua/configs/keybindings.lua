@@ -63,6 +63,12 @@ return {
             set('n', '<Leader>bc', '<cmd>enew<cr>', mask(opts, {desc = "Create Buffer"}))
             set('n', '<C-n>', '<cmd>bn<cr>', mask(opts, {desc = "Next Buffer"}))
             set('n', '<C-p>', '<cmd>bp<cr>', mask(opts, {desc = "Prev Buffer"}))
+
+            -- set other keybindings
+            set('n', '<tab>', 'za', mask(opts, {desc = "Toggle fold"}))
+            set('n', '<S-tab>', 'zA', mask(opts, {desc = "Toggle all fold"}))
+
         end
     }
 }
+

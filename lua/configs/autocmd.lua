@@ -38,10 +38,10 @@ return {
                     group = "test_group",
                     pattern = { "*" },
                     callback = function()
-                        local ls = api_o_config.group.getOne("THEME")
-                        for key, value in pairs(ls) do
-                            print(key .. " " .. value)
-                        end
+                        -- local ls = api_o_config.group.getOne("THEME")
+                        -- for key, value in pairs(ls) do
+                        --     print(key .. " " .. value)
+                        -- end
                     end
                 })
             end

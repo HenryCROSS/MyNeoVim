@@ -59,6 +59,9 @@ db.custom_center = {
     --     shortcut = 'SPC f d' },
 }
 
+db.hide_statusline = false
+db.hide_tabline = false
+
 -- api_o_keymap.set('n', '<Leader>fn', ':DashboardNewFile<CR>', {desc = "Create New File"})
 api_o_keymap.set('n', '<Leader>ss', ':SessionSave<CR>', {desc = "Save Session"})
 api_o_keymap.set('n', '<Leader>sl', ':SessionLoad<CR>', {desc = "Load Session"})

@@ -17,8 +17,24 @@ end
 
 -- combine t2 to t1
 local function table_concat(t1, t2)
-    for key, value in pairs(t2) do
-        t1[key] = value
+    if (t2 ~= nil) then
+        for key, value in pairs(t2) do
+            t1[key] = value
+        end
+    end
+
+    return t1
+end
+
+local function table_insert(t1, t2)
+    if (t2 ~= nil) then
+        if (t1 == nil) then
+            t1 = {}
+        end
+
+        for _, value in pairs(t2) do
+            table.insert(t1, value)
+        end
     end
 
     return t1
@@ -106,6 +122,7 @@ end
 return {
     const = const,
     table_concat = table_concat,
+    table_insert = table_insert,
     get_config_path = get_config_path,
     get_current_path = get_current_path,
     get_file_from_dir = get_file_from_dir,

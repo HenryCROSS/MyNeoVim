@@ -57,14 +57,7 @@ local function source_plugin(table)
 end
 
 local function mask(table)
-    -- TODO: disable groups or configs
-
-    if table.mask_type == "GROUPS" then
-        local group = api_o_config.group.get()[table.name]
-
-    elseif table.mask_type == "PLUGINS" then
-
-    end
+    api_o_config.mask.add(table)
 end
 
 PORPERTIES_LIST = const {

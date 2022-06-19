@@ -11,14 +11,14 @@ return {
         type = PROPERTY.MASK,
         mask_type = "GROUPS",
         config = {
-            "THEME"
+            -- "THEME"
         }
     },
     {
         type = PROPERTY.MASK,
         mask_type = "PLUGINS",
         config = {
-
+            -- "luochen1990/rainbow"
         }
     }
 }

@@ -13,9 +13,9 @@ return {
             },
             conceallevel = 0, -- so that `` is visible in markdown files
             fileencoding = "utf-8", -- the encoding written to a file
-            foldmethod = "expr", -- folding, set to "expr" for treesitter based folding
+            -- foldmethod = "indent", -- folding, set to "expr" for treesitter based folding
             -- foldexpr = "nvim_treesitter#foldexpr()", -- set to "nvim_treesitter#foldexpr()" for treesitter based folding
-            foldlevel = 99,
+            -- foldlevel = 99,
             guifont = "Cascadia Code:h12", -- the font used in graphical neovim applications
             -- guifont = "CaskaydiaCove Nerd Font:h10", -- the font used in graphical neovim applications
             hidden = true, -- required to keep multiple buffers and open multiple buffers

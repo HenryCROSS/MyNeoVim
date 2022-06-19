@@ -19,19 +19,29 @@ local function get_plugin_list()
     return plugin_list
 end
 
-local function add_plugin_list(table)
-    plugin_list[table.name] = {
-        table.name,
-        config = table.config,
-        branch = table.branch,
-        run = table.run,
-        cmd = table.cmd,
-        requires = table.requires,
+local function add_plugin_list(src)
+    plugin_list[src.name] = {
+        src.name,
+        config = src.config,
+        branch = src.branch,
+        run = src.run,
+        cmd = src.cmd,
+        requires = src.requires,
     }
 end
 
-local function rm_plugin_list(name)
-    plugin_list[name] = nil
+--[[
+    args: string/list of strings
+]]
+local function rm_plugin_list(obj)
+    local type = type(obj)
+    if type == "table" then
+        for _, src in pairs(obj) do
+            plugin_list[src] = nil
+        end
+    elseif type == "string" then
+        plugin_list[obj] = nil
+    end
 end
 
 local function load_plugin_list()
@@ -56,13 +66,12 @@ local function get_group(name)
     return group_list[name]
 end
 
-local function add_group_list(table)
-    print("working")
-    group_list[table.name] = table.config
+local function add_group_list(src)
+    group_list[src.name] = src.config
 end
 
-local function rm_group_list(table)
-    group_list[table.name] = nil
+local function rm_group_list(src)
+    group_list[src.name] = nil
 end
 
 local function get_config_list()
@@ -73,10 +82,10 @@ local function get_source_plugin_list()
     return source_plugin_list
 end
 
-local function add_source_plugin_list(table)
-    source_plugin_list[table.name] = {
-        table.name,
-        config = table.config,
+local function add_source_plugin_list(src)
+    source_plugin_list[src.name] = {
+        src.name,
+        config = src.config,
         -- branch = table.branch,
         -- run = table.run,
         -- cmd = table.cmd,
@@ -84,13 +93,23 @@ local function add_source_plugin_list(table)
     }
 end
 
-local function rm_source_plugin_list(name)
-    source_plugin_list[name] = nil
+--[[
+    args: string/table of strings
+]]
+local function rm_source_plugin_list(obj)
+    local type = type(obj)
+    if type == "table" then
+        for _, src in pairs(mask_list) do
+            source_plugin_list[src] = nil
+        end
+    elseif type == "string" then
+        source_plugin_list[obj] = nil
+    end
 end
 
 local function load_source_plugin_list()
     local status_ok, _ = xpcall(function()
-        for key, plugin in pairs(source_plugin_list) do
+        for _, plugin in pairs(source_plugin_list) do
             plugin.config()
         end
     end, debug.traceback)
@@ -102,8 +121,8 @@ local function get_augroup_list()
     return augroup_list
 end
 
-local function add_augroup_list(table)
-    augroup_list[table.name] = table.id
+local function add_augroup_list(src)
+    augroup_list[src.name] = src.id
 end
 
 local function rm_augroup_list(name)
@@ -114,8 +133,8 @@ local function get_autocmd_list()
     return autocmd_list
 end
 
-local function add_autocmd_list(table)
-    autocmd_list[table.name] = table.config
+local function add_autocmd_list(src)
+    autocmd_list[src.name] = src.config
 end
 
 local function rm_autocmd_list(name)
@@ -124,8 +143,8 @@ end
 
 local function load_autocmd_list()
     local status_ok, _ = xpcall(function()
-        for key, autocmds in pairs(autocmd_list) do
-            for key, value in pairs(autocmds) do
+        for _, autocmds in pairs(autocmd_list) do
+            for _, value in pairs(autocmds) do
                 value()
             end
         end
@@ -138,8 +157,11 @@ local function get_mask_list()
     return mask_list
 end
 
-local function add_mask_list(table)
-    mask_list[table.name] = table
+local function add_mask_list(src)
+    mask_list[src.mask_type] = api_o_utils.table_insert(mask_list[src.mask_type], src.config)
+    -- for key, value in pairs(mask_list[src.mask_type]) do
+    --     print(key .. " " .. value)
+    -- end
 end
 
 local function rm_mask_list(name)
@@ -148,8 +170,15 @@ end
 
 local function load_mask_list()
     local status_ok, _ = xpcall(function()
-        for key, value in pairs(mask_list) do
-            print(value)
+        for key, obj in pairs(mask_list) do
+            if key == "GROUPS" then
+                for _, group_name in pairs(obj) do
+                    rm_plugin_list(get_group(group_name))
+                end
+
+            elseif key == "PLUGINS" then
+                rm_plugin_list(obj)
+            end
         end
     end, debug.traceback)
     if not status_ok then print("ERROR") end
