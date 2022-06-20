@@ -40,6 +40,16 @@ local function table_insert(t1, t2)
     return t1
 end
 
+local function table_insert_as_key(t1, t2)
+    if (t2 ~= nil) then
+        for _, value in pairs(t2) do
+            t1[value] = value
+        end
+    end
+
+    return t1
+end
+
 local get_config_path = function()
     return vim_vars.config_path
 end
@@ -123,6 +133,7 @@ return {
     const = const,
     table_concat = table_concat,
     table_insert = table_insert,
+    table_insert_as_key = table_insert_as_key,
     get_config_path = get_config_path,
     get_current_path = get_current_path,
     get_file_from_dir = get_file_from_dir,

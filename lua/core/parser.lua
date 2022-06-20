@@ -1,6 +1,11 @@
 local const = require("core.utils").const
+local api_o_config = require("core.config_list")
+local _, packer = pcall(require, "packer")
 
-local function load_first(config)
+local function load_func(task)
+    if type(task.fn) == "function" then
+        task.fn(task.args)
+    end
 end
 
 --[[ load config to the config tree
@@ -61,7 +66,7 @@ local function mask(table)
 end
 
 PORPERTIES_LIST = const {
-    LOAD_FIRST = load_first,
+    LOAD_FUNC = load_func,
     VIM_CONFIG = vim_config,
     GEN_KEYMAP = gen_keymap,
     PLUGIN_CONFIG = plugin_config,

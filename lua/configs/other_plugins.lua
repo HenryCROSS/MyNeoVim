@@ -92,10 +92,10 @@ return {
     {
         type = PROPERTY.PLUGIN_CONFIG,
         name = 'ethanholz/nvim-lastplace',
-        config = function ()
-            require'nvim-lastplace'.setup {
-                lastplace_ignore_buftype = {"quickfix", "nofile", "help"},
-                lastplace_ignore_filetype = {"gitcommit", "gitrebase", "svn", "hgcommit"},
+        config = function()
+            require 'nvim-lastplace'.setup {
+                lastplace_ignore_buftype = { "quickfix", "nofile", "help" },
+                lastplace_ignore_filetype = { "gitcommit", "gitrebase", "svn", "hgcommit" },
                 lastplace_open_folds = true
             }
         end
@@ -104,9 +104,6 @@ return {
         -- speed up start time
         type = PROPERTY.PLUGIN_CONFIG,
         name = "lewis6991/impatient.nvim",
-        config = function ()
-            local _, _ = pcall(require, "impatient")
-        end
     },
     {
         type = PROPERTY.PLUGIN_CONFIG,
@@ -116,4 +113,30 @@ return {
         type = PROPERTY.PLUGIN_CONFIG,
         name = "honza/vim-snippets",
     },
+    {
+        type = PROPERTY.PLUGIN_CONFIG,
+        name = "dstein64/vim-startuptime",
+    },
+    {
+        type = PROPERTY.PLUGIN_CONFIG,
+        name = "wbthomason/packer.nvim",
+
+    },
+    {
+        type = PROPERTY.PLUGIN_CONFIG,
+        name = "notjedi/nvim-rooter.lua",
+        config = function()
+            require('nvim-rooter').setup {
+                rooter_patterns = { '.git', '.hg', '.svn' },
+                trigger_patterns = { '*' },
+                manual = false,
+            }
+        end
+    },
+    {
+        type = PROPERTY.PLUGIN_CONFIG,
+        name = "tpope/vim-surround",
+
+    },
+
 }

@@ -7,7 +7,7 @@ return {
         config = function()
             -- vim.wo.foldlevel = 99 -- feel free to decrease the value
             -- vim.wo.foldenable = true
-            vim.wo.foldlevel = 0 -- feel free to decrease the value
+            vim.wo.foldlevel = 99 -- feel free to decrease the value
             vim.wo.foldenable = true
             require('ufo').setup()
         end

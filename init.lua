@@ -23,8 +23,5 @@
 -- vim.o.laststatus = 3
 -- require("test").load()
 --
-require("api")
-require(".")
 
-vim.g.did_load_filetypes = 0
-vim.g.do_filetype_lua = 1
+require(".")

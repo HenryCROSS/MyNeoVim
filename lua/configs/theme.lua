@@ -4,7 +4,6 @@ return {
 		type = PROPERTY.PLUGIN_CONFIG,
 		name = "folke/tokyonight.nvim",
 		config = function ()
-				
 			-- vim.api.nvim_command("colorscheme gruvbox-baby")
 			-- vim.cmd[[colorscheme gruvbox-baby]]
 			vim.g.tokyonight_style = "night"
@@ -18,13 +17,4 @@ return {
 		end
 
 	},
-	{
-		type = PROPERTY.PLUGIN_CONFIG,
-		name = "wbthomason/packer.nvim",
-		-- config = nil
-		-- config = function ()
-		-- 	-- vim.api.nvim_command("colorscheme gruvbox")
-		-- end
-
-	}
 }

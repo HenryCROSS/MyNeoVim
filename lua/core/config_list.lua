@@ -14,20 +14,49 @@ local source_plugin_list = {}
 local augroup_list = {}
 local autocmd_list = {}
 local mask_list = {}
+local event_list = {}
+local dependency_list = {}
+local plugin_keymap_list = {}
+
+local function parse_to_plugin_table(src)
+    return {
+        src.name,
+        disable = src.disable, -- Mark a plugin as inactive
+        as = src.as, -- Specifies an alias under which to install the plugin
+        installer = src.installer, -- Specifies custom installer. See "custom installers" below.
+        updater = src.update, -- Specifies custom updater. See "custom installers" below.
+        after = src.after, -- Specifies plugins to load before this plugin. See "sequencing" below
+        rtp = src.rtp, -- Specifies a subdirectory of the plugin to add to runtimepath.
+        opt = src.opt, -- Manually marks a plugin as optional.
+        branch = src.branch, -- Specifies a git branch to use
+        tag = src.tag, -- Specifies a git tag to use. Supports '*' for "latest tag"
+        commit = src.commit, -- Specifies a git commit to use
+        lock = src.lock, -- Skip updating this plugin in updates/syncs. Still cleans.
+        run = src.run, -- Post-update/install hook. See "update/install hooks".
+        requires = src.requires, -- Specifies plugin dependencies. See "dependencies".
+        rocks = src.rocks, -- Specifies Luarocks dependencies for the plugin
+        config = src.config, -- Specifies code to run after this plugin is loaded.
+        -- The setup key implies opt = true
+        setup = src.setup, -- Specifies code to run before this plugin is loaded.
+        -- The following keys all imply lazy-loading and imply opt = true
+        cmd = src.cmd, -- Specifies commands which load this plugin. Can be an autocmd pattern.
+        ft = src.ft, -- Specifies filetypes which load this plugin.
+        keys = src.keys, -- Specifies maps which load this plugin. See "Keybindings".
+        event = src.event, -- Specifies autocommand events which load this plugin.
+        fn = src.fn, -- Specifies functions which load this plugin.
+        cond = src.cond, -- Specifies a conditional test to load this plugin
+        module = src.module, -- Specifies Lua module names for require. When requiring a string which starts
+        -- with one of these module names, the plugin will be loaded.
+        module_pattern = src.module_pattern
+    }
+end
 
 local function get_plugin_list()
     return plugin_list
 end
 
 local function add_plugin_list(src)
-    plugin_list[src.name] = {
-        src.name,
-        config = src.config,
-        branch = src.branch,
-        run = src.run,
-        cmd = src.cmd,
-        requires = src.requires,
-    }
+    plugin_list[src.name] = parse_to_plugin_table(src)
 end
 
 --[[
@@ -159,9 +188,6 @@ end
 
 local function add_mask_list(src)
     mask_list[src.mask_type] = api_o_utils.table_insert(mask_list[src.mask_type], src.config)
-    -- for key, value in pairs(mask_list[src.mask_type]) do
-    --     print(key .. " " .. value)
-    -- end
 end
 
 local function rm_mask_list(name)
@@ -184,12 +210,120 @@ local function load_mask_list()
     if not status_ok then print("ERROR") end
 end
 
+local function get_event_list()
+    return event_list
+end
+
+local function add_event_list(src)
+    if type(src.plugins) == table then
+        event_list[src.event].plugins = api_o_utils.table_insert_as_key(event_list[src.event].plugins, src.plugins)
+    end
+
+    if type(src.groups) == table then
+        event_list[src.event].groups = api_o_utils.table_insert_as_key(event_list[src.event].groups, src.groups)
+    end
+end
+
+--[[
+    src = {
+        plugins = {
+            "id" = "id",
+            "xx" = "xx" ...
+        },
+        groups = {},
+    }
+]]
+local function rm_event_list(src)
+    if type(src.plugins) == "table" then
+        for _, value in pairs(src.plugins) do
+            event_list.plugins[value] = nil
+        end
+    end
+
+    if type(src.groups) == "table" then
+        for _, value in pairs(src.groups) do
+            event_list.groups[value] = nil
+        end
+    end
+end
+
+-- working on it
+local function load_event_list()
+    local status_ok, _ = xpcall(function()
+        for event, objs in pairs(event_list) do
+            for _, plugin in pairs(objs.plugins) do
+                plugin_list[plugin].event = event
+            end
+
+            for _, group in pairs(objs.groups) do
+                for _, plugin in pairs(get_group(group)) do
+                    plugin_list[plugin].event = event
+                end
+            end
+        end
+
+    end, debug.traceback)
+    if not status_ok then print("ERROR") end
+end
+
+--TODO
+local function get_plugin_keymap_list()
+    return plugin_keymap_list
+end
+
+local function get_plugin_keymap(name)
+    return plugin_keymap_list[name]
+end
+
+--TODO
+local function add_plugin_keymap_list(src)
+    plugin_keymap_list[src.mask_type] = api_o_utils.table_insert(plugin_keymap_list[src.mask_type], src.config)
+end
+
+--TODO
+local function rm_plugin_keymap_list(name)
+    plugin_keymap_list[name] = nil
+end
+
+--TODO
+local function load_plugin_keymap_list()
+    local status_ok, _ = xpcall(function()
+        for plugin, keymaps in pairs(plugin_keymap_list) do
+
+        end
+    end, debug.traceback)
+    if not status_ok then print("ERROR") end
+end
+
+--TODO
+local function get_dependency_list()
+    return dependency_list
+end
+
+--TODO
+local function add_dependency_list(src)
+    dependency_list[src.mask_type] = api_o_utils.table_insert(dependency_list[src.mask_type], src.config)
+end
+
+--TODO
+local function rm_dependency_list(name)
+    mask_list[name] = nil
+end
+
+--TODO
+local function load_dependency_list()
+    local status_ok, _ = xpcall(function()
+    end, debug.traceback)
+    if not status_ok then print("ERROR") end
+end
+
 return {
+    parse_to_plugin_table = parse_to_plugin_table,
     plugin = {
         get = get_plugin_list,
         add = add_plugin_list,
         rm = rm_plugin_list,
-        load = load_plugin_list
+        load = load_plugin_list,
     },
     group = {
         getAll = get_group_list,
@@ -222,6 +356,28 @@ return {
         add = add_mask_list,
         rm = rm_mask_list,
         load = load_mask_list
+    },
+    event = {
+        get = get_event_list,
+        add = add_event_list,
+        rm = rm_event_list,
+        --TODO
+        load = load_event_list
+    },
+    --TODO
+    dependency = {
+        get = get_dependency_list,
+        add = add_dependency_list,
+        rm = rm_dependency_list,
+        load = load_dependency_list
+    },
+    --TODO
+    plugin_keymap = {
+        getOne = get_plugin_keymap,
+        getAll = get_plugin_keymap_list,
+        add = add_plugin_keymap_list,
+        rm = rm_plugin_keymap_list,
+        load = load_plugin_keymap_list
     }
 
 }
