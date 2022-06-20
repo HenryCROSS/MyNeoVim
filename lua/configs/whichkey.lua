@@ -4,6 +4,19 @@ return {
 		type = PROPERTY.PLUGIN_CONFIG,
 		name = "folke/which-key.nvim",
 		config = function()
+
+			--FIXED: fix telescope <c-r> bug
+			local wk = require("which-key")
+			local show = wk.show
+			wk.show = function(keys, opts)
+				if vim.bo.filetype == "TelescopePrompt" then
+					local map = "<c-r>"
+					local key = vim.api.nvim_replace_termcodes(map, true, false, true)
+					vim.api.nvim_feedkeys(key, "i", true)
+				end
+				show(keys, opts)
+			end
+
 			require('which-key').setup {
 				plugins = {
 					marks = true, -- shows a list of your marks on ' and `
