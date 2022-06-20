@@ -24,7 +24,7 @@ return {
                 "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>",
                 {})
 
-            api_o_keymap.set('n', '<Leader>j', ':HopWord<CR>', {})
+            api_o_keymap.set('n', '<Leader>j', '<cmd>HopWord<CR>', {})
         end
 
     },
