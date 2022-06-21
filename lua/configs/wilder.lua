@@ -59,6 +59,10 @@ return {
                     },
                     left = { ' ', wilder.popupmenu_devicons() },
                     right = { ' ', wilder.popupmenu_scrollbar() },
+                    min_width = '100%', -- minimum height of the popupmenu, can also be a number
+                    max_height = '20%', -- to set a fixed height, set max_height to the same value
+                    min_height = '20%', -- to set a fixed height, set max_height to the same value
+                    reverse = 0, -- if 1, shows the candidates from bottom to top
                 }),
             }))
         end
