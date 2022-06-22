@@ -22,6 +22,8 @@ _G.api_o_config = core.config
 -- This function reads the files from plugins folder
 _G.api_f_parser = core.parser
 
+_G.api_o_colour = core.colour
+
 -- avoid warning
 _G.vim = vim
 end
