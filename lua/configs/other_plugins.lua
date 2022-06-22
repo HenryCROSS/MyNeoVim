@@ -47,11 +47,11 @@ return {
     },
     {
         type = PROPERTY.PLUGIN_CONFIG,
-        name = "nixprime/cpsm",
+        name = "romgrk/fzy-lua-native",
     },
     {
         type = PROPERTY.PLUGIN_CONFIG,
-        name = "romgrk/fzy-lua-native",
+        name = "BurntSushi/ripgrep",
     },
     {
         type = PROPERTY.PLUGIN_CONFIG,
