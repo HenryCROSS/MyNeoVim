@@ -44,10 +44,10 @@ return {
             set('n', '<C-k>', '<c-y>', mask(opts, {desc = "scroll up"}))
 
             -- resize
-            set('n', '<S-M-h>', '<c-w><', mask(opts, {desc = "resize left"}))
-            set('n', '<S-M-j>', '<c-w>+', mask(opts, {desc = "resize up"}))
-            set('n', '<S-M-k>', '<c-w>-', mask(opts, {desc = "resize down"}))
-            set('n', '<S-M-l>', '<c-w>>', mask(opts, {desc = "resize right"}))
+            set({'n', 't'}, '<S-M-h>', '<c-w><', mask(opts, {desc = "resize left"}))
+            set({'n', 't'}, '<S-M-j>', '<c-w>+', mask(opts, {desc = "resize up"}))
+            set({'n', 't'}, '<S-M-k>', '<c-w>-', mask(opts, {desc = "resize down"}))
+            set({'n', 't'}, '<S-M-l>', '<c-w>>', mask(opts, {desc = "resize right"}))
 
             -- tab operations
             set('n', '<Leader>tn', '<cmd>tabnew<cr>', mask(opts, {desc = "create tab"}))

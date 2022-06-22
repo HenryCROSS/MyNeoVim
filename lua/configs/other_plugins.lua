@@ -136,7 +136,10 @@ return {
     {
         type = PROPERTY.PLUGIN_CONFIG,
         name = "tpope/vim-surround",
-
+    },
+    {
+        type = PROPERTY.PLUGIN_CONFIG,
+        name = "jghauser/mkdir.nvim",
     },
 
 }
