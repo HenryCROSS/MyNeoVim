@@ -4,7 +4,6 @@ local api_o_keymap = core.keymap
 local api_o_const = core.constant
 local api_o_config = core.config
 local api_f_parser = core.parser
-require("api")
 
 local config_list = api_o_utils.search_configs("configs", { ["init.lua"] = 1 })
 
@@ -33,13 +32,14 @@ for _, file_config in pairs(config_list) do
     end
 end
 
+api_o_keymap.load()
 -- TODO
--- load mask list
--- api_o_config.plugin_keymap.load()
+api_o_config.plugin_keymap.load()
 -- -- load mask list
 -- api_o_config.dependency.load()
 -- -- load mask list
 -- api_o_config.event.load()
+
 
 -- -- load mask list
 -- api_o_config.mask.load()

@@ -28,13 +28,16 @@ local function vim_config(table)
     end
 end
 
--- TODO: load the table config other than exec a func
-local function gen_keymap(table)
-    table.config()
+local function gen_keymap(src)
+    api_o_keymap.register(src)
 end
 
 local function plugin_config(table)
     api_o_config.plugin.add(table)
+end
+
+local function plugin_keybindings(table)
+    api_o_config.plugin_keymap.add(table)
 end
 
 local function group_binding(config)
@@ -70,6 +73,7 @@ PORPERTIES_LIST = const {
     VIM_CONFIG = vim_config,
     GEN_KEYMAP = gen_keymap,
     PLUGIN_CONFIG = plugin_config,
+    PLUGIN_KEYBINDINGS = plugin_keybindings,
     GROUP_BINDING = group_binding,
     LOAD_EVENT = load_event,
     DEPENDENCY = dependency,

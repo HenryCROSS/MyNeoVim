@@ -23,9 +23,11 @@ _G.api_o_config = core.config
 _G.api_f_parser = core.parser
 
 _G.api_o_colour = core.colour
+_G.dev = core.dev_tools
 
 -- avoid warning
 _G.vim = vim
+
 end
 
 load()

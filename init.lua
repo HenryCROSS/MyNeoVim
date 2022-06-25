@@ -24,4 +24,6 @@
 -- require("test").load()
 --
 
+require("third_party")
+require("api")
 require(".")

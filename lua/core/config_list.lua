@@ -5,6 +5,7 @@
 --]]
 
 local utils = require("core.utils")
+local keymap = require("core.keymap")
 local _, packer = pcall(require, "packer")
 
 local plugin_list = {}
@@ -74,17 +75,20 @@ local function rm_plugin_list(obj)
 end
 
 local function load_plugin_list()
+    local name = ""
     local status_ok, _ = xpcall(function()
         packer.startup(function(use)
-            -- for _, plugins in ipairs(plugin_arr) do
             for _, plugin in pairs(plugin_list) do
-                use(plugin)
+                -- avoid the unexisting plugin
+                name = plugin[1]
+                if not (api_o_utils.string_is_empty(name)) then
+                    use(plugin)
+                end
             end
-            -- end
         end)
     end, debug.traceback)
 
-    if not status_ok then print("ERROR") end
+    if not status_ok then print("ERROR Plugin Configs: " .. name) end
 end
 
 local function get_group_list()
@@ -137,13 +141,15 @@ local function rm_source_plugin_list(obj)
 end
 
 local function load_source_plugin_list()
+    local name = ""
     local status_ok, _ = xpcall(function()
         for _, plugin in pairs(source_plugin_list) do
+            name = plugin.name
             plugin.config()
         end
     end, debug.traceback)
 
-    if not status_ok then print("Source plugin loading ERROR!!!!!!") end
+    if not status_ok then print("Source plugin: " .. name .. " loading ERROR!!!!!!") end
 end
 
 local function get_augroup_list()
@@ -207,6 +213,7 @@ local function load_mask_list()
             end
         end
     end, debug.traceback)
+
     if not status_ok then print("ERROR") end
 end
 
@@ -271,28 +278,51 @@ local function get_plugin_keymap_list()
     return plugin_keymap_list
 end
 
-local function get_plugin_keymap(name)
-    return plugin_keymap_list[name]
+--TODO
+local function add_plugin_keymap(keymaps)
+    if type(keymaps) == "table" then
+        plugin_keymap_list[keymaps.name] = plugin_keymap_list[keymaps.name] or {}
+
+        for key, value in pairs(keymaps.config) do
+            plugin_keymap_list[keymaps.name][value.lhs] = value
+        end
+    end
 end
 
 --TODO
-local function add_plugin_keymap_list(src)
-    plugin_keymap_list[src.mask_type] = api_o_utils.table_insert(plugin_keymap_list[src.mask_type], src.config)
-end
+local function rm_plugin_keymap(keymaps)
+    if plugin_keymap_list[keymaps.name] == nil then
+        return
+    end
 
---TODO
-local function rm_plugin_keymap_list(name)
-    plugin_keymap_list[name] = nil
+    -- remove all if only contains the name
+    if keymaps.config == nil then
+        plugin_keymap_list[keymaps.name] = nil
+    end
+
+    if type(keymaps) == "table" then
+        local keys = plugin_keymap_list[keymaps.name]
+
+        for idx, lhs in ipairs(keymaps.config) do
+            plugin_keymap_list[keymaps.name][lhs] = nil
+        end
+    end
 end
 
 --TODO
 local function load_plugin_keymap_list()
+    local name = ""
     local status_ok, _ = xpcall(function()
         for plugin, keymaps in pairs(plugin_keymap_list) do
-
+            if not api_o_utils.string_is_empty(plugin_list[plugin][1]) then
+                name = plugin
+                for _, keymap in pairs(keymaps) do
+                    api_o_keymap.set(keymap.modes, keymap.lhs, keymap.rhs, keymap.opts)
+                end
+            end
         end
     end, debug.traceback)
-    if not status_ok then print("ERROR") end
+    if not status_ok then print("Plugin Keybindings " .. name .. ": ERROR") end
 end
 
 --TODO
@@ -373,10 +403,9 @@ return {
     },
     --TODO
     plugin_keymap = {
-        getOne = get_plugin_keymap,
-        getAll = get_plugin_keymap_list,
-        add = add_plugin_keymap_list,
-        rm = rm_plugin_keymap_list,
+        get = get_plugin_keymap_list,
+        add = add_plugin_keymap,
+        rm = rm_plugin_keymap,
         load = load_plugin_keymap_list
     }
 

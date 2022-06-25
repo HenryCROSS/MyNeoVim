@@ -22,4 +22,11 @@ return {
             end
         end
     },
+    {
+        type = PROPERTY.LOAD_FUNC,
+        fn = function()
+            -- have to load first for rest of keymap
+            vim.g.mapleader = ' '
+        end
+    },
 }

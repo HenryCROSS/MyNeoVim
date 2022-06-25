@@ -50,6 +50,56 @@ local function table_insert_as_key(t1, t2)
     return t1
 end
 
+local function table_shallowcopy(orig)
+    local orig_type = type(orig)
+    local copy
+    if orig_type == 'table' then
+        copy = {}
+        for orig_key, orig_value in pairs(orig) do
+            copy[orig_key] = orig_value
+        end
+    else -- number, string, boolean, etc
+        copy = orig
+    end
+    return copy
+end
+
+local function table_deepcopy(orig, copies)
+    copies = copies or {}
+    local orig_type = type(orig)
+    local copy
+    if orig_type == 'table' then
+        if copies[orig] then
+            copy = copies[orig]
+        else
+            copy = {}
+            copies[orig] = copy
+            for orig_key, orig_value in next, orig, nil do
+                copy[deepcopy(orig_key, copies)] = deepcopy(orig_value, copies)
+            end
+            setmetatable(copy, deepcopy(getmetatable(orig), copies))
+        end
+    else -- number, string, boolean, etc
+        copy = orig
+    end
+    return copy
+end
+
+-- return a reverse table: {"a"}  -> {1 : "a"} ; {"a" : "b"} -> {"b" : "a"}
+local function table_reverse(tbl)
+    local result = {}
+
+    for k, v in pairs(tbl) do
+        result[v] = k
+    end
+
+    return result
+end
+
+local function string_is_empty(s)
+    return s == nil or s == ''
+end
+
 local get_config_path = function()
     return vim_vars.config_path
 end
@@ -111,15 +161,6 @@ local function search_configs(path, exceptions)
     return plugin_table
 end
 
-local function ignore_configs(table)
-    local result = {}
-    for _, value in pairs(table) do
-        result[value] = 1;
-    end
-
-    return result
-end
-
 local function get_nvim_ver()
     return vim_vars.version
 end
@@ -134,11 +175,14 @@ return {
     table_concat = table_concat,
     table_insert = table_insert,
     table_insert_as_key = table_insert_as_key,
+    table_deepcopy = table_deepcopy,
+    table_shallowcopy = table_shallowcopy,
+    table_reverse = table_reverse,
     get_config_path = get_config_path,
     get_current_path = get_current_path,
     get_file_from_dir = get_file_from_dir,
     search_configs = search_configs,
-    ignore_configs = ignore_configs,
     get_nvim_ver = get_nvim_ver,
     rm_plugin_prefix = rm_plugin_prefix,
+    string_is_empty = string_is_empty,
 }

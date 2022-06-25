@@ -63,7 +63,8 @@ return {
         },
         g = {
             did_load_filetypes = 0,
-            do_filetype_lua = 1
+            do_filetype_lua = 1,
+            mapleader = ' '
         }
 
     },
