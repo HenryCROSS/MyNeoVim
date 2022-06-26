@@ -39,10 +39,6 @@ return {
     },
     {
         type = PROPERTY.PLUGIN_CONFIG,
-        name = "tpope/vim-fugitive",
-    },
-    {
-        type = PROPERTY.PLUGIN_CONFIG,
         name = "sharkdp/fd",
     },
     {

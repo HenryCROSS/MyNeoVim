@@ -12,7 +12,6 @@ return {
                 previewer = true,
                 prompt_title = 'YEAH SESSIONS',
             }
-            api_o_keymap.set('n', '<Leader>sl', '<cmd>SearchSession<cr>', { desc = "List Sessions" })
         end
 
     },

@@ -11,6 +11,7 @@ return {
     },
     {
         type = PROPERTY.PLUGIN_CONFIG,
+        requires = "nvim-treesitter/nvim-treesitter",
         name = "nvim-treesitter/nvim-treesitter-textobjects",
     },
 }

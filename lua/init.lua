@@ -34,7 +34,7 @@ end
 
 api_o_keymap.load()
 -- TODO
-api_o_config.plugin_keymap.load()
+-- api_o_config.plugin_keymap.load()
 -- -- load mask list
 -- api_o_config.dependency.load()
 -- -- load mask list
@@ -42,7 +42,7 @@ api_o_config.plugin_keymap.load()
 
 
 -- -- load mask list
--- api_o_config.mask.load()
+api_o_config.mask.load()
 
 -- load plugin list
 api_o_config.plugin.load()

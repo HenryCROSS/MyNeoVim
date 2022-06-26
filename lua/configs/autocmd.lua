@@ -59,5 +59,24 @@ return {
                 })
             end
         }
-    }
+    },
+    -- {
+    --     type = PROPERTY.AUTOCMD,
+    --     name = "after plugin configs",
+    --     config = {
+    --         wrap = function()
+    --             vim.api.nvim_create_autocmd({ "VimEnter" }, {
+    --                 pattern = { "*" },
+    --                 callback = function()
+    --                     if packer_plugins["vim-fugitive"] then
+    --                         -- while not packer_plugins["vim-fugitive"].loaded do
+    --                         -- end
+    --                         print("Vim fugitive is loaded")
+    --                         -- other custom logic
+    --                     end
+    --                 end
+    --             })
+    --         end
+    --     }
+    -- }
 }

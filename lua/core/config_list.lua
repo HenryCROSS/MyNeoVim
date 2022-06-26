@@ -7,6 +7,7 @@
 local utils = require("core.utils")
 local keymap = require("core.keymap")
 local _, packer = pcall(require, "packer")
+local fn_list = require("core.fn_list")
 
 local plugin_list = {}
 local group_list = {}
@@ -57,7 +58,11 @@ local function get_plugin_list()
 end
 
 local function add_plugin_list(src)
+    fn_list:append_fn(src.name, src.config)
+    
     plugin_list[src.name] = parse_to_plugin_table(src)
+
+    plugin_list[src.name].config = require("core.fn_list"):load(src.name)
 end
 
 --[[
@@ -78,6 +83,7 @@ local function load_plugin_list()
     local name = ""
     local status_ok, _ = xpcall(function()
         packer.startup(function(use)
+            -- dev.p(plugin_list)
             for _, plugin in pairs(plugin_list) do
                 -- avoid the unexisting plugin
                 name = plugin[1]
@@ -309,6 +315,10 @@ local function rm_plugin_keymap(keymaps)
     end
 end
 
+function keymap_lazyloading(mapping)
+
+end
+
 --TODO
 local function load_plugin_keymap_list()
     local name = ""
@@ -316,10 +326,19 @@ local function load_plugin_keymap_list()
         for plugin, keymaps in pairs(plugin_keymap_list) do
             if not api_o_utils.string_is_empty(plugin_list[plugin][1]) then
                 name = plugin
-                for _, keymap in pairs(keymaps) do
+                for key, keymap in pairs(keymaps) do
                     api_o_keymap.set(keymap.modes, keymap.lhs, keymap.rhs, keymap.opts)
                 end
             end
+        end
+    end, debug.traceback)
+    if not status_ok then print("Plugin Keybindings " .. name .. ": ERROR") end
+end
+
+local function load_plugin_keymap(name)
+    local status_ok, _ = xpcall(function()
+        for key, keymap in pairs(plugin_keymap_list[name]) do
+            api_o_keymap.set(keymap.modes, keymap.lhs, keymap.rhs, keymap.opts)
         end
     end, debug.traceback)
     if not status_ok then print("Plugin Keybindings " .. name .. ": ERROR") end
@@ -406,7 +425,8 @@ return {
         get = get_plugin_keymap_list,
         add = add_plugin_keymap,
         rm = rm_plugin_keymap,
-        load = load_plugin_keymap_list
+        loadOne = load_plugin_keymap,
+        loadAll = load_plugin_keymap_list
     }
 
 }

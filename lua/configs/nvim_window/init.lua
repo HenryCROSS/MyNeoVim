@@ -58,10 +58,6 @@ return {
                 border = 'none'
 
             })
-
-            api_o_keymap.set('n', '<Leader>wg', ':lua require(\'nvim-window\').pick()<CR>',
-                { desc = "Jump to the window", noremap = true, silent = true })
-
         end
 
     },

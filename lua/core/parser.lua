@@ -40,6 +40,11 @@ local function plugin_keybindings(table)
     api_o_config.plugin_keymap.add(table)
 end
 
+local function lazyload_plugin_keybindings(table)
+    table.lazyload = true
+    api_o_config.plugin_keymap.add(table)
+end
+
 local function group_binding(config)
     api_o_config.group.add(config)
 end
@@ -74,6 +79,7 @@ PORPERTIES_LIST = const {
     GEN_KEYMAP = gen_keymap,
     PLUGIN_CONFIG = plugin_config,
     PLUGIN_KEYBINDINGS = plugin_keybindings,
+    LAZYLOAD_PLUGIN_KEYBINDINGS = lazyload_plugin_keybindings,
     GROUP_BINDING = group_binding,
     LOAD_EVENT = load_event,
     DEPENDENCY = dependency,
