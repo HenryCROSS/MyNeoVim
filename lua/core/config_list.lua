@@ -58,9 +58,10 @@ local function get_plugin_list()
 end
 
 local function add_plugin_list(src)
-    fn_list:append_fn(src.name, src.config)
     
     plugin_list[src.name] = parse_to_plugin_table(src)
+
+    fn_list:append_fn(src.name, plugin_list[src.name].config)
 
     plugin_list[src.name].config = require("core.fn_list"):load(src.name)
 end
