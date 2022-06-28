@@ -265,7 +265,7 @@ end
 local function load_event_list()
     local status_ok, _ = xpcall(function()
         for event, objs in pairs(event_list) do
-            for _, plugin in pairs(objs.plugins) do
+            for plugin, _ in pairs(objs.plugins) do
                 plugin_list[plugin].event = event
             end
 
@@ -280,12 +280,10 @@ local function load_event_list()
     if not status_ok then print("ERROR") end
 end
 
---TODO
 local function get_plugin_keymap_list()
     return plugin_keymap_list
 end
 
---TODO
 local function add_plugin_keymap(keymaps)
     if type(keymaps) == "table" then
         plugin_keymap_list[keymaps.name] = plugin_keymap_list[keymaps.name] or {}
@@ -296,7 +294,6 @@ local function add_plugin_keymap(keymaps)
     end
 end
 
---TODO
 local function rm_plugin_keymap(keymaps)
     if plugin_keymap_list[keymaps.name] == nil then
         return
@@ -316,11 +313,6 @@ local function rm_plugin_keymap(keymaps)
     end
 end
 
-function keymap_lazyloading(mapping)
-
-end
-
---TODO
 local function load_plugin_keymap_list()
     local name = ""
     local status_ok, _ = xpcall(function()
@@ -345,14 +337,25 @@ local function load_plugin_keymap(name)
     if not status_ok then print("Plugin Keybindings " .. name .. ": ERROR") end
 end
 
---TODO
+--[[
+    [after-plugin] = {
+        "plugins",
+        .....
+    }
+]]
 local function get_dependency_list()
     return dependency_list
 end
 
+-- local function cal_dependency_weight(src)
+--     if vim.tbl_count(dependency_list) == 0 then
+--         src.weight = 0
+--     end
+-- end
+
 --TODO
 local function add_dependency_list(src)
-    dependency_list[src.mask_type] = api_o_utils.table_insert(dependency_list[src.mask_type], src.config)
+    dependency_list[src.after] = api_o_utils.table_insert(dependency_list[src.after], src.plugins)
 end
 
 --TODO
@@ -363,6 +366,11 @@ end
 --TODO
 local function load_dependency_list()
     local status_ok, _ = xpcall(function()
+        for after, plugins in pairs(dependency_list) do
+            for _, name in pairs(plugins) do
+                plugin_list[name].after = after
+            end
+        end
     end, debug.traceback)
     if not status_ok then print("ERROR") end
 end

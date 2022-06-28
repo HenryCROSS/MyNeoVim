@@ -33,12 +33,12 @@ for _, file_config in pairs(config_list) do
 end
 
 api_o_keymap.load()
--- TODO
 api_o_config.plugin_keymap.loadAll()
+-- TODO
 -- -- load mask list
--- api_o_config.dependency.load()
+api_o_config.dependency.load()
 -- -- load mask list
--- api_o_config.event.load()
+api_o_config.event.load()
 
 
 -- -- load mask list
