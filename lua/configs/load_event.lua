@@ -5,7 +5,7 @@ return {
         type = PROPERTY.LOAD_EVENT,
         event = "BufWinLeave",
         plugins = {
-            "folke/tokyonight.nvim",
+            -- "folke/tokyonight.nvim",
         },
         groups = {
 

@@ -3,6 +3,7 @@ return {
     {
         type = PROPERTY.PLUGIN_CONFIG,
         name = "lewis6991/gitsigns.nvim",
+        opt = true,
         config = function()
             require('gitsigns').setup {
                 signs                        = {

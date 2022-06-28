@@ -50,11 +50,11 @@ local function group_binding(config)
 end
 
 local function load_event(config)
-
+    api_o_config.event.add(config)
 end
 
 local function dependency(config)
-
+    api_o_config.dependency.add(config)
 end
 
 local function augroup(config)

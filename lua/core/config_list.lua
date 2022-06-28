@@ -58,7 +58,7 @@ local function get_plugin_list()
 end
 
 local function add_plugin_list(src)
-    
+
     plugin_list[src.name] = parse_to_plugin_table(src)
 
     -- fn_list:append_fn(src.name, plugin_list[src.name].config)
@@ -229,12 +229,13 @@ local function get_event_list()
 end
 
 local function add_event_list(src)
-    if type(src.plugins) == table then
-        event_list[src.event].plugins = api_o_utils.table_insert_as_key(event_list[src.event].plugins, src.plugins)
+    event_list[src.event] = {}
+    if type(src.plugins) == "table" then
+        event_list[src.event].plugins = src.plugins
     end
 
-    if type(src.groups) == table then
-        event_list[src.event].groups = api_o_utils.table_insert_as_key(event_list[src.event].groups, src.groups)
+    if type(src.groups) == "table" then
+        event_list[src.event].groups = src.groups
     end
 end
 
@@ -265,7 +266,7 @@ end
 local function load_event_list()
     local status_ok, _ = xpcall(function()
         for event, objs in pairs(event_list) do
-            for plugin, _ in pairs(objs.plugins) do
+            for _, plugin in pairs(objs.plugins) do
                 plugin_list[plugin].event = event
             end
 
@@ -355,7 +356,9 @@ end
 
 --TODO
 local function add_dependency_list(src)
-    dependency_list[src.after] = api_o_utils.table_insert(dependency_list[src.after], src.plugins)
+    dependency_list[src.after] = src.plugins
+    -- dependency_list[src.after] = dependency_list[src.after] or {}
+    -- dependency_list[src.after] = api_o_utils.table_insert(dependency_list[src.after], src.plugins)
 end
 
 --TODO
@@ -368,6 +371,7 @@ local function load_dependency_list()
     local status_ok, _ = xpcall(function()
         for after, plugins in pairs(dependency_list) do
             for _, name in pairs(plugins) do
+    print(name .. " " .. after)
                 plugin_list[name].after = after
             end
         end
