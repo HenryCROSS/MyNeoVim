@@ -24,6 +24,8 @@
 -- require("test").load()
 --
 
+vim.opt.runtimepath:append("/home/henry/myProject/nvim_plugins")
+
 require("third_party")
 require("api")
 require(".")

@@ -156,7 +156,7 @@ local function load_source_plugin_list()
         end
     end, debug.traceback)
 
-    if not status_ok then print("Source plugin: " .. name .. " loading ERROR!!!!!!") end
+    if not status_ok then print("Source plugin: " .. (name or "a plugin") .. " loading ERROR!!!!!!") end
 end
 
 local function get_augroup_list()
