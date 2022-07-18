@@ -44,7 +44,7 @@ return {
             cursorline = true, -- highlight the current line
             cursorcolumn = true, -- hightlist the current column
             number = true, -- set numbered lines
-            relativenumber = false, -- set relative numbered lines
+            relativenumber = true, -- set relative numbered lines
             numberwidth = 4, -- set number column width to 4
             signcolumn = "yes", -- always show the sign column, otherwise it would shift the text each time
             wrap = false,
