@@ -34,7 +34,8 @@ vim.g.coc_global_extensions = {
 	"coc-leetcode",
 	"coc-pairs",
 	"coc-highlight",
-	"coc-neosnippet"
+	"coc-neosnippet",
+    "coc-rust-analyzer"
 }
 
 

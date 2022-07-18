@@ -1,11 +1,24 @@
 {
     "suggest.detailMaxLength": 60,
+    "suggest.labelMaxLength": 20,
     "suggest.triggerCompletionWait": 50,
     "suggest.triggerAfterInsertEnter": true,
     "coc.preferences.snippetStatusText": "Ⓢ ",
     "suggest.selection": "recentlyUsed",
     "suggest.floatEnable": true,
     "suggest.enablePreview": true,
+    "suggest.floatConfig": {
+        "border": "true"
+    },
+    "diagnostic.floatConfig": {
+        "border": "true"
+    },
+    "hover.floatConfig": {
+        "border": "true"
+    },
+    "signature.floatConfig": {
+        "border": "true"
+    },
     "leetcode.language": "cpp",
     "translator.engines": [
         "google",
@@ -60,5 +73,13 @@
             "command": "shfmt",
             "args": ["-i", "2", "-bn", "-ci", "-sr"]
         }
-    }
+    },
+    "languageserver": {
+        "racket": {
+            "command": "xvfb-run",
+            "args": ["racket", "-l", "racket-langserver"],
+            "filetypes": ["scheme"]
+        }
+    },
+    "rust-analyzer.rustfmt.rangeFormatting.enable": true
 }
