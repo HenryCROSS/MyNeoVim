@@ -47,7 +47,7 @@ return {
             })
 
             local highlighters = {
-                wilder.pcre2_highlighter(),
+                --wilder.pcre2_highlighter(),
                 wilder.basic_highlighter(),
             }
 

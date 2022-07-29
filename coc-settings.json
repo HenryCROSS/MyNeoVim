@@ -68,6 +68,7 @@
     "diagnostic-languageserver.formatFiletypes": {
         "sh": "shfmt"
     },
+    "tabnine.filetypes": "txt",
     "diagnostic-languageserver.formatters": {
         "shfmt": {
             "command": "shfmt",

@@ -11,6 +11,7 @@ local sources = {
     -- null_settings.builtins.diagnostics.cppcheck,
 
     null_settings.builtins.formatting.lua_format,
+    null_settings.builtins.formatting.yapf,
     null_settings.builtins
         .formatting
         .clang_format
@@ -41,6 +42,6 @@ vim.api
     .nvim_set_keymap(
         "n",
         "<Leader>nf",
-        ":lua vim.lsp.buf.formatting()<CR>",
+        ":lua vim.lsp.buf.format({async=true})<CR>",
         { noremap = true }
     )
