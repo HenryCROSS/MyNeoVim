@@ -5,6 +5,7 @@
     "suggest.triggerAfterInsertEnter": true,
     "coc.preferences.snippetStatusText": "Ⓢ ",
     "suggest.selection": "recentlyUsed",
+    "suggest.noselect": true,
     "suggest.floatEnable": true,
     "suggest.enablePreview": true,
     "suggest.floatConfig": {

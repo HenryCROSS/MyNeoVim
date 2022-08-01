@@ -59,8 +59,8 @@ local keymaps = {
     { 'n', '<C-p>', '<cmd>bp<cr>', mask(opts, { desc = "Prev Buffer" }) },
 
     -- set other keybindings
-    { 'n', '<tab>', 'za', mask(opts, { desc = "Toggle fold" }) },
-    { 'n', '<S-tab>', 'zA', mask(opts, { desc = "Toggle all fold" }) },
+    { 'n', '<Leader><tab>', 'za', mask(opts, { desc = "Toggle fold" }) },
+    { 'n', '<Leader><S-tab>', 'zA', mask(opts, { desc = "Toggle all fold" }) },
 }
 
 local convert_list = function (lz)
