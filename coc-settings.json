@@ -26,6 +26,8 @@
     ],
     "coc.preferences.extensionUpdateCheck": "daily",
     "semanticTokens.filetypes": ["*"],
+    "snippets.ultisnips.enable": true,
+    "coc.source.neosnippet.enable": true,
     "snippets.ultisnips.directories": [
         "UltiSnips"
     ],

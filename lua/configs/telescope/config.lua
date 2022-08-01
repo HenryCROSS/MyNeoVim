@@ -13,7 +13,7 @@ require("telescope").setup {
         oldfiles = {
         },
         find_files = {
-            hidden = true
+            hidden = false
         },
         live_grep = {
         },
