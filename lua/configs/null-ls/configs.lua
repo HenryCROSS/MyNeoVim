@@ -11,7 +11,7 @@ local sources = {
     -- null_settings.builtins.diagnostics.cppcheck,
 
     null_settings.builtins.formatting.lua_format,
-    null_settings.builtins.formatting.yapf,
+    null_settings.builtins.formatting.autopep8,
     null_settings.builtins
         .formatting
         .clang_format
