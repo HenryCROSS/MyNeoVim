@@ -1,89 +1,206 @@
 {
-    "suggest.detailMaxLength": 60,
-    "suggest.labelMaxLength": 20,
-    "suggest.triggerCompletionWait": 50,
-    "suggest.triggerAfterInsertEnter": true,
-    "coc.preferences.snippetStatusText": "Ⓢ ",
-    "suggest.selection": "recentlyUsed",
-    "suggest.noselect": true,
-    "suggest.floatEnable": true,
-    "suggest.enablePreview": true,
-    "suggest.floatConfig": {
-        "border": "true"
-    },
-    "diagnostic.floatConfig": {
-        "border": "true"
-    },
-    "hover.floatConfig": {
-        "border": "true"
-    },
-    "signature.floatConfig": {
-        "border": "true"
-    },
-    "leetcode.language": "cpp",
-    "translator.engines": [
-        "google",
-        "haici"
-    ],
-    "coc.preferences.extensionUpdateCheck": "daily",
-    "semanticTokens.filetypes": ["*"],
-    "snippets.ultisnips.enable": true,
-    "coc.source.neosnippet.enable": true,
-    "snippets.ultisnips.directories": [
-        "UltiSnips"
-    ],
-    "Lua.telemetry.enable": true,
-    "suggest.completionItemKindLabels": {
-        "class": "\uf0e8",
-        "color": "\ue22b",
-        "constant": "\uf8fe",
-        "default": "\uf29c",
-        "enum": "\uf435",
-        "enumMember": "\uf02b",
-        "event": "\ufacd",
-        "field": "\uf93d",
-        "file": "\uf723",
-        "folder": "\uf115",
-        "function": "\u0192",
-        "interface": "\uf417",
-        "keyword": "\uf1de",
-        "method": "\uf6a6",
-        "module": "\uf40d",
-        "operator": "\uf915",
-        "property": "\ue624",
-        "reference": "\ufa46",
-        "snippet": "\ue60b",
-        "struct": "\ufb44",
-        "text": "\ue612",
-        "typeParameter": "\uf728",
-        "unit": "\uf475",
-        "value": "\uf89f",
-        "variable": "\ue71b"
-    },
-    "diagnostic.errorSign": "\uf467",
-    "diagnostic.warningSign": "\uf071",
-    "diagnostic.infoSign": "\uf129",
-    "diagnostic.hintSign": "\uf864",
-    "diagnostic.refreshOnInsertMode": false,
-    "diagnostic.checkCurrentLine": true,
-    "diagnostic.virtualTextPrefix": " ❯❯❯ ",
-    "diagnostic.virtualText": false,
-    "diagnostic-languageserver.formatFiletypes": {
-        "sh": "shfmt"
-    },
-    "tabnine.filetypes": "txt",
-    "diagnostic-languageserver.formatters": {
-        "shfmt": {
-            "command": "shfmt",
-            "args": ["-i", "2", "-bn", "-ci", "-sr"]
+  "suggest.detailMaxLength": 60,
+  "suggest.labelMaxLength": 20,
+  "suggest.triggerCompletionWait": 50,
+  "suggest.triggerAfterInsertEnter": true,
+  "coc.preferences.snippetStatusText": "Ⓢ ",
+  "suggest.selection": "recentlyUsed",
+  "suggest.noselect": true,
+  "suggest.floatEnable": true,
+  "suggest.enablePreview": true,
+  "suggest.floatConfig": {
+    "border": "true"
+  },
+  "diagnostic.floatConfig": {
+    "border": "true"
+  },
+  "hover.floatConfig": {
+    "border": "true"
+  },
+  "signature.floatConfig": {
+    "border": "true"
+  },
+  "leetcode.language": "cpp",
+  "translator.engines": ["google", "haici"],
+  "coc.preferences.extensionUpdateCheck": "daily",
+  "semanticTokens.filetypes": ["*"],
+  "snippets.ultisnips.enable": true,
+  "coc.source.neosnippet.enable": true,
+  "snippets.ultisnips.directories": ["UltiSnips"],
+  "Lua.telemetry.enable": true,
+  "suggest.completionItemKindLabels": {
+    "class": "\uf0e8",
+    "color": "\ue22b",
+    "constant": "\uf8fe",
+    "default": "\uf29c",
+    "enum": "\uf435",
+    "enumMember": "\uf02b",
+    "event": "\ufacd",
+    "field": "\uf93d",
+    "file": "\uf723",
+    "folder": "\uf115",
+    "function": "\u0192",
+    "interface": "\uf417",
+    "keyword": "\uf1de",
+    "method": "\uf6a6",
+    "module": "\uf40d",
+    "operator": "\uf915",
+    "property": "\ue624",
+    "reference": "\ufa46",
+    "snippet": "\ue60b",
+    "struct": "\ufb44",
+    "text": "\ue612",
+    "typeParameter": "\uf728",
+    "unit": "\uf475",
+    "value": "\uf89f",
+    "variable": "\ue71b"
+  },
+  "diagnostic.errorSign": "\uf467",
+  "diagnostic.warningSign": "\uf071",
+  "diagnostic.infoSign": "\uf129",
+  "diagnostic.hintSign": "\uf864",
+  "diagnostic.refreshOnInsertMode": false,
+  "diagnostic.checkCurrentLine": true,
+  "diagnostic.virtualTextPrefix": " ❯❯❯ ",
+  "diagnostic.virtualText": false,
+  "diagnostic-languageserver.formatFiletypes": {
+    "sh": "shfmt"
+  },
+  "tabnine.filetypes": "txt",
+  "diagnostic-languageserver.formatters": {
+    "shfmt": {
+      "command": "shfmt",
+      "args": ["-i", "2", "-bn", "-ci", "-sr"]
+    }
+  },
+  "languageserver": {
+    "racket": {
+      "command": "xvfb-run",
+      "args": ["racket", "-l", "racket-langserver"],
+      "filetypes": ["scheme"]
+    }
+  },
+  "rust-analyzer.rustfmt.rangeFormatting.enable": true,
+  "diagnostic-languageserver.enable": {
+    "type": "boolean",
+    "default": true,
+    "description": "enable this extension?"
+  },
+  "diagnostic-languageserver.mergeConfig": {
+    "type": "boolean",
+    "default": false,
+    "description": "merge config?"
+  },
+  "diagnostic-languageserver.debug": {
+    "type": "boolean",
+    "default": true,
+    "description": "enable debug?"
+  },
+  "diagnostic-languageserver.trace.server": {
+    "type": "string",
+    "default": "off",
+    "enum": ["off", "messages", "verbose"],
+    "description": "Trace level of diagnostic-languageserver"
+  },
+  "diagnostic-languageserver.linters": {
+    "type": "object",
+    "default": {},
+    "cpplint": {
+      "command": "cpplint",
+      "args": ["%file"],
+      "debounce": 100,
+      "isStderr": true,
+      "isStdout": false,
+      "sourceName": "cpplint",
+      "offsetLine": 0,
+      "offsetColumn": 0,
+      "formatPattern": [
+        "^[^:]+:(\\d+):(\\d+)?\\s+([^:]+?)\\s\\[(\\d)\\]$",
+        {
+          "line": 1,
+          "column": 2,
+          "message": 3,
+          "security": 4
         }
+      ],
+      "securities": {
+        "1": "info",
+        "2": "warning",
+        "3": "warning",
+        "4": "error",
+        "5": "error"
+      }
     },
-    "languageserver": {
-        "racket": {
-            "command": "xvfb-run",
-            "args": ["racket", "-l", "racket-langserver"],
-            "filetypes": ["scheme"]
+    "zsh": {
+      "command": "zsh",
+      "args": ["-n", "%file"],
+      "isStdout": false,
+      "isStderr": true,
+      "sourceName": "zsh",
+      "formatLines": 1,
+      "formatPattern": [
+        "^[^:]+:(\\d+):\\s+(.*)$",
+        {
+          "line": 1,
+          "message": 2
         }
+      ]
     },
-    "rust-analyzer.rustfmt.rangeFormatting.enable": true
+    "shellcheck": {
+      "command": "shellcheck",
+      "debounce": 100,
+      "args": ["--format", "json", "-"],
+      "sourceName": "shellcheck",
+      "parseJson": {
+        "line": "line",
+        "column": "column",
+        "endLine": "endLine",
+        "endColumn": "endColumn",
+        "message": "${message} [${code}]",
+        "security": "level"
+      },
+      "securities": {
+        "error": "error",
+        "warning": "warning",
+        "info": "info",
+        "style": "hint"
+      }
+    },
+    "description": "linters config same as diagnostic-languageserver's linters config"
+  },
+  "diagnostic-languageserver.filetypes": {
+    "type": "object",
+    "default": {},
+    "sh": "shellcheck",
+    "zsh": "zsh",
+    "cpp": "cpplint",
+    "description": "filetypes config same as diagnostic-languageserver's filetypes config"
+  },
+  "diagnostic-languageserver.formatters": {
+    "type": "object",
+    "default": {},
+    "shfmt": {
+      "command": "shfmt"
+    },
+    "rustfmt": {
+      "command": "rustfmt",
+      "args": ["--emit=stdout"]
+    },
+    "autopep8": {
+      "command": "autopep8",
+      "args": ["-"]
+    },
+    "shellharden": {
+        "command": "shellharden",
+        "args": ["--transform", ""]
+    },
+    "description": "formatters config same as diagnostic-languageserver's formatters config"
+  },
+  "diagnostic-languageserver.formatFiletypes": {
+    "sh": "shfmt",
+    "zsh": "shfmt",
+    "rust": "rustfmt",
+    "python": "autopep8",
+    "description": "formatFiletypes config same as diagnostic-languageserver's formatFiletypes config"
+  }
 }

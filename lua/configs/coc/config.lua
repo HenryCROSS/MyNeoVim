@@ -1,40 +1,40 @@
 vim.g.coc_global_extensions = {
-	"coc-json",
-	"coc-git",
-	"coc-clangd",
-	"coc-sh",
-	"coc-cmake",
-	"coc-css",
-	"coc-html",
-	"coc-tsserver",
-	"coc-sumneko-lua",
-	"coc-markdownlint",
-	"coc-marketplace",
-	"coc-pyright",
-	"coc-spell-checker",
-	"coc-lists",
-	"coc-vimlsp",
-	"coc-snippets",
-	"coc-ultisnips",
-	"coc-translator",
-	"coc-syntax",
-	"coc-omnisharp",
-	"coc-java",
-	"coc-prettier",
-	"coc-gitignore",
-	"coc-diagnostic",
-	"coc-htmlhint",
-	"coc-html-css-support",
-	"coc-calc",
-	"coc-clang-format-style-options",
-	"coc-tabnine",
-	"coc-tasks",
-	"coc-xml",
-	"coc-yaml",
-	"coc-leetcode",
-	"coc-pairs",
-	"coc-highlight",
-	"coc-neosnippet",
+    "coc-json",
+    "coc-git",
+    "coc-clangd",
+    "coc-sh",
+    "coc-cmake",
+    "coc-css",
+    "coc-html",
+    "coc-tsserver",
+    "coc-sumneko-lua",
+    "coc-markdownlint",
+    "coc-marketplace",
+    "coc-pyright",
+    "coc-spell-checker",
+    "coc-lists",
+    "coc-vimlsp",
+    "coc-snippets",
+    "coc-ultisnips",
+    "coc-translator",
+    "coc-syntax",
+    "coc-omnisharp",
+    "coc-java",
+    "coc-prettier",
+    "coc-gitignore",
+    "coc-diagnostic",
+    "coc-htmlhint",
+    "coc-html-css-support",
+    "coc-calc",
+    "coc-clang-format-style-options",
+    "coc-tabnine",
+    "coc-tasks",
+    "coc-xml",
+    "coc-yaml",
+    "coc-leetcode",
+    "coc-pairs",
+    "coc-highlight",
+    "coc-neosnippet",
     "coc-rust-analyzer",
     "https://github.com/Rpinski/vscode-shebang-snippets"
 }
@@ -42,31 +42,32 @@ vim.g.coc_global_extensions = {
 local coc_status_record = {}
 
 function coc_status_notify(msg, level)
-  local notify_opts = { title = "LSP Status", timeout = 500, hide_from_history = true, on_close = reset_coc_status_record }
-  -- if coc_status_record is not {} then add it to notify_opts to key called "replace"
-  if coc_status_record ~= {} then
-    notify_opts["replace"] = coc_status_record.id
-  end
-  coc_status_record = vim.notify(msg, level, notify_opts)
+    local notify_opts = { title = "LSP Status", timeout = 500, hide_from_history = true,
+        on_close = reset_coc_status_record }
+    -- if coc_status_record is not {} then add it to notify_opts to key called "replace"
+    if coc_status_record ~= {} then
+        notify_opts["replace"] = coc_status_record.id
+    end
+    coc_status_record = vim.notify(msg, level, notify_opts)
 end
 
 function reset_coc_status_record(window)
-  coc_status_record = {}
+    coc_status_record = {}
 end
 
 local coc_diag_record = {}
 
 function coc_diag_notify(msg, level)
-  local notify_opts = { title = "LSP Diagnostics", timeout = 500, on_close = reset_coc_diag_record }
-  -- if coc_diag_record is not {} then add it to notify_opts to key called "replace"
-  if coc_diag_record ~= {} then
-    notify_opts["replace"] = coc_diag_record.id
-  end
-  coc_diag_record = vim.notify(msg, level, notify_opts)
+    local notify_opts = { title = "LSP Diagnostics", timeout = 500, on_close = reset_coc_diag_record }
+    -- if coc_diag_record is not {} then add it to notify_opts to key called "replace"
+    if coc_diag_record ~= {} then
+        notify_opts["replace"] = coc_diag_record.id
+    end
+    coc_diag_record = vim.notify(msg, level, notify_opts)
 end
 
 function reset_coc_diag_record(window)
-  coc_diag_record = {}
+    coc_diag_record = {}
 end
 
 -- GoTo code navigation.
@@ -88,7 +89,7 @@ vim.api.nvim_set_keymap('n', ']g', '<Plug>(coc-diagnostic-next)', { silent = tru
 
 -- Formatting selected code.
 vim.api.nvim_set_keymap('x', '<leader>cf', '<Plug>(coc-format-selected)', { silent = true })
-vim.api.nvim_set_keymap('n', '<leader>cf', '<Plug>(coc-format-selected)', { silent = true })
+vim.api.nvim_set_keymap('n', '<leader>cf', ':call CocActionAsync("format")<CR>', { silent = true })
 
 -- Applying codeAction to the selected region.
 -- Example: `<leader>aap` for current paragraph
@@ -105,7 +106,7 @@ vim.api.nvim_set_keymap('n', '<leader>cl', '<Plug>(coc-codelens-action)', { sile
 
 
 vim.cmd(
-	[[
+    [[
     " set runtimepath^=.local/share/nvim/site/pack/packer/start/coc.nvim
     " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by

@@ -4,7 +4,7 @@ local sources = {
     -- null_settings.builtins.code_actions.shellcheck,
     -- null_settings.builtins.diagnostics.shellcheck,
     null_settings.builtins.formatting.shellharden,
-    null_settings.builtins.formatting.shfmt,
+    -- null_settings.builtins.formatting.shfmt,
     null_settings.builtins.formatting.rustfmt,
     -- null_settings.builtins.code_actions.gitsigns,
 
