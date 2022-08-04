@@ -180,7 +180,8 @@
     "type": "object",
     "default": {},
     "shfmt": {
-      "command": "shfmt"
+      "command": "shfmt",
+      "args": ["-filename", "%filepath"]
     },
     "rustfmt": {
       "command": "rustfmt",
@@ -194,13 +195,19 @@
         "command": "shellharden",
         "args": ["--transform", ""]
     },
+    "clang_format": {
+        "command": "clang-format",
+        "args": ["-style={BasedOnStyle: Microsoft, IndentWidth: 4}"]
+    },
     "description": "formatters config same as diagnostic-languageserver's formatters config"
   },
   "diagnostic-languageserver.formatFiletypes": {
-    "sh": "shfmt",
+    "sh": ["shfmt"],
     "zsh": "shfmt",
     "rust": "rustfmt",
     "python": "autopep8",
+    "cpp": "clang_format",
+    "c": "clang_format",
     "description": "formatFiletypes config same as diagnostic-languageserver's formatFiletypes config"
   }
 }
