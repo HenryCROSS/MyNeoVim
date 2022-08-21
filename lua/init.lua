@@ -10,6 +10,8 @@ local config_list = api_o_utils.search_configs("configs", { ["init.lua"] = 1 })
 -- generate config list
 for _, file_config in pairs(config_list) do
     local fn_list = require(file_config)
+    -- TODO: implement hot reloading
+    -- start from here?
 
     if type(fn_list) == "table" then
         for _, fn in pairs(fn_list) do
