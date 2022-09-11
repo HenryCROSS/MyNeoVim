@@ -3,12 +3,12 @@ return {
     {
         type = PROPERTY.PLUGIN_CONFIG,
         name = "gelguy/wilder.nvim",
-        -- requires = {
-        --     "romgrk/fzy-lua-native",
-        --     "sharkdp/fd",
-        --     "nixprime/cpsm",
-        --     "kyazdani42/nvim-web-devicons",
-        -- },
+        requires = {
+            "romgrk/fzy-lua-native",
+            "sharkdp/fd",
+            "nixprime/cpsm",
+            "kyazdani42/nvim-web-devicons",
+        },
         config = function()
             local wilder = require('wilder')
             wilder.setup({ modes = { ':' } })
