@@ -62,8 +62,8 @@ return {
             tm = 1000, -- set timeout of the leader key
         },
         g = {
-            did_load_filetypes = 0,
-            do_filetype_lua = 1,
+            --  did_load_filetypes = 0,
+            --  do_filetype_lua = 1,
             mapleader = ' '
         }
 
