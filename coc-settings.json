@@ -9,16 +9,19 @@
   "suggest.floatEnable": true,
   "suggest.enablePreview": true,
   "suggest.floatConfig": {
-    "border": "true"
+    "border": true
   },
   "diagnostic.floatConfig": {
-    "border": "true"
+    "border": true
   },
   "hover.floatConfig": {
-    "border": "true"
+    "border": true
   },
   "signature.floatConfig": {
-    "border": "true"
+    "border": true
+  },
+  "floatFactory.floatConfig": {
+      "border": true
   },
   "leetcode.language": "cpp",
   "translator.engines": ["google", "haici"],
@@ -209,5 +212,8 @@
     "cpp": "clang_format",
     "c": "clang_format",
     "description": "formatFiletypes config same as diagnostic-languageserver's formatFiletypes config"
-  }
+  },
+  "cSpell.userWords": [
+    "crossterm"
+  ]
 }
