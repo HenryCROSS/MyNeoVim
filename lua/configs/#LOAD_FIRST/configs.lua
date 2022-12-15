@@ -66,4 +66,8 @@ M.packer_config = {
     autoremove           = false, -- Remove disabled or unused plugins without prompting the user
 }
 
+vim.cmd[[
+set clipboard+=unnamedplus
+]]
+
 return M
