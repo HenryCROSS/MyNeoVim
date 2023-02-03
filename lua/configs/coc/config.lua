@@ -32,10 +32,10 @@ vim.g.coc_global_extensions = {
     "coc-xml",
     "coc-yaml",
     "coc-leetcode",
-    "coc-pairs",
     "coc-highlight",
     "coc-neosnippet",
     "coc-rust-analyzer",
+    "coc-cl",
     "https://github.com/Rpinski/vscode-shebang-snippets"
 }
 

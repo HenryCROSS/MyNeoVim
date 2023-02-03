@@ -20,6 +20,7 @@ local keymaps = {
     { 'n', '<Leader>wj', '<C-w>j', mask(opts, { desc = "go up window" }) },
     { 'n', '<Leader>wk', '<C-w>k', mask(opts, { desc = "go right window" }) },
     { 'n', '<Leader>wf', '<C-w><C-w>', mask(opts, { desc = "go prev window" }) },
+    { 'n', '<Leader>ww', '<c-w>w', mask(opts, { desc = "go to window" }) },
 
     -- split screen
     { 'n', '<Leader>ws', ':sp<CR>', mask(opts, { desc = "horizontal split" }) },
@@ -31,7 +32,7 @@ local keymaps = {
     { 'n', '<Leader>wH', '<c-w>H', mask(opts, { desc = "move window right" }) },
     { 'n', '<Leader>wJ', '<c-w>J', mask(opts, { desc = "move window down" }) },
     { 'n', '<Leader>wK', '<c-w>K', mask(opts, { desc = "move window up" }) },
-    { 'n', '<Leader>wx', '<c-w>x', mask(opts, { desc = "swtich window" }) },
+    { 'n', '<Leader>wx', '<c-w>x', mask(opts, { desc = "swtich window position" }) },
 
     -- scrolling
     { 'n', '<C-j>', '<c-e>', mask(opts, { desc = "scroll down" }) },

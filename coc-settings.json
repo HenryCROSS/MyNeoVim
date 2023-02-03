@@ -21,7 +21,7 @@
     "border": true
   },
   "floatFactory.floatConfig": {
-      "border": true
+    "border": true
   },
   "leetcode.language": "cpp",
   "translator.engines": ["google", "haici"],
@@ -195,12 +195,12 @@
       "args": ["-"]
     },
     "shellharden": {
-        "command": "shellharden",
-        "args": ["--transform", ""]
+      "command": "shellharden",
+      "args": ["--transform", ""]
     },
     "clang_format": {
-        "command": "clang-format",
-        "args": ["-style={BasedOnStyle: Microsoft, IndentWidth: 4}"]
+      "command": "clang-format",
+      "args": ["-style={BasedOnStyle: Microsoft, IndentWidth: 4}"]
     },
     "description": "formatters config same as diagnostic-languageserver's formatters config"
   },
@@ -213,7 +213,11 @@
     "c": "clang_format",
     "description": "formatFiletypes config same as diagnostic-languageserver's formatFiletypes config"
   },
-  "cSpell.userWords": [
-    "crossterm"
-  ]
+  "cSpell.userWords": ["crossterm"],
+  "lisp.enabled": true,
+  "lisp.serverPath": "cl-lsp",
+  "lisp.serverArguments": [],
+  "lisp.toolchain": "",
+  "lisp.maxNumberOfProblems": 100,
+  "lisp.trace.server": ""
 }

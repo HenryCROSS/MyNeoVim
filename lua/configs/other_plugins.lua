@@ -123,7 +123,7 @@ return {
         name = "notjedi/nvim-rooter.lua",
         config = function()
             require('nvim-rooter').setup {
-                rooter_patterns = { '.git', '.hg', '.svn' },
+                rooter_patterns = { '.git', '.hg', '.svn', '.root' },
                 trigger_patterns = { '*' },
                 manual = false,
             }
