@@ -31,6 +31,9 @@ return {
                 end,
             }
         },
+        keys = {
+            { "<leader>op", "<cmd>Neotree toggle<cr>", desc = "On/Off NeoTree" },
+        },
         config = function()
             api_o_keymap.set('n', '<Leader>op', ':Neotree<CR>',
                 { noremap = true, silent = true, desc = "On/Off Neotree" })

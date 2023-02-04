@@ -64,7 +64,7 @@ local function toLazy(src)
         cond = src.cond, -- Specifies a conditional test to load this plugin
         module = src.module, -- Specifies Lua module names for require. When requiring a string which starts
         -- with one of these module names, the plugin will be loaded.
-        module_pattern = src.module_pattern
+        module_pattern = src.module_pattern,
     }
 end
 
