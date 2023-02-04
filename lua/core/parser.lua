@@ -8,6 +8,12 @@ local function load_func(task)
     end
 end
 
+local function plugin_manager(mgr)
+    if mgr.name == vim.g.plugin_manager then
+        load_func(mgr)
+    end
+end
+
 --[[ load config to the config tree
 --   receive a table
 --]]
@@ -87,6 +93,7 @@ PORPERTIES_LIST = const {
     AUTOCMD = autocmd,
     SOURCE_PLUGIN = source_plugin,
     MASK = mask,
+    PLUGIN_MANAGER = plugin_manager,
 }
 
 

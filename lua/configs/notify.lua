@@ -1,7 +1,7 @@
 local PROPERTY = api_o_const.PROPERTY
 return {
     {
-        type = PROPERTY.PLUGIN_CONFIG,
+        -- type = PROPERTY.PLUGIN_CONFIG,
         name = "rcarriga/nvim-notify",
         config = function()
             require("notify").setup({

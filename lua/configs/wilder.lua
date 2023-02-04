@@ -9,6 +9,7 @@ return {
             "nixprime/cpsm",
             "kyazdani42/nvim-web-devicons",
         },
+        run = ':UpdateRemotePlugins',
         config = function()
             local wilder = require('wilder')
             wilder.setup({ modes = { ':' } })
@@ -39,7 +40,7 @@ return {
                         dir_command = { 'fd', '-td' },
                         -- use {'cpsm_filter'} for performance, requires cpsm vim plugin
                         -- found at https://github.com/nixprime/cpsm
-                        filters = { 'fuzzy_filter', 'difflib_sorter' },
+                        filters = { 'cpsm_filter', 'fuzzy_filter', 'difflib_sorter' },
                     }),
                     wilder.cmdline_pipeline(),
                     wilder.python_search_pipeline()

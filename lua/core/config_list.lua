@@ -7,6 +7,7 @@
 local utils = require("core.utils")
 local keymap = require("core.keymap")
 local _, packer = pcall(require, "packer")
+local pm = require("core.package_manager_layer")
 local fn_list = require("core.fn_list")
 
 local plugin_list = {}
@@ -21,36 +22,7 @@ local dependency_list = {}
 local plugin_keymap_list = {}
 
 local function parse_to_plugin_table(src)
-    return {
-        src.name,
-        disable = src.disable, -- Mark a plugin as inactive
-        as = src.as, -- Specifies an alias under which to install the plugin
-        installer = src.installer, -- Specifies custom installer. See "custom installers" below.
-        updater = src.update, -- Specifies custom updater. See "custom installers" below.
-        after = src.after, -- Specifies plugins to load before this plugin. See "sequencing" below
-        rtp = src.rtp, -- Specifies a subdirectory of the plugin to add to runtimepath.
-        opt = src.opt, -- Manually marks a plugin as optional.
-        branch = src.branch, -- Specifies a git branch to use
-        tag = src.tag, -- Specifies a git tag to use. Supports '*' for "latest tag"
-        commit = src.commit, -- Specifies a git commit to use
-        lock = src.lock, -- Skip updating this plugin in updates/syncs. Still cleans.
-        run = src.run, -- Post-update/install hook. See "update/install hooks".
-        requires = src.requires, -- Specifies plugin dependencies. See "dependencies".
-        rocks = src.rocks, -- Specifies Luarocks dependencies for the plugin
-        config = src.config, -- Specifies code to run after this plugin is loaded.
-        -- The setup key implies opt = true
-        setup = src.setup, -- Specifies code to run before this plugin is loaded.
-        -- The following keys all imply lazy-loading and imply opt = true
-        cmd = src.cmd, -- Specifies commands which load this plugin. Can be an autocmd pattern.
-        ft = src.ft, -- Specifies filetypes which load this plugin.
-        keys = src.keys, -- Specifies maps which load this plugin. See "Keybindings".
-        event = src.event, -- Specifies autocommand events which load this plugin.
-        fn = src.fn, -- Specifies functions which load this plugin.
-        cond = src.cond, -- Specifies a conditional test to load this plugin
-        module = src.module, -- Specifies Lua module names for require. When requiring a string which starts
-        -- with one of these module names, the plugin will be loaded.
-        module_pattern = src.module_pattern
-    }
+    return pm.convert_list_to_specific(vim.g.plugin_manager, src)
 end
 
 local function get_plugin_list()
@@ -81,21 +53,7 @@ local function rm_plugin_list(obj)
 end
 
 local function load_plugin_list()
-    local name = ""
-    local status_ok, _ = xpcall(function()
-        packer.startup(function(use)
-            -- dev.p(plugin_list)
-            for _, plugin in pairs(plugin_list) do
-                -- avoid the unexisting plugin
-                name = plugin[1]
-                if not (api_o_utils.string_is_empty(name)) then
-                    use(plugin)
-                end
-            end
-        end)
-    end, debug.traceback)
-
-    if not status_ok then print("ERROR Plugin Configs: " .. name) end
+    pm.load_plugin_list_with_specific(vim.g.plugin_manager, plugin_list)
 end
 
 local function get_group_list()
@@ -318,15 +276,15 @@ local function load_plugin_keymap_list()
     local name = ""
     local status_ok, _ = xpcall(function()
         for plugin, keymaps in pairs(plugin_keymap_list) do
+            name = plugin
             if not api_o_utils.string_is_empty(plugin_list[plugin][1]) then
-                name = plugin
                 for key, keymap in pairs(keymaps) do
                     api_o_keymap.set(keymap.modes, keymap.lhs, keymap.rhs, keymap.opts)
                 end
             end
         end
     end, debug.traceback)
-    if not status_ok then print("Plugin Keybindings " .. name .. ": ERROR") end
+    if not status_ok then print("load_plugin_keymap_list(): Plugin Keybindings [" .. name .. "]: ERROR") end
 end
 
 local function load_plugin_keymap(name)
@@ -335,7 +293,7 @@ local function load_plugin_keymap(name)
             api_o_keymap.set(keymap.modes, keymap.lhs, keymap.rhs, keymap.opts)
         end
     end, debug.traceback)
-    if not status_ok then print("Plugin Keybindings " .. name .. ": ERROR") end
+    if not status_ok then print("load_plugin_keymap(): Plugin Keybindings [" .. name .. "]: ERROR") end
 end
 
 --[[

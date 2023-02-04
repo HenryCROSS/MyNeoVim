@@ -115,11 +115,6 @@ return {
     },
     {
         type = PROPERTY.PLUGIN_CONFIG,
-        name = "wbthomason/packer.nvim",
-
-    },
-    {
-        type = PROPERTY.PLUGIN_CONFIG,
         name = "notjedi/nvim-rooter.lua",
         config = function()
             require('nvim-rooter').setup {

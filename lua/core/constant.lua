@@ -20,6 +20,7 @@ local PROPERTY = const({
     AUTOCMD = "AUTOCMD",
     SOURCE_PLUGIN = "SOURCE_PLUGIN",
     MASK = "MASK",
+    PLUGIN_MANAGER = "PLUGIN_MANAGER",
 })
 
 return {
