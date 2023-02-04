@@ -9,6 +9,9 @@ return {
             "nixprime/cpsm",
             "kyazdani42/nvim-web-devicons",
         },
+        event = {
+            "CmdlineEnter"
+        },
         run = ':UpdateRemotePlugins',
         config = function()
             local wilder = require('wilder')
@@ -18,6 +21,7 @@ return {
                 wilder.branch(
                     wilder.cmdline_pipeline({
                         fuzzy = 1,
+                        -- fuzzy_filter = wilder.lua_fzy_filter(),
                         -- set_pcre2_pattern = 1,
                     }),
                     wilder.python_search_pipeline({
