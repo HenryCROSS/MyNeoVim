@@ -1,4 +1,11 @@
 local PROPERTY = api_o_const.PROPERTY
+
+vim.filetype.add({
+    extension = {
+        vl = 'verilog',
+    },
+})
+
 return {
     {
         type = PROPERTY.VIM_CONFIG,

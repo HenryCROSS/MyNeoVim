@@ -36,6 +36,7 @@ vim.g.coc_global_extensions = {
     "coc-neosnippet",
     "coc-rust-analyzer",
     "coc-cl",
+    "coc-clojure",
     "https://github.com/Rpinski/vscode-shebang-snippets"
 }
 

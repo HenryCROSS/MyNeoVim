@@ -81,6 +81,10 @@
       "command": "xvfb-run",
       "args": ["racket", "-l", "racket-langserver"],
       "filetypes": ["scheme"]
+    },
+    "svls": {
+        "command": "svls",
+        "filetypes": ["systemverilog", "vl"]
     }
   },
   "rust-analyzer.rustfmt.rangeFormatting.enable": true,
