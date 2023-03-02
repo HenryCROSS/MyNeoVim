@@ -132,5 +132,31 @@ return {
         type = PROPERTY.PLUGIN_CONFIG,
         name = "jghauser/mkdir.nvim",
     },
+    {
+        type = PROPERTY.PLUGIN_CONFIG,
+        name = "Olical/conjure",
+        ft = "clojure",
+        config = function ()
+            api_o_keymap.set("n", "<Leader>e", "<cmd>ConjureEval<CR>", {})
+            api_o_keymap.set("v", "<Leader>e", "<cmd>'<,'>ConjureEval<CR>", {})
+        end
+    },
+    {
+        type = PROPERTY.PLUGIN_CONFIG,
+        name = "clojure-vim/vim-jack-in",
+        ft = "clojure"
+    },
+    {
+        type = PROPERTY.PLUGIN_CONFIG,
+        name = "tpope/vim-dispatch",
+        ft = "clojure"
+    },
+    {
+        type = PROPERTY.PLUGIN_CONFIG,
+        name = "radenling/vim-dispatch-neovim",
+        ft = "clojure"
+    },
+
+
 
 }
